@@ -1,169 +1,181 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
-  <!-- First Solar Supply Chain Intelligence Agent - System Architecture -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 850">
   <defs>
     <style>
       text { font-family: Arial, sans-serif; }
       .title { font-size: 20px; font-weight: bold; fill: #1a1a1a; }
-      .subtitle { font-size: 12px; fill: #666; }
+      .subtitle { font-size: 11px; fill: #666; }
       .box-label { font-size: 11px; font-weight: bold; fill: #fff; }
-      .box-detail { font-size: 9px; fill: #fff; }
-      .section-label { font-size: 13px; font-weight: bold; fill: #333; }
-      .arrow { fill: none; stroke: #666; stroke-width: 1.5; marker-end: url(#arrowhead); }
+      .box-detail { font-size: 9px; fill: #fff; opacity: 0.9; }
+      .section-label { font-size: 12px; font-weight: bold; fill: #333; }
+      .connector { fill: none; stroke: #888; stroke-width: 1.5; }
     </style>
-    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
-      <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+    <filter id="shadow" x="-4%" y="-4%" width="108%" height="112%">
+      <feDropShadow dx="2" dy="3" stdDeviation="3" flood-opacity="0.2"/>
+    </filter>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#888"/>
     </marker>
   </defs>
 
-  <!-- Background -->
-  <rect width="1200" height="800" fill="#fafafa" rx="8"/>
+  <rect width="1200" height="850" fill="#f8f9fa" rx="8"/>
 
   <!-- Title -->
   <text x="600" y="35" text-anchor="middle" class="title">First Solar Supply Chain Intelligence Agent — System Architecture</text>
-  <text x="600" y="55" text-anchor="middle" class="subtitle">FS_INTELLIGENCE Database | 3 Schemas | 10 Agent Tools | AWS161</text>
+  <text x="600" y="52" text-anchor="middle" class="subtitle">FS_INTELLIGENCE | 3 Schemas | 10 Agent Tools | Account: AWS161</text>
 
-  <!-- User/Client Layer -->
-  <rect x="480" y="70" width="240" height="45" rx="6" fill="#1B6B93"/>
-  <text x="600" y="92" text-anchor="middle" class="box-label">Supply Chain Planners</text>
-  <text x="600" y="106" text-anchor="middle" class="box-detail">Natural Language Questions → Snowflake Intelligence</text>
+  <!-- ═══ USER LAYER ═══ -->
+  <rect x="440" y="70" width="320" height="48" rx="8" fill="#1B6B93" filter="url(#shadow)"/>
+  <text x="600" y="92" text-anchor="middle" class="box-label" style="font-size:13px;">Supply Chain Planners &amp; Operations Leaders</text>
+  <text x="600" y="107" text-anchor="middle" class="box-detail">Natural Language → Snowflake Intelligence</text>
 
-  <line x1="600" y1="115" x2="600" y2="140" class="arrow"/>
+  <!-- Arrow: User → Agent (bottom-center of user to top-center of agent) -->
+  <line x1="600" y1="118" x2="600" y2="138" class="connector" marker-end="url(#arrow)"/>
 
-  <!-- Agent Box -->
-  <rect x="380" y="140" width="440" height="55" rx="8" fill="#29B5E8"/>
-  <text x="600" y="163" text-anchor="middle" class="box-label" style="font-size:14px">FIRST_SOLAR_AGENT</text>
-  <text x="600" y="180" text-anchor="middle" class="box-detail" style="font-size:10px">10 Tools: 3 Cortex Analyst + 3 Cortex Search + 4 UDFs | YAML Spec</text>
+  <!-- ═══ AGENT LAYER ═══ -->
+  <rect x="350" y="140" width="500" height="52" rx="8" fill="#29B5E8" filter="url(#shadow)"/>
+  <text x="600" y="163" text-anchor="middle" class="box-label" style="font-size:14px;">FIRST_SOLAR_AGENT</text>
+  <text x="600" y="180" text-anchor="middle" class="box-detail" style="font-size:10px;">10 Tools | YAML Spec | 15 Sample Questions | Budget: 60s / 32K tokens</text>
 
-  <!-- Tool Layer - 3 columns -->
-  <!-- Column 1: Cortex Analyst -->
-  <line x1="460" y1="195" x2="200" y2="230" class="arrow"/>
-  <line x1="600" y1="195" x2="600" y2="230" class="arrow"/>
-  <line x1="740" y1="195" x2="1000" y2="230" class="arrow"/>
+  <!-- Arrows: Agent → 3 tool columns (bottom of agent to top of section headers) -->
+  <line x1="450" y1="192" x2="200" y2="225" class="connector" marker-end="url(#arrow)"/>
+  <line x1="600" y1="192" x2="600" y2="225" class="connector" marker-end="url(#arrow)"/>
+  <line x1="750" y1="192" x2="1000" y2="225" class="connector" marker-end="url(#arrow)"/>
 
-  <!-- Cortex Analyst Tools -->
-  <text x="200" y="225" text-anchor="middle" class="section-label">Cortex Analyst (3)</text>
-  <rect x="50" y="240" width="300" height="40" rx="5" fill="#2196F3"/>
-  <text x="200" y="258" text-anchor="middle" class="box-label">SupplyChainOps</text>
-  <text x="200" y="272" text-anchor="middle" class="box-detail">Inventory, POs, Suppliers, Transfers, Recommendations</text>
+  <!-- ═══ TOOL COLUMN 1: Cortex Analyst ═══ -->
+  <text x="200" y="240" text-anchor="middle" class="section-label">Cortex Analyst (3)</text>
 
-  <rect x="50" y="290" width="300" height="40" rx="5" fill="#2196F3"/>
-  <text x="200" y="308" text-anchor="middle" class="box-label">ManufacturingDemand</text>
-  <text x="200" y="322" text-anchor="middle" class="box-detail">Schedule, Forecasts, BOM, Customers, MRP</text>
+  <rect x="50" y="255" width="300" height="48" rx="6" fill="#1976D2" filter="url(#shadow)"/>
+  <text x="200" y="276" text-anchor="middle" class="box-label">SupplyChainOps</text>
+  <text x="200" y="292" text-anchor="middle" class="box-detail">Inventory, POs, Suppliers, Transfers, Recommendations</text>
 
-  <rect x="50" y="340" width="300" height="40" rx="5" fill="#2196F3"/>
-  <text x="200" y="358" text-anchor="middle" class="box-label">RiskIntelligence</text>
-  <text x="200" y="372" text-anchor="middle" class="box-detail">Risk Profiles, Trade Lanes, Benchmarks, Anomalies</text>
+  <rect x="50" y="313" width="300" height="48" rx="6" fill="#1976D2" filter="url(#shadow)"/>
+  <text x="200" y="334" text-anchor="middle" class="box-label">ManufacturingDemand</text>
+  <text x="200" y="350" text-anchor="middle" class="box-detail">Schedule, Forecasts, BOM, Customers, MRP Demand</text>
 
-  <!-- Cortex Search Tools -->
-  <text x="600" y="225" text-anchor="middle" class="section-label">Cortex Search (3)</text>
-  <rect x="450" y="240" width="300" height="40" rx="5" fill="#4CAF50"/>
-  <text x="600" y="258" text-anchor="middle" class="box-label">OperationalNotesSearch</text>
-  <text x="600" y="272" text-anchor="middle" class="box-detail">Recommendation Reasons, Alert Descriptions, Schedule Changes</text>
+  <rect x="50" y="371" width="300" height="48" rx="6" fill="#1976D2" filter="url(#shadow)"/>
+  <text x="200" y="392" text-anchor="middle" class="box-label">RiskIntelligence</text>
+  <text x="200" y="408" text-anchor="middle" class="box-detail">Risk Profiles, Trade Lanes, Benchmarks, Anomalies</text>
 
-  <rect x="450" y="290" width="300" height="40" rx="5" fill="#4CAF50"/>
-  <text x="600" y="308" text-anchor="middle" class="box-label">SupplierEventsSearch</text>
-  <text x="600" y="322" text-anchor="middle" class="box-detail">Force Majeure, Port Delays, Quality Holds, Capacity Changes</text>
+  <!-- ═══ TOOL COLUMN 2: Cortex Search ═══ -->
+  <text x="600" y="240" text-anchor="middle" class="section-label">Cortex Search (3)</text>
 
-  <rect x="450" y="340" width="300" height="40" rx="5" fill="#4CAF50"/>
-  <text x="600" y="358" text-anchor="middle" class="box-label">RiskSearch</text>
-  <text x="600" y="372" text-anchor="middle" class="box-detail">Material Risk Notes, Trade Lane Logistics Notes</text>
+  <rect x="450" y="255" width="300" height="48" rx="6" fill="#388E3C" filter="url(#shadow)"/>
+  <text x="600" y="276" text-anchor="middle" class="box-label">OperationalNotesSearch</text>
+  <text x="600" y="292" text-anchor="middle" class="box-detail">Recommendation Reasons, Alert Descriptions, Schedule Changes</text>
 
-  <!-- Generic UDF Tools -->
-  <text x="1000" y="225" text-anchor="middle" class="section-label">UDF Functions (4)</text>
-  <rect x="850" y="240" width="300" height="40" rx="5" fill="#FF9800"/>
-  <text x="1000" y="258" text-anchor="middle" class="box-label">StockoutRiskPredictor</text>
-  <text x="1000" y="272" text-anchor="middle" class="box-detail">MODEL()!PREDICT() → Top 25 at-risk materials</text>
+  <rect x="450" y="313" width="300" height="48" rx="6" fill="#388E3C" filter="url(#shadow)"/>
+  <text x="600" y="334" text-anchor="middle" class="box-label">SupplierEventsSearch</text>
+  <text x="600" y="350" text-anchor="middle" class="box-detail">Force Majeure, Port Delays, Quality Holds, Price Increases</text>
 
-  <rect x="850" y="290" width="300" height="40" rx="5" fill="#FF9800"/>
-  <text x="1000" y="308" text-anchor="middle" class="box-label">DemandForecast</text>
-  <text x="1000" y="322" text-anchor="middle" class="box-detail">8-week forecast by plant × product with CI</text>
+  <rect x="450" y="371" width="300" height="48" rx="6" fill="#388E3C" filter="url(#shadow)"/>
+  <text x="600" y="392" text-anchor="middle" class="box-label">RiskSearch</text>
+  <text x="600" y="408" text-anchor="middle" class="box-detail">Material Risk Notes, Trade Lane Logistics Notes</text>
 
-  <rect x="850" y="340" width="300" height="40" rx="5" fill="#FF9800"/>
-  <text x="1000" y="358" text-anchor="middle" class="box-label">MaterialRiskSummary</text>
-  <text x="1000" y="372" text-anchor="middle" class="box-detail">Single-source and critical material profiles</text>
+  <!-- ═══ TOOL COLUMN 3: UDFs ═══ -->
+  <text x="1000" y="240" text-anchor="middle" class="section-label">UDF Functions (4)</text>
 
-  <rect x="850" y="390" width="300" height="40" rx="5" fill="#FF9800"/>
-  <text x="1000" y="408" text-anchor="middle" class="box-label">SupplyChainKPIs</text>
-  <text x="1000" y="422" text-anchor="middle" class="box-detail">Executive dashboard: value, DFC, POs, alerts, adherence</text>
+  <rect x="850" y="255" width="300" height="48" rx="6" fill="#E65100" filter="url(#shadow)"/>
+  <text x="1000" y="276" text-anchor="middle" class="box-label">StockoutRiskPredictor</text>
+  <text x="1000" y="292" text-anchor="middle" class="box-detail">MODEL()!PREDICT() → Top 25 at-risk materials</text>
 
-  <!-- Semantic Views Layer -->
-  <text x="200" y="410" text-anchor="middle" class="section-label">Semantic Views</text>
-  <line x1="200" y1="380" x2="200" y2="420" class="arrow"/>
-  <rect x="50" y="420" width="300" height="35" rx="4" fill="#7B1FA2"/>
-  <text x="200" y="442" text-anchor="middle" class="box-label">SUPPLY_CHAIN_OPERATIONS_SV</text>
-  <rect x="50" y="462" width="300" height="35" rx="4" fill="#7B1FA2"/>
-  <text x="200" y="484" text-anchor="middle" class="box-label">MANUFACTURING_DEMAND_SV</text>
-  <rect x="50" y="504" width="300" height="35" rx="4" fill="#7B1FA2"/>
-  <text x="200" y="526" text-anchor="middle" class="box-label">RISK_INTELLIGENCE_SV</text>
+  <rect x="850" y="313" width="300" height="48" rx="6" fill="#E65100" filter="url(#shadow)"/>
+  <text x="1000" y="334" text-anchor="middle" class="box-label">DemandForecast</text>
+  <text x="1000" y="350" text-anchor="middle" class="box-detail">8-week forecast by plant x product with 90% CI</text>
 
-  <!-- Data Layer -->
-  <text x="600" y="440" text-anchor="middle" class="section-label">FS_INTELLIGENCE Database</text>
+  <rect x="850" y="371" width="300" height="48" rx="6" fill="#E65100" filter="url(#shadow)"/>
+  <text x="1000" y="392" text-anchor="middle" class="box-label">MaterialRiskSummary</text>
+  <text x="1000" y="408" text-anchor="middle" class="box-detail">Single-source and critical material risk profiles</text>
 
-  <!-- RAW Schema -->
-  <rect x="420" y="455" width="180" height="200" rx="5" fill="#E3F2FD" stroke="#2196F3" stroke-width="1"/>
-  <text x="510" y="472" text-anchor="middle" style="font-size:11px; font-weight:bold; fill:#1565C0;">RAW Schema (17 tables)</text>
-  <text x="430" y="490" style="font-size:9px; fill:#333;">PLANTS (3)</text>
-  <text x="430" y="503" style="font-size:9px; fill:#333;">MATERIALS (50)</text>
-  <text x="430" y="516" style="font-size:9px; fill:#333;">SUPPLIERS (20)</text>
-  <text x="430" y="529" style="font-size:9px; fill:#333;">PURCHASE_ORDERS (790)</text>
-  <text x="430" y="542" style="font-size:9px; fill:#333;">INVENTORY_SNAPSHOT (2394)</text>
-  <text x="430" y="555" style="font-size:9px; fill:#333;">MRP_DEMAND (3780)</text>
-  <text x="430" y="568" style="font-size:9px; fill:#333;">MANUFACTURING_SCHEDULE (66)</text>
-  <text x="430" y="581" style="font-size:9px; fill:#333;">ANOMALY_ALERTS (115)</text>
-  <text x="430" y="594" style="font-size:9px; fill:#333;">SUPPLY_RECOMMENDATIONS (58)</text>
-  <text x="430" y="607" style="font-size:9px; fill:#333;">INVENTORY_TRANSFERS (64)</text>
-  <text x="430" y="620" style="font-size:9px; fill:#333;">+ 7 more tables</text>
+  <rect x="850" y="429" width="300" height="48" rx="6" fill="#E65100" filter="url(#shadow)"/>
+  <text x="1000" y="450" text-anchor="middle" class="box-label">SupplyChainKPIs</text>
+  <text x="1000" y="466" text-anchor="middle" class="box-detail">Executive dashboard: value, DFC, POs, alerts, adherence</text>
 
-  <!-- REFERENCE Schema -->
-  <rect x="620" y="455" width="180" height="200" rx="5" fill="#E8F5E9" stroke="#4CAF50" stroke-width="1"/>
-  <text x="710" y="472" text-anchor="middle" style="font-size:11px; font-weight:bold; fill:#2E7D32;">REFERENCE Schema (5)</text>
-  <text x="630" y="490" style="font-size:9px; fill:#333;">MATERIAL_RISK_PROFILE (50)</text>
-  <text x="630" y="503" style="font-size:9px; fill:#333;">TRADE_LANE_DIM (54)</text>
-  <text x="630" y="516" style="font-size:9px; fill:#333;">INDUSTRY_BENCHMARK_DIM (38)</text>
-  <text x="630" y="529" style="font-size:9px; fill:#333;">SUPPLIER_EVENT_LOG (20)</text>
-  <text x="630" y="542" style="font-size:9px; fill:#333;">MATERIAL_LOT_TRACE (37)</text>
+  <!-- ═══ SEMANTIC VIEWS (bridge between tools and data) ═══ -->
+  <!-- Arrows from Cortex Analyst boxes to Semantic Views -->
+  <line x1="200" y1="419" x2="200" y2="500" class="connector" marker-end="url(#arrow)"/>
 
-  <!-- ANALYTICS Schema -->
-  <rect x="820" y="455" width="180" height="200" rx="5" fill="#FFF3E0" stroke="#FF9800" stroke-width="1"/>
-  <text x="910" y="472" text-anchor="middle" style="font-size:11px; font-weight:bold; fill:#E65100;">ANALYTICS Schema</text>
-  <text x="830" y="490" style="font-size:9px; fill:#333;">3 Semantic Views</text>
-  <text x="830" y="503" style="font-size:9px; fill:#333;">3 Cortex Search Services</text>
-  <text x="830" y="516" style="font-size:9px; fill:#333;">4 UDF Functions</text>
-  <text x="830" y="529" style="font-size:9px; fill:#333;">7 Analytical Views</text>
-  <text x="830" y="542" style="font-size:9px; fill:#333;">1 Agent (FIRST_SOLAR_AGENT)</text>
-  <text x="830" y="562" style="font-size:9px; fill:#333;">ML Models:</text>
-  <text x="830" y="575" style="font-size:9px; fill:#333;">  DEMAND_FORECAST_MODEL</text>
-  <text x="830" y="588" style="font-size:9px; fill:#333;">  STOCKOUT_RISK_MODEL</text>
+  <text x="200" y="515" text-anchor="middle" class="section-label">3 Semantic Views</text>
+  <rect x="50" y="525" width="300" height="38" rx="5" fill="#6A1B9A" filter="url(#shadow)"/>
+  <text x="200" y="549" text-anchor="middle" class="box-label">SUPPLY_CHAIN_OPERATIONS_SV</text>
 
-  <!-- Arrows from semantic views to data -->
-  <line x1="200" y1="540" x2="420" y2="540" class="arrow"/>
+  <rect x="50" y="572" width="300" height="38" rx="5" fill="#6A1B9A" filter="url(#shadow)"/>
+  <text x="200" y="596" text-anchor="middle" class="box-label">MANUFACTURING_DEMAND_SV</text>
 
-  <!-- Data Source -->
-  <rect x="420" y="680" width="380" height="45" rx="6" fill="#37474F"/>
-  <text x="610" y="700" text-anchor="middle" class="box-label">Data Generation (generate_data.py)</text>
-  <text x="610" y="716" text-anchor="middle" class="box-detail">Python → CSV → Stage → COPY INTO | seed=42 reproducible</text>
+  <rect x="50" y="619" width="300" height="38" rx="5" fill="#6A1B9A" filter="url(#shadow)"/>
+  <text x="200" y="643" text-anchor="middle" class="box-label">RISK_INTELLIGENCE_SV</text>
 
-  <line x1="510" y1="655" x2="510" y2="680" class="arrow"/>
-  <line x1="710" y1="655" x2="710" y2="680" class="arrow"/>
+  <!-- ═══ DATA LAYER ═══ -->
+  <text x="600" y="500" text-anchor="middle" class="section-label">FS_INTELLIGENCE Database</text>
 
-  <!-- ML Pipeline -->
-  <rect x="820" y="680" width="180" height="45" rx="6" fill="#37474F"/>
-  <text x="910" y="700" text-anchor="middle" class="box-label">ML Pipeline</text>
-  <text x="910" y="716" text-anchor="middle" class="box-detail">GBR Demand + GBC Stockout → Registry</text>
-  <line x1="910" y1="655" x2="910" y2="680" class="arrow"/>
+  <!-- RAW Schema box -->
+  <rect x="400" y="515" width="200" height="195" rx="6" fill="#E3F2FD" stroke="#1976D2" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="500" y="535" text-anchor="middle" style="font-size:11px; font-weight:bold; fill:#1565C0;">RAW Schema</text>
+  <text x="410" y="553" style="font-size:9px; fill:#333;">PLANTS (3)</text>
+  <text x="410" y="567" style="font-size:9px; fill:#333;">MATERIALS (50)</text>
+  <text x="410" y="581" style="font-size:9px; fill:#333;">SUPPLIERS (20)</text>
+  <text x="410" y="595" style="font-size:9px; fill:#333;">PURCHASE_ORDERS (790)</text>
+  <text x="410" y="609" style="font-size:9px; fill:#333;">INVENTORY_SNAPSHOT (2,394)</text>
+  <text x="410" y="623" style="font-size:9px; fill:#333;">MRP_DEMAND (3,780)</text>
+  <text x="410" y="637" style="font-size:9px; fill:#333;">MANUFACTURING_SCHEDULE (66)</text>
+  <text x="410" y="651" style="font-size:9px; fill:#333;">ANOMALY_ALERTS (115)</text>
+  <text x="410" y="665" style="font-size:9px; fill:#333;">SUPPLY_RECOMMENDATIONS (58)</text>
+  <text x="410" y="679" style="font-size:9px; fill:#333;">INVENTORY_TRANSFERS (64)</text>
+  <text x="410" y="693" style="font-size:9px; fill:#333;">+ 7 more tables</text>
 
-  <!-- Legend -->
-  <rect x="50" y="740" width="15" height="15" rx="2" fill="#2196F3"/>
-  <text x="72" y="752" style="font-size:10px; fill:#333;">Cortex Analyst</text>
-  <rect x="170" y="740" width="15" height="15" rx="2" fill="#4CAF50"/>
-  <text x="192" y="752" style="font-size:10px; fill:#333;">Cortex Search</text>
-  <rect x="290" y="740" width="15" height="15" rx="2" fill="#FF9800"/>
-  <text x="312" y="752" style="font-size:10px; fill:#333;">UDF Functions</text>
-  <rect x="410" y="740" width="15" height="15" rx="2" fill="#7B1FA2"/>
-  <text x="432" y="752" style="font-size:10px; fill:#333;">Semantic Views</text>
-  <rect x="540" y="740" width="15" height="15" rx="2" fill="#29B5E8"/>
-  <text x="562" y="752" style="font-size:10px; fill:#333;">Agent</text>
+  <!-- REFERENCE Schema box -->
+  <rect x="620" y="515" width="200" height="195" rx="6" fill="#E8F5E9" stroke="#388E3C" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="720" y="535" text-anchor="middle" style="font-size:11px; font-weight:bold; fill:#2E7D32;">REFERENCE Schema</text>
+  <text x="630" y="556" style="font-size:9px; fill:#333;">MATERIAL_RISK_PROFILE (50)</text>
+  <text x="630" y="573" style="font-size:9px; fill:#333;">TRADE_LANE_DIM (54)</text>
+  <text x="630" y="590" style="font-size:9px; fill:#333;">INDUSTRY_BENCHMARK_DIM (38)</text>
+  <text x="630" y="607" style="font-size:9px; fill:#333;">SUPPLIER_EVENT_LOG (20)</text>
+  <text x="630" y="624" style="font-size:9px; fill:#333;">MATERIAL_LOT_TRACE (37)</text>
 
-  <!-- Footer -->
-  <text x="600" y="785" text-anchor="middle" style="font-size:9px; fill:#999;">First Solar Supply Chain Intelligence Agent | Account: AWS161 | Database: FS_INTELLIGENCE | Warehouse: FIRST_SOLAR_WH</text>
+  <!-- ANALYTICS Schema box -->
+  <rect x="840" y="515" width="200" height="195" rx="6" fill="#FFF3E0" stroke="#E65100" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="940" y="535" text-anchor="middle" style="font-size:11px; font-weight:bold; fill:#E65100;">ANALYTICS Schema</text>
+  <text x="850" y="556" style="font-size:9px; fill:#333;">3 Semantic Views</text>
+  <text x="850" y="573" style="font-size:9px; fill:#333;">3 Cortex Search Services</text>
+  <text x="850" y="590" style="font-size:9px; fill:#333;">4 UDF Functions</text>
+  <text x="850" y="607" style="font-size:9px; fill:#333;">7 Analytical Views</text>
+  <text x="850" y="624" style="font-size:9px; fill:#333;">1 Agent</text>
+  <text x="850" y="645" style="font-size:9px; fill:#333;">ML Models (Registry):</text>
+  <text x="850" y="662" style="font-size:9px; fill:#333;">  DEMAND_FORECAST_MODEL V1</text>
+  <text x="850" y="679" style="font-size:9px; fill:#333;">  STOCKOUT_RISK_MODEL V1</text>
+
+  <!-- Arrows: Semantic Views → RAW data (right-center to left-center) -->
+  <line x1="350" y1="590" x2="397" y2="590" class="connector" marker-end="url(#arrow)"/>
+
+  <!-- Arrow: Search tools → REFERENCE (bottom-center of search col to top of REFERENCE box) -->
+  <line x1="600" y1="419" x2="720" y2="512" class="connector" marker-end="url(#arrow)"/>
+
+  <!-- Arrow: UDFs → ANALYTICS (bottom of UDF col to top of ANALYTICS box) -->
+  <line x1="1000" y1="477" x2="940" y2="512" class="connector" marker-end="url(#arrow)"/>
+
+  <!-- ═══ DATA SOURCE ═══ -->
+  <rect x="400" y="740" width="240" height="45" rx="6" fill="#37474F" filter="url(#shadow)"/>
+  <text x="520" y="760" text-anchor="middle" class="box-label">generate_data.py</text>
+  <text x="520" y="776" text-anchor="middle" class="box-detail">Python → CSV → Stage → COPY INTO</text>
+
+  <rect x="660" y="740" width="240" height="45" rx="6" fill="#37474F" filter="url(#shadow)"/>
+  <text x="780" y="760" text-anchor="middle" class="box-label">ML Pipeline (Notebook)</text>
+  <text x="780" y="776" text-anchor="middle" class="box-detail">GBR + GBC → Model Registry</text>
+
+  <!-- Arrows up to data layer (top-center of source to bottom-center of data) -->
+  <line x1="520" y1="740" x2="500" y2="713" class="connector" marker-end="url(#arrow)"/>
+  <line x1="780" y1="740" x2="940" y2="713" class="connector" marker-end="url(#arrow)"/>
+
+  <!-- ═══ LEGEND ═══ -->
+  <rect x="50" y="800" width="14" height="14" rx="3" fill="#1976D2" filter="url(#shadow)"/>
+  <text x="70" y="812" style="font-size:10px; fill:#333;">Cortex Analyst</text>
+  <rect x="175" y="800" width="14" height="14" rx="3" fill="#388E3C" filter="url(#shadow)"/>
+  <text x="195" y="812" style="font-size:10px; fill:#333;">Cortex Search</text>
+  <rect x="300" y="800" width="14" height="14" rx="3" fill="#E65100" filter="url(#shadow)"/>
+  <text x="320" y="812" style="font-size:10px; fill:#333;">UDF Functions</text>
+  <rect x="420" y="800" width="14" height="14" rx="3" fill="#6A1B9A" filter="url(#shadow)"/>
+  <text x="440" y="812" style="font-size:10px; fill:#333;">Semantic Views</text>
+  <rect x="545" y="800" width="14" height="14" rx="3" fill="#29B5E8" filter="url(#shadow)"/>
+  <text x="565" y="812" style="font-size:10px; fill:#333;">Agent</text>
+
+  <text x="600" y="843" text-anchor="middle" style="font-size:9px; fill:#aaa;">First Solar Supply Chain Intelligence Agent | Warehouse: FIRST_SOLAR_WH</text>
 </svg>

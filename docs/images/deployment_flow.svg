@@ -1,130 +1,136 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 500">
-  <!-- First Solar - Deployment Flow Diagram -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 520">
   <defs>
     <style>
       text { font-family: Arial, sans-serif; }
       .title { font-size: 18px; font-weight: bold; fill: #1a1a1a; }
-      .step-num { font-size: 14px; font-weight: bold; fill: #fff; }
+      .step-num { font-size: 13px; font-weight: bold; fill: #fff; }
       .step-label { font-size: 10px; font-weight: bold; fill: #fff; }
-      .step-detail { font-size: 8px; fill: #fff; opacity: 0.9; }
-      .arrow { fill: none; stroke: #666; stroke-width: 1.5; marker-end: url(#arrowhead2); }
-      .section-title { font-size: 11px; font-weight: bold; fill: #555; }
+      .step-detail { font-size: 8.5px; fill: #fff; opacity: 0.9; }
+      .connector { fill: none; stroke: #888; stroke-width: 1.5; }
+      .section-title { font-size: 11px; font-weight: bold; fill: #555; text-transform: uppercase; letter-spacing: 1px; }
     </style>
-    <marker id="arrowhead2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
-      <polygon points="0 0, 8 3, 0 6" fill="#666"/>
+    <filter id="shadow" x="-4%" y="-4%" width="108%" height="112%">
+      <feDropShadow dx="2" dy="3" stdDeviation="2.5" flood-opacity="0.2"/>
+    </filter>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#888"/>
     </marker>
   </defs>
 
-  <rect width="1100" height="500" fill="#fafafa" rx="8"/>
-  <text x="550" y="30" text-anchor="middle" class="title">Deployment Flow — Execution Order</text>
+  <rect width="1100" height="520" fill="#f8f9fa" rx="8"/>
+  <text x="550" y="32" text-anchor="middle" class="title">Deployment Flow — Execution Order</text>
 
-  <!-- Row 1: Setup (blue) -->
-  <text x="30" y="65" class="section-title">SETUP</text>
-  <rect x="30" y="75" width="155" height="70" rx="6" fill="#1565C0"/>
-  <text x="107" y="95" text-anchor="middle" class="step-num">01</text>
-  <text x="107" y="112" text-anchor="middle" class="step-label">Database &amp; Schema</text>
-  <text x="107" y="126" text-anchor="middle" class="step-detail">FS_INTELLIGENCE</text>
-  <text x="107" y="137" text-anchor="middle" class="step-detail">RAW / ANALYTICS / REFERENCE</text>
+  <!-- ═══ ROW 1: SETUP + DATA ═══ -->
+  <text x="45" y="62" class="section-title">Setup</text>
 
-  <line x1="185" y1="110" x2="210" y2="110" class="arrow"/>
+  <rect x="35" y="72" width="160" height="65" rx="7" fill="#1565C0" filter="url(#shadow)"/>
+  <text x="115" y="92" text-anchor="middle" class="step-num">01</text>
+  <text x="115" y="108" text-anchor="middle" class="step-label">Database &amp; Schema</text>
+  <text x="115" y="122" text-anchor="middle" class="step-detail">FS_INTELLIGENCE</text>
+  <text x="115" y="132" text-anchor="middle" class="step-detail">RAW / ANALYTICS / REFERENCE</text>
 
-  <rect x="210" y="75" width="155" height="70" rx="6" fill="#1565C0"/>
-  <text x="287" y="95" text-anchor="middle" class="step-num">02</text>
-  <text x="287" y="112" text-anchor="middle" class="step-label">Create Tables</text>
-  <text x="287" y="126" text-anchor="middle" class="step-detail">17 RAW + 5 REFERENCE</text>
-  <text x="287" y="137" text-anchor="middle" class="step-detail">22 tables total</text>
+  <!-- Arrow: right-center of 01 → left-center of 02 -->
+  <line x1="195" y1="104" x2="218" y2="104" class="connector" marker-end="url(#arrow)"/>
 
-  <line x1="365" y1="110" x2="390" y2="110" class="arrow"/>
+  <rect x="220" y="72" width="160" height="65" rx="7" fill="#1565C0" filter="url(#shadow)"/>
+  <text x="300" y="92" text-anchor="middle" class="step-num">02</text>
+  <text x="300" y="108" text-anchor="middle" class="step-label">Create Tables</text>
+  <text x="300" y="122" text-anchor="middle" class="step-detail">17 RAW + 5 REFERENCE</text>
+  <text x="300" y="132" text-anchor="middle" class="step-detail">22 tables total</text>
 
-  <!-- Row 1 continued: Data (green) -->
-  <text x="390" y="65" class="section-title">DATA</text>
-  <rect x="390" y="75" width="155" height="70" rx="6" fill="#2E7D32"/>
-  <text x="467" y="95" text-anchor="middle" class="step-num">03</text>
-  <text x="467" y="112" text-anchor="middle" class="step-label">Load Synthetic Data</text>
-  <text x="467" y="126" text-anchor="middle" class="step-detail">CSV → Stage → COPY INTO</text>
-  <text x="467" y="137" text-anchor="middle" class="step-detail">~10,000 rows operational</text>
+  <!-- Arrow: right-center of 02 → left-center of 03 -->
+  <line x1="380" y1="104" x2="413" y2="104" class="connector" marker-end="url(#arrow)"/>
 
-  <line x1="545" y1="110" x2="570" y2="110" class="arrow"/>
+  <text x="415" y="62" class="section-title">Data</text>
 
-  <rect x="570" y="75" width="155" height="70" rx="6" fill="#2E7D32"/>
-  <text x="647" y="95" text-anchor="middle" class="step-num">03b</text>
-  <text x="647" y="112" text-anchor="middle" class="step-label">Supply Chain Intel</text>
-  <text x="647" y="126" text-anchor="middle" class="step-detail">Risk profiles, trade lanes</text>
-  <text x="647" y="137" text-anchor="middle" class="step-detail">Benchmarks, events, lot trace</text>
+  <rect x="415" y="72" width="160" height="65" rx="7" fill="#2E7D32" filter="url(#shadow)"/>
+  <text x="495" y="92" text-anchor="middle" class="step-num">03</text>
+  <text x="495" y="108" text-anchor="middle" class="step-label">Load Synthetic Data</text>
+  <text x="495" y="122" text-anchor="middle" class="step-detail">CSV → Stage → COPY INTO</text>
+  <text x="495" y="132" text-anchor="middle" class="step-detail">~10,400 operational rows</text>
 
-  <!-- L-shaped connector to row 2 -->
-  <line x1="647" y1="145" x2="647" y2="170" stroke="#666" stroke-width="1.5"/>
-  <line x1="647" y1="170" x2="107" y2="170" stroke="#666" stroke-width="1.5"/>
-  <line x1="107" y1="170" x2="107" y2="195" class="arrow"/>
+  <!-- Arrow: right-center of 03 → left-center of 03b -->
+  <line x1="575" y1="104" x2="598" y2="104" class="connector" marker-end="url(#arrow)"/>
 
-  <!-- Row 2: Views & Search (purple) -->
-  <text x="30" y="195" class="section-title">VIEWS &amp; SEARCH</text>
-  <rect x="30" y="205" width="155" height="70" rx="6" fill="#6A1B9A"/>
-  <text x="107" y="225" text-anchor="middle" class="step-num">04</text>
-  <text x="107" y="242" text-anchor="middle" class="step-label">Analytical Views</text>
-  <text x="107" y="256" text-anchor="middle" class="step-detail">7 views in ANALYTICS</text>
-  <text x="107" y="267" text-anchor="middle" class="step-detail">Enriched joins + calculations</text>
+  <rect x="600" y="72" width="175" height="65" rx="7" fill="#2E7D32" filter="url(#shadow)"/>
+  <text x="687" y="92" text-anchor="middle" class="step-num">03b</text>
+  <text x="687" y="108" text-anchor="middle" class="step-label">Supply Chain Intelligence</text>
+  <text x="687" y="122" text-anchor="middle" class="step-detail">Risk profiles, trade lanes</text>
+  <text x="687" y="132" text-anchor="middle" class="step-detail">Benchmarks, events, lot trace</text>
 
-  <line x1="185" y1="240" x2="210" y2="240" class="arrow"/>
+  <!-- L-connector: bottom-center of 03b → down → left → down to top-center of 04 -->
+  <polyline points="687,137 687,158 115,158 115,178" class="connector" marker-end="url(#arrow)"/>
 
-  <rect x="210" y="205" width="155" height="70" rx="6" fill="#6A1B9A"/>
-  <text x="287" y="225" text-anchor="middle" class="step-num">05</text>
-  <text x="287" y="242" text-anchor="middle" class="step-label">3 Semantic Views</text>
-  <text x="287" y="256" text-anchor="middle" class="step-detail">Operations / Manufacturing</text>
-  <text x="287" y="267" text-anchor="middle" class="step-detail">Risk Intelligence</text>
+  <!-- ═══ ROW 2: VIEWS & SEARCH ═══ -->
+  <text x="45" y="192" class="section-title">Views &amp; Search</text>
 
-  <line x1="365" y1="240" x2="390" y2="240" class="arrow"/>
+  <rect x="35" y="202" width="160" height="65" rx="7" fill="#6A1B9A" filter="url(#shadow)"/>
+  <text x="115" y="222" text-anchor="middle" class="step-num">04</text>
+  <text x="115" y="238" text-anchor="middle" class="step-label">Analytical Views</text>
+  <text x="115" y="252" text-anchor="middle" class="step-detail">7 enriched views</text>
+  <text x="115" y="262" text-anchor="middle" class="step-detail">in ANALYTICS schema</text>
 
-  <rect x="390" y="205" width="155" height="70" rx="6" fill="#6A1B9A"/>
-  <text x="467" y="225" text-anchor="middle" class="step-num">06</text>
-  <text x="467" y="242" text-anchor="middle" class="step-label">3 Cortex Search</text>
-  <text x="467" y="256" text-anchor="middle" class="step-detail">Operational Notes</text>
-  <text x="467" y="267" text-anchor="middle" class="step-detail">Supplier Events / Risk Intel</text>
+  <line x1="195" y1="234" x2="218" y2="234" class="connector" marker-end="url(#arrow)"/>
 
-  <!-- L-shaped connector to row 3 -->
-  <line x1="467" y1="275" x2="467" y2="300" stroke="#666" stroke-width="1.5"/>
-  <line x1="467" y1="300" x2="107" y2="300" stroke="#666" stroke-width="1.5"/>
-  <line x1="107" y1="300" x2="107" y2="325" class="arrow"/>
+  <rect x="220" y="202" width="160" height="65" rx="7" fill="#6A1B9A" filter="url(#shadow)"/>
+  <text x="300" y="222" text-anchor="middle" class="step-num">05</text>
+  <text x="300" y="238" text-anchor="middle" class="step-label">3 Semantic Views</text>
+  <text x="300" y="252" text-anchor="middle" class="step-detail">Operations / Manufacturing</text>
+  <text x="300" y="262" text-anchor="middle" class="step-detail">Risk Intelligence</text>
 
-  <!-- Row 3: ML & Agent (orange) -->
-  <text x="30" y="325" class="section-title">ML &amp; AGENT</text>
-  <rect x="30" y="335" width="155" height="70" rx="6" fill="#E65100"/>
-  <text x="107" y="355" text-anchor="middle" class="step-num">07</text>
-  <text x="107" y="372" text-anchor="middle" class="step-label">ML Models (Notebook)</text>
-  <text x="107" y="386" text-anchor="middle" class="step-detail">GBR Demand Forecast</text>
-  <text x="107" y="397" text-anchor="middle" class="step-detail">GBC Stockout Risk → Registry</text>
+  <line x1="380" y1="234" x2="413" y2="234" class="connector" marker-end="url(#arrow)"/>
 
-  <line x1="185" y1="370" x2="210" y2="370" class="arrow"/>
+  <rect x="415" y="202" width="160" height="65" rx="7" fill="#6A1B9A" filter="url(#shadow)"/>
+  <text x="495" y="222" text-anchor="middle" class="step-num">06</text>
+  <text x="495" y="238" text-anchor="middle" class="step-label">3 Cortex Search</text>
+  <text x="495" y="252" text-anchor="middle" class="step-detail">Operational Notes</text>
+  <text x="495" y="262" text-anchor="middle" class="step-detail">Supplier Events / Risk Intel</text>
 
-  <rect x="210" y="335" width="155" height="70" rx="6" fill="#E65100"/>
-  <text x="287" y="355" text-anchor="middle" class="step-num">08</text>
-  <text x="287" y="372" text-anchor="middle" class="step-label">ML Model Functions</text>
-  <text x="287" y="386" text-anchor="middle" class="step-detail">4 UDFs calling</text>
-  <text x="287" y="397" text-anchor="middle" class="step-detail">MODEL()!PREDICT()</text>
+  <!-- L-connector: bottom-center of 06 → down → left → down to top-center of 07 -->
+  <polyline points="495,267 495,288 115,288 115,308" class="connector" marker-end="url(#arrow)"/>
 
-  <line x1="365" y1="370" x2="390" y2="370" class="arrow"/>
+  <!-- ═══ ROW 3: ML & AGENT ═══ -->
+  <text x="45" y="322" class="section-title">ML &amp; Agent</text>
 
-  <rect x="390" y="335" width="155" height="70" rx="6" fill="#D32F2F"/>
-  <text x="467" y="355" text-anchor="middle" class="step-num">09</text>
-  <text x="467" y="372" text-anchor="middle" class="step-label">CREATE AGENT</text>
-  <text x="467" y="386" text-anchor="middle" class="step-detail">YAML spec, 10 tools</text>
-  <text x="467" y="397" text-anchor="middle" class="step-detail">sample_questions, PROFILE</text>
+  <rect x="35" y="332" width="160" height="65" rx="7" fill="#E65100" filter="url(#shadow)"/>
+  <text x="115" y="352" text-anchor="middle" class="step-num">07</text>
+  <text x="115" y="368" text-anchor="middle" class="step-label">ML Models (Notebook)</text>
+  <text x="115" y="382" text-anchor="middle" class="step-detail">GBR Demand Forecast</text>
+  <text x="115" y="392" text-anchor="middle" class="step-detail">GBC Stockout → Registry</text>
 
-  <!-- Final arrow to deployed -->
-  <line x1="545" y1="370" x2="590" y2="370" class="arrow"/>
-  <rect x="590" y="345" width="160" height="50" rx="25" fill="#29B5E8"/>
-  <text x="670" y="367" text-anchor="middle" class="step-label" style="font-size:12px">DEPLOYED</text>
-  <text x="670" y="383" text-anchor="middle" class="step-detail" style="font-size:9px">FIRST_SOLAR_AGENT</text>
+  <line x1="195" y1="364" x2="218" y2="364" class="connector" marker-end="url(#arrow)"/>
 
-  <!-- Legend -->
-  <rect x="30" y="440" width="12" height="12" rx="2" fill="#1565C0"/>
-  <text x="48" y="450" style="font-size:9px; fill:#333;">Setup</text>
-  <rect x="100" y="440" width="12" height="12" rx="2" fill="#2E7D32"/>
-  <text x="118" y="450" style="font-size:9px; fill:#333;">Data</text>
-  <rect x="160" y="440" width="12" height="12" rx="2" fill="#6A1B9A"/>
-  <text x="178" y="450" style="font-size:9px; fill:#333;">Views &amp; Search</text>
-  <rect x="265" y="440" width="12" height="12" rx="2" fill="#E65100"/>
-  <text x="283" y="450" style="font-size:9px; fill:#333;">ML &amp; Agent</text>
+  <rect x="220" y="332" width="160" height="65" rx="7" fill="#E65100" filter="url(#shadow)"/>
+  <text x="300" y="352" text-anchor="middle" class="step-num">08</text>
+  <text x="300" y="368" text-anchor="middle" class="step-label">Model Functions</text>
+  <text x="300" y="382" text-anchor="middle" class="step-detail">4 UDFs calling</text>
+  <text x="300" y="392" text-anchor="middle" class="step-detail">MODEL()!PREDICT()</text>
 
-  <text x="550" y="485" text-anchor="middle" style="font-size:9px; fill:#999;">Execute files in strict sequential order (01 → 09). Each step depends on the previous.</text>
+  <line x1="380" y1="364" x2="413" y2="364" class="connector" marker-end="url(#arrow)"/>
+
+  <rect x="415" y="332" width="160" height="65" rx="7" fill="#C62828" filter="url(#shadow)"/>
+  <text x="495" y="352" text-anchor="middle" class="step-num">09</text>
+  <text x="495" y="368" text-anchor="middle" class="step-label">CREATE AGENT</text>
+  <text x="495" y="382" text-anchor="middle" class="step-detail">YAML spec, 10 tools</text>
+  <text x="495" y="392" text-anchor="middle" class="step-detail">15 sample_questions</text>
+
+  <!-- Arrow: right-center of 09 → left-center of DEPLOYED -->
+  <line x1="575" y1="364" x2="618" y2="364" class="connector" marker-end="url(#arrow)"/>
+
+  <!-- DEPLOYED pill -->
+  <rect x="620" y="342" width="170" height="48" rx="24" fill="#29B5E8" filter="url(#shadow)"/>
+  <text x="705" y="363" text-anchor="middle" class="box-label" style="font-size:13px;">DEPLOYED</text>
+  <text x="705" y="380" text-anchor="middle" class="box-detail" style="font-size:9px;">FIRST_SOLAR_AGENT</text>
+
+  <!-- ═══ LEGEND ═══ -->
+  <rect x="35" y="430" width="14" height="14" rx="3" fill="#1565C0"/>
+  <text x="55" y="442" style="font-size:10px; fill:#333;">Setup</text>
+  <rect x="115" y="430" width="14" height="14" rx="3" fill="#2E7D32"/>
+  <text x="135" y="442" style="font-size:10px; fill:#333;">Data</text>
+  <rect x="195" y="430" width="14" height="14" rx="3" fill="#6A1B9A"/>
+  <text x="215" y="442" style="font-size:10px; fill:#333;">Views &amp; Search</text>
+  <rect x="325" y="430" width="14" height="14" rx="3" fill="#E65100"/>
+  <text x="345" y="442" style="font-size:10px; fill:#333;">ML &amp; Agent</text>
+
+  <text x="550" y="500" text-anchor="middle" style="font-size:9px; fill:#aaa;">Execute in strict order (01 → 09). Each step depends on the previous. See docs/AGENT_SETUP.md for details.</text>
 </svg>

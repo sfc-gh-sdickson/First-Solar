@@ -1,162 +1,175 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600">
-  <!-- First Solar - ML Models Pipeline -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 650">
   <defs>
     <style>
       text { font-family: Arial, sans-serif; }
       .title { font-size: 18px; font-weight: bold; fill: #1a1a1a; }
       .box-label { font-size: 10px; font-weight: bold; fill: #fff; }
-      .box-detail { font-size: 8px; fill: #fff; opacity: 0.9; }
+      .box-detail { font-size: 8.5px; fill: #fff; opacity: 0.9; }
       .section { font-size: 12px; font-weight: bold; fill: #333; }
-      .arrow { fill: none; stroke: #555; stroke-width: 1.5; marker-end: url(#ah3); }
-      .data-box { fill: #37474F; }
-      .feature-box { fill: #1565C0; }
-      .model-box { fill: #2E7D32; }
-      .registry-box { fill: #6A1B9A; }
-      .udf-box { fill: #E65100; }
-      .agent-box { fill: #29B5E8; }
+      .connector { fill: none; stroke: #666; stroke-width: 1.5; }
     </style>
-    <marker id="ah3" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
-      <polygon points="0 0, 8 3, 0 6" fill="#555"/>
+    <filter id="shadow" x="-4%" y="-4%" width="108%" height="112%">
+      <feDropShadow dx="2" dy="3" stdDeviation="2.5" flood-opacity="0.2"/>
+    </filter>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#666"/>
     </marker>
   </defs>
 
-  <rect width="1000" height="600" fill="#fafafa" rx="8"/>
-  <text x="500" y="30" text-anchor="middle" class="title">ML Pipeline — Demand Forecasting &amp; Stockout Risk</text>
+  <rect width="1050" height="650" fill="#f8f9fa" rx="8"/>
+  <text x="525" y="32" text-anchor="middle" class="title">ML Pipeline — Demand Forecasting &amp; Stockout Risk</text>
 
-  <!-- ═══ MODEL 1: Demand Forecast (top half) ═══ -->
-  <text x="50" y="65" class="section">Model 1: Demand Forecast (Gradient Boosting Regression)</text>
+  <!-- ═══ MODEL 1: Demand Forecast (top section) ═══ -->
+  <text x="40" y="65" class="section">Model 1: Demand Forecast (Gradient Boosting Regression)</text>
 
-  <!-- Data Sources -->
-  <rect x="30" y="80" width="130" height="50" rx="5" class="data-box"/>
-  <text x="95" y="100" text-anchor="middle" class="box-label">MRP_DEMAND</text>
-  <text x="95" y="115" text-anchor="middle" class="box-detail">3,780 rows daily demand</text>
-  <text x="95" y="125" text-anchor="middle" class="box-detail">by customer × product</text>
+  <!-- Data source boxes -->
+  <rect x="30" y="80" width="150" height="55" rx="6" fill="#37474F" filter="url(#shadow)"/>
+  <text x="105" y="102" text-anchor="middle" class="box-label">MRP_DEMAND</text>
+  <text x="105" y="117" text-anchor="middle" class="box-detail">3,780 rows</text>
+  <text x="105" y="129" text-anchor="middle" class="box-detail">daily by customer x product</text>
 
-  <rect x="30" y="140" width="130" height="50" rx="5" class="data-box"/>
-  <text x="95" y="160" text-anchor="middle" class="box-label">BILL_OF_MATERIALS</text>
-  <text x="95" y="175" text-anchor="middle" class="box-detail">76 rows: product → material</text>
-  <text x="95" y="185" text-anchor="middle" class="box-detail">qty_per_unit mapping</text>
+  <rect x="30" y="148" width="150" height="55" rx="6" fill="#37474F" filter="url(#shadow)"/>
+  <text x="105" y="170" text-anchor="middle" class="box-label">BILL_OF_MATERIALS</text>
+  <text x="105" y="185" text-anchor="middle" class="box-detail">76 rows</text>
+  <text x="105" y="197" text-anchor="middle" class="box-detail">product → material qty</text>
 
-  <!-- Arrows to aggregation -->
-  <line x1="160" y1="105" x2="200" y2="135" class="arrow"/>
-  <line x1="160" y1="165" x2="200" y2="145" class="arrow"/>
+  <!-- Arrows from data to aggregation (right-center → left-center) -->
+  <line x1="180" y1="107" x2="218" y2="130" class="connector" marker-end="url(#arrow)"/>
+  <line x1="180" y1="175" x2="218" y2="150" class="connector" marker-end="url(#arrow)"/>
 
   <!-- Aggregation -->
-  <rect x="200" y="115" width="130" height="50" rx="5" class="feature-box"/>
-  <text x="265" y="135" text-anchor="middle" class="box-label">Weekly Aggregation</text>
-  <text x="265" y="148" text-anchor="middle" class="box-detail">plant × product × week</text>
-  <text x="265" y="160" text-anchor="middle" class="box-detail">Normalize per-series</text>
+  <rect x="220" y="115" width="160" height="55" rx="6" fill="#1565C0" filter="url(#shadow)"/>
+  <text x="300" y="137" text-anchor="middle" class="box-label">Weekly Aggregation</text>
+  <text x="300" y="152" text-anchor="middle" class="box-detail">plant x product x week</text>
+  <text x="300" y="164" text-anchor="middle" class="box-detail">Per-series normalization</text>
 
-  <line x1="330" y1="140" x2="370" y2="140" class="arrow"/>
+  <line x1="380" y1="142" x2="418" y2="142" class="connector" marker-end="url(#arrow)"/>
 
-  <!-- Features -->
-  <rect x="370" y="100" width="150" height="70" rx="5" class="feature-box"/>
-  <text x="445" y="118" text-anchor="middle" class="box-label">Feature Engineering</text>
-  <text x="445" y="133" text-anchor="middle" class="box-detail">week_num, month</text>
-  <text x="445" y="145" text-anchor="middle" class="box-detail">lag1, lag2, rolling3</text>
-  <text x="445" y="157" text-anchor="middle" class="box-detail">plant_enc, prod_enc</text>
+  <!-- Feature Engineering -->
+  <rect x="420" y="108" width="170" height="68" rx="6" fill="#1565C0" filter="url(#shadow)"/>
+  <text x="505" y="128" text-anchor="middle" class="box-label">Feature Engineering</text>
+  <text x="505" y="144" text-anchor="middle" class="box-detail">week_num, month</text>
+  <text x="505" y="157" text-anchor="middle" class="box-detail">lag1, lag2, rolling3</text>
+  <text x="505" y="170" text-anchor="middle" class="box-detail">plant_enc, prod_enc</text>
 
-  <line x1="520" y1="135" x2="560" y2="135" class="arrow"/>
+  <line x1="590" y1="142" x2="628" y2="142" class="connector" marker-end="url(#arrow)"/>
 
   <!-- Model Training -->
-  <rect x="560" y="105" width="150" height="60" rx="5" class="model-box"/>
-  <text x="635" y="125" text-anchor="middle" class="box-label">GBR Training</text>
-  <text x="635" y="140" text-anchor="middle" class="box-detail">n_estimators=200, depth=3</text>
-  <text x="635" y="152" text-anchor="middle" class="box-detail">lr=0.08, subsample=0.8</text>
-  <text x="635" y="162" text-anchor="middle" class="box-detail">Val MAPE: ~4.2%</text>
+  <rect x="630" y="112" width="160" height="60" rx="6" fill="#2E7D32" filter="url(#shadow)"/>
+  <text x="710" y="133" text-anchor="middle" class="box-label">GBR Training</text>
+  <text x="710" y="148" text-anchor="middle" class="box-detail">n_estimators=200, depth=3</text>
+  <text x="710" y="161" text-anchor="middle" class="box-detail">lr=0.08 | Val MAPE ~4.2%</text>
 
-  <line x1="710" y1="135" x2="750" y2="135" class="arrow"/>
+  <line x1="790" y1="142" x2="828" y2="142" class="connector" marker-end="url(#arrow)"/>
 
   <!-- Registry -->
-  <rect x="750" y="105" width="140" height="60" rx="5" class="registry-box"/>
-  <text x="820" y="125" text-anchor="middle" class="box-label">Model Registry</text>
-  <text x="820" y="140" text-anchor="middle" class="box-detail">DEMAND_FORECAST_MODEL</text>
-  <text x="820" y="152" text-anchor="middle" class="box-detail">Version: V1</text>
-  <text x="820" y="162" text-anchor="middle" class="box-detail">registry.log_model()</text>
+  <rect x="830" y="112" width="180" height="60" rx="6" fill="#6A1B9A" filter="url(#shadow)"/>
+  <text x="920" y="133" text-anchor="middle" class="box-label">Snowflake Model Registry</text>
+  <text x="920" y="148" text-anchor="middle" class="box-detail">DEMAND_FORECAST_MODEL V1</text>
+  <text x="920" y="161" text-anchor="middle" class="box-detail">registry.log_model() + set_metric()</text>
 
-  <!-- Output: BOM Explosion -->
-  <rect x="560" y="180" width="150" height="45" rx="5" class="feature-box"/>
-  <text x="635" y="198" text-anchor="middle" class="box-label">BOM Explosion</text>
-  <text x="635" y="213" text-anchor="middle" class="box-detail">Product forecast × qty_per_unit</text>
-  <text x="635" y="222" text-anchor="middle" class="box-detail">→ material demand forecast</text>
-  <line x1="635" y1="165" x2="635" y2="180" class="arrow"/>
+  <!-- BOM Explosion (output of model 1) -->
+  <rect x="630" y="190" width="160" height="50" rx="6" fill="#1565C0" filter="url(#shadow)"/>
+  <text x="710" y="211" text-anchor="middle" class="box-label">BOM Explosion</text>
+  <text x="710" y="226" text-anchor="middle" class="box-detail">Product forecast x qty_per_unit</text>
+  <text x="710" y="237" text-anchor="middle" class="box-detail">→ weekly material demand</text>
 
-  <!-- ═══ MODEL 2: Stockout Risk (bottom half) ═══ -->
-  <text x="50" y="270" class="section">Model 2: Stockout Risk (Gradient Boosting Classifier)</text>
+  <!-- Arrow from GBR down to BOM -->
+  <line x1="710" y1="172" x2="710" y2="187" class="connector" marker-end="url(#arrow)"/>
 
-  <!-- Data Sources -->
-  <rect x="30" y="285" width="130" height="50" rx="5" class="data-box"/>
-  <text x="95" y="305" text-anchor="middle" class="box-label">INVENTORY_SNAPSHOT</text>
-  <text x="95" y="318" text-anchor="middle" class="box-detail">2,394 rows: QoH, SS, DFC</text>
-  <text x="95" y="329" text-anchor="middle" class="box-detail">reorder_point, unit_cost</text>
+  <!-- ═══ MODEL 2: Stockout Risk (bottom section) ═══ -->
+  <text x="40" y="285" class="section">Model 2: Stockout Risk (Gradient Boosting Classifier)</text>
 
-  <rect x="30" y="345" width="130" height="50" rx="5" class="data-box"/>
-  <text x="95" y="365" text-anchor="middle" class="box-label">SUPPLIER_MATERIALS</text>
-  <text x="95" y="378" text-anchor="middle" class="box-detail">130 rows: lead_time_days</text>
-  <text x="95" y="389" text-anchor="middle" class="box-detail">lead_time_variability</text>
+  <!-- Data source boxes -->
+  <rect x="30" y="300" width="150" height="55" rx="6" fill="#37474F" filter="url(#shadow)"/>
+  <text x="105" y="322" text-anchor="middle" class="box-label">INVENTORY_SNAPSHOT</text>
+  <text x="105" y="337" text-anchor="middle" class="box-detail">2,394 rows</text>
+  <text x="105" y="349" text-anchor="middle" class="box-detail">QoH, safety stock, DFC</text>
 
-  <line x1="160" y1="310" x2="200" y2="340" class="arrow"/>
-  <line x1="160" y1="370" x2="200" y2="350" class="arrow"/>
+  <rect x="30" y="368" width="150" height="55" rx="6" fill="#37474F" filter="url(#shadow)"/>
+  <text x="105" y="390" text-anchor="middle" class="box-label">SUPPLIER_MATERIALS</text>
+  <text x="105" y="405" text-anchor="middle" class="box-detail">130 rows</text>
+  <text x="105" y="417" text-anchor="middle" class="box-detail">lead time + variability</text>
+
+  <!-- Arrows from data to features -->
+  <line x1="180" y1="327" x2="218" y2="350" class="connector" marker-end="url(#arrow)"/>
+  <line x1="180" y1="395" x2="218" y2="372" class="connector" marker-end="url(#arrow)"/>
 
   <!-- Features -->
-  <rect x="200" y="310" width="150" height="70" rx="5" class="feature-box"/>
-  <text x="275" y="328" text-anchor="middle" class="box-label">Features (9)</text>
-  <text x="275" y="343" text-anchor="middle" class="box-detail">qty_on_hand, safety_stock</text>
-  <text x="275" y="355" text-anchor="middle" class="box-detail">DFC, reorder_pt, unit_cost</text>
-  <text x="275" y="367" text-anchor="middle" class="box-detail">lead_time, LT_var, cat, critical</text>
+  <rect x="220" y="325" width="170" height="75" rx="6" fill="#1565C0" filter="url(#shadow)"/>
+  <text x="305" y="345" text-anchor="middle" class="box-label">9 Features</text>
+  <text x="305" y="361" text-anchor="middle" class="box-detail">qty_on_hand, safety_stock, DFC</text>
+  <text x="305" y="374" text-anchor="middle" class="box-detail">reorder_pt, unit_cost</text>
+  <text x="305" y="387" text-anchor="middle" class="box-detail">lead_time, LT_var, category, critical</text>
 
-  <line x1="350" y1="345" x2="390" y2="345" class="arrow"/>
+  <line x1="390" y1="362" x2="428" y2="362" class="connector" marker-end="url(#arrow)"/>
 
-  <!-- Label -->
-  <rect x="200" y="390" width="150" height="35" rx="5" fill="#B71C1C"/>
-  <text x="275" y="408" text-anchor="middle" class="box-label">Target Label</text>
-  <text x="275" y="420" text-anchor="middle" class="box-detail">IS_STOCKOUT_RISK = (QoH &lt; SS)</text>
+  <!-- Target label -->
+  <rect x="220" y="413" width="170" height="38" rx="6" fill="#B71C1C" filter="url(#shadow)"/>
+  <text x="305" y="433" text-anchor="middle" class="box-label">Target: IS_STOCKOUT_RISK</text>
+  <text x="305" y="446" text-anchor="middle" class="box-detail">= 1 if QoH &lt; Safety Stock</text>
 
-  <!-- Model -->
-  <rect x="390" y="315" width="150" height="60" rx="5" class="model-box"/>
-  <text x="465" y="335" text-anchor="middle" class="box-label">GBC Training</text>
-  <text x="465" y="350" text-anchor="middle" class="box-detail">n_estimators=150, depth=4</text>
-  <text x="465" y="362" text-anchor="middle" class="box-detail">lr=0.1, subsample=0.8</text>
+  <!-- Model Training -->
+  <rect x="430" y="332" width="170" height="60" rx="6" fill="#2E7D32" filter="url(#shadow)"/>
+  <text x="515" y="353" text-anchor="middle" class="box-label">GBC Training</text>
+  <text x="515" y="368" text-anchor="middle" class="box-detail">n_estimators=150, depth=4</text>
+  <text x="515" y="381" text-anchor="middle" class="box-detail">lr=0.1 | Accuracy ~95%</text>
 
-  <line x1="540" y1="345" x2="580" y2="345" class="arrow"/>
+  <line x1="600" y1="362" x2="638" y2="362" class="connector" marker-end="url(#arrow)"/>
 
   <!-- Registry -->
-  <rect x="580" y="315" width="140" height="60" rx="5" class="registry-box"/>
-  <text x="650" y="335" text-anchor="middle" class="box-label">Model Registry</text>
-  <text x="650" y="350" text-anchor="middle" class="box-detail">STOCKOUT_RISK_MODEL</text>
-  <text x="650" y="362" text-anchor="middle" class="box-detail">Version: V1</text>
+  <rect x="640" y="332" width="180" height="60" rx="6" fill="#6A1B9A" filter="url(#shadow)"/>
+  <text x="730" y="353" text-anchor="middle" class="box-label">Snowflake Model Registry</text>
+  <text x="730" y="368" text-anchor="middle" class="box-detail">STOCKOUT_RISK_MODEL V1</text>
+  <text x="730" y="381" text-anchor="middle" class="box-detail">registry.log_model() + set_metric()</text>
 
-  <line x1="720" y1="345" x2="760" y2="345" class="arrow"/>
+  <line x1="820" y1="362" x2="858" y2="362" class="connector" marker-end="url(#arrow)"/>
 
   <!-- UDF -->
-  <rect x="760" y="315" width="140" height="60" rx="5" class="udf-box"/>
-  <text x="830" y="335" text-anchor="middle" class="box-label">SQL UDF</text>
-  <text x="830" y="350" text-anchor="middle" class="box-detail">AGENT_PREDICT_</text>
-  <text x="830" y="362" text-anchor="middle" class="box-detail">STOCKOUT_RISK()</text>
+  <rect x="860" y="332" width="160" height="60" rx="6" fill="#E65100" filter="url(#shadow)"/>
+  <text x="940" y="353" text-anchor="middle" class="box-label">SQL UDF</text>
+  <text x="940" y="368" text-anchor="middle" class="box-detail">AGENT_PREDICT_</text>
+  <text x="940" y="381" text-anchor="middle" class="box-detail">STOCKOUT_RISK()</text>
 
-  <!-- UDF for demand forecast too -->
-  <line x1="820" y1="165" x2="820" y2="245" stroke="#555" stroke-width="1.5"/>
-  <rect x="760" y="245" width="140" height="40" rx="5" class="udf-box"/>
-  <text x="830" y="263" text-anchor="middle" class="box-label">AGENT_GET_DEMAND_</text>
-  <text x="830" y="277" text-anchor="middle" class="box-detail">FORECAST()</text>
+  <!-- UDF for demand forecast (coming from registry above) -->
+  <line x1="920" y1="172" x2="920" y2="248" class="connector" marker-end="url(#arrow)"/>
+
+  <rect x="860" y="250" width="160" height="50" rx="6" fill="#E65100" filter="url(#shadow)"/>
+  <text x="940" y="271" text-anchor="middle" class="box-label">SQL UDF</text>
+  <text x="940" y="286" text-anchor="middle" class="box-detail">AGENT_GET_DEMAND_FORECAST()</text>
 
   <!-- Both UDFs → Agent -->
-  <line x1="900" y1="265" x2="940" y2="335" class="arrow"/>
-  <line x1="900" y1="345" x2="940" y2="345" class="arrow"/>
+  <line x1="940" y1="300" x2="940" y2="318" class="connector"/>
+  <line x1="940" y1="392" x2="940" y2="415" class="connector"/>
+  <line x1="940" y1="318" x2="990" y2="318" class="connector"/>
+  <line x1="940" y1="415" x2="990" y2="415" class="connector"/>
+  <line x1="990" y1="318" x2="990" y2="415" class="connector"/>
+  <line x1="990" y1="366" x2="1010" y2="366" class="connector" marker-end="url(#arrow)"/>
 
-  <rect x="935" y="305" width="50" height="80" rx="25" fill="#29B5E8"/>
-  <text x="960" y="340" text-anchor="middle" style="font-size:9px; font-weight:bold; fill:#fff;">A</text>
-  <text x="960" y="352" text-anchor="middle" style="font-size:9px; font-weight:bold; fill:#fff;">G</text>
-  <text x="960" y="364" text-anchor="middle" style="font-size:9px; font-weight:bold; fill:#fff;">E</text>
-  <text x="960" y="376" text-anchor="middle" style="font-size:9px; font-weight:bold; fill:#fff;">N</text>
-  <text x="960" y="388" text-anchor="middle" style="font-size:9px; font-weight:bold; fill:#fff;">T</text>
+  <!-- Agent circle -->
+  <circle cx="1030" cy="366" r="18" fill="#29B5E8" filter="url(#shadow)"/>
+  <text x="1030" y="371" text-anchor="middle" style="font-size:10px; font-weight:bold; fill:#fff;">A</text>
 
-  <!-- Pipeline Summary -->
-  <rect x="30" y="445" width="940" height="55" rx="6" fill="#ECEFF1" stroke="#B0BEC5"/>
-  <text x="500" y="465" text-anchor="middle" style="font-size:11px; font-weight:bold; fill:#333;">Full ML Pipeline (MANDATORY per Agent.md)</text>
-  <text x="500" y="483" text-anchor="middle" style="font-size:10px; fill:#555;">Notebook trains → registry.log_model() → set_metric() → SQL UDF calls MODEL(name, V1)!PREDICT(...) → Agent invokes UDF</text>
+  <!-- ═══ PIPELINE SUMMARY ═══ -->
+  <rect x="30" y="480" width="990" height="55" rx="6" fill="#ECEFF1" stroke="#B0BEC5" filter="url(#shadow)"/>
+  <text x="525" y="502" text-anchor="middle" style="font-size:11px; font-weight:bold; fill:#333;">Required ML Pipeline (per Agent.md specification)</text>
+  <text x="525" y="520" text-anchor="middle" style="font-size:9.5px; fill:#555;">Notebook trains → registry.log_model() → set_metric() → UDF calls MODEL(name, V1)!PREDICT(...) → Agent invokes UDF</text>
 
-  <!-- Bottom note -->
-  <text x="500" y="530" text-anchor="middle" style="font-size:9px; fill:#999;">Notebook: 07_ml_models.ipynb | Uses get_active_session() + SQL cells | Registers both models in Snowflake Model Registry</text>
-  <text x="500" y="545" text-anchor="middle" style="font-size:9px; fill:#999;">UDFs: 08_ml_model_functions.sql | Calls MODEL(FS_INTELLIGENCE.ANALYTICS.[MODEL_NAME], V1)!PREDICT() | Falls back to heuristic if model not registered</text>
+  <!-- Footer -->
+  <text x="525" y="560" text-anchor="middle" style="font-size:9px; fill:#aaa;">Notebook: 07_ml_models.ipynb | Uses get_active_session() + SQL cells | Both models registered in Snowflake Model Registry</text>
+  <text x="525" y="576" text-anchor="middle" style="font-size:9px; fill:#aaa;">UDFs: 08_ml_model_functions.sql | MODEL(FS_INTELLIGENCE.ANALYTICS.[name], V1)!PREDICT() with heuristic fallback</text>
+
+  <!-- Legend -->
+  <rect x="30" y="600" width="12" height="12" rx="2" fill="#37474F"/>
+  <text x="48" y="610" style="font-size:9px; fill:#333;">Data Source</text>
+  <rect x="130" y="600" width="12" height="12" rx="2" fill="#1565C0"/>
+  <text x="148" y="610" style="font-size:9px; fill:#333;">Feature Engineering</text>
+  <rect x="270" y="600" width="12" height="12" rx="2" fill="#2E7D32"/>
+  <text x="288" y="610" style="font-size:9px; fill:#333;">Model Training</text>
+  <rect x="390" y="600" width="12" height="12" rx="2" fill="#6A1B9A"/>
+  <text x="408" y="610" style="font-size:9px; fill:#333;">Model Registry</text>
+  <rect x="510" y="600" width="12" height="12" rx="2" fill="#E65100"/>
+  <text x="528" y="610" style="font-size:9px; fill:#333;">SQL UDF</text>
+  <circle cx="606" cy="606" r="6" fill="#29B5E8"/>
+  <text x="618" y="610" style="font-size:9px; fill:#333;">Agent</text>
 </svg>
