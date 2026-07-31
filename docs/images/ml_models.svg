@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 650">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 650">
   <defs>
     <style>
       text { font-family: Arial, sans-serif; }
@@ -16,7 +16,7 @@
     </marker>
   </defs>
 
-  <rect width="1050" height="650" fill="#f8f9fa" rx="8"/>
+  <rect width="1100" height="650" fill="#f8f9fa" rx="8"/>
   <text x="525" y="32" text-anchor="middle" class="title">ML Pipeline — Demand Forecasting &amp; Stockout Risk</text>
 
   <!-- ═══ MODEL 1: Demand Forecast (top section) ═══ -->
@@ -126,32 +126,28 @@
   <line x1="820" y1="362" x2="858" y2="362" class="connector" marker-end="url(#arrow)"/>
 
   <!-- UDF -->
-  <rect x="860" y="332" width="160" height="60" rx="6" fill="#E65100" filter="url(#shadow)"/>
-  <text x="940" y="353" text-anchor="middle" class="box-label">SQL UDF</text>
-  <text x="940" y="368" text-anchor="middle" class="box-detail">AGENT_PREDICT_</text>
-  <text x="940" y="381" text-anchor="middle" class="box-detail">STOCKOUT_RISK()</text>
+  <rect x="860" y="332" width="148" height="60" rx="6" fill="#E65100" filter="url(#shadow)"/>
+  <text x="934" y="353" text-anchor="middle" class="box-label">SQL UDF</text>
+  <text x="934" y="368" text-anchor="middle" class="box-detail">AGENT_PREDICT_</text>
+  <text x="934" y="381" text-anchor="middle" class="box-detail">STOCKOUT_RISK()</text>
 
   <!-- UDF for demand forecast (coming from registry above) -->
   <line x1="920" y1="172" x2="920" y2="248" class="connector" marker-end="url(#arrow)"/>
 
-  <rect x="860" y="250" width="160" height="50" rx="6" fill="#E65100" filter="url(#shadow)"/>
-  <text x="940" y="271" text-anchor="middle" class="box-label">SQL UDF</text>
-  <text x="940" y="286" text-anchor="middle" class="box-detail">AGENT_GET_DEMAND_FORECAST()</text>
+  <rect x="860" y="250" width="148" height="50" rx="6" fill="#E65100" filter="url(#shadow)"/>
+  <text x="934" y="271" text-anchor="middle" class="box-label">SQL UDF</text>
+  <text x="934" y="286" text-anchor="middle" class="box-detail">AGENT_GET_DEMAND_FORECAST()</text>
 
-  <!-- Both UDFs → Agent -->
-  <line x1="940" y1="300" x2="940" y2="318" class="connector"/>
-  <line x1="940" y1="392" x2="940" y2="415" class="connector"/>
-  <line x1="940" y1="318" x2="990" y2="318" class="connector"/>
-  <line x1="940" y1="415" x2="990" y2="415" class="connector"/>
-  <line x1="990" y1="318" x2="990" y2="415" class="connector"/>
-  <line x1="990" y1="366" x2="1010" y2="366" class="connector" marker-end="url(#arrow)"/>
+  <!-- Both UDFs → Agent (lines exit right edge, then to agent) -->
+  <line x1="1008" y1="275" x2="1042" y2="355" class="connector" marker-end="url(#arrow)"/>
+  <line x1="1008" y1="362" x2="1042" y2="366" class="connector" marker-end="url(#arrow)"/>
 
   <!-- Agent circle -->
-  <circle cx="1030" cy="366" r="18" fill="#29B5E8" filter="url(#shadow)"/>
-  <text x="1030" y="371" text-anchor="middle" style="font-size:10px; font-weight:bold; fill:#fff;">A</text>
+  <circle cx="1060" cy="366" r="18" fill="#29B5E8" filter="url(#shadow)"/>
+  <text x="1060" y="371" text-anchor="middle" style="font-size:10px; font-weight:bold; fill:#fff;">A</text>
 
   <!-- ═══ PIPELINE SUMMARY ═══ -->
-  <rect x="30" y="480" width="990" height="55" rx="6" fill="#ECEFF1" stroke="#B0BEC5" filter="url(#shadow)"/>
+  <rect x="30" y="480" width="1040" height="55" rx="6" fill="#ECEFF1" stroke="#B0BEC5" filter="url(#shadow)"/>
   <text x="525" y="502" text-anchor="middle" style="font-size:11px; font-weight:bold; fill:#333;">Required ML Pipeline (per Agent.md specification)</text>
   <text x="525" y="520" text-anchor="middle" style="font-size:9.5px; fill:#555;">Notebook trains → registry.log_model() → set_metric() → UDF calls MODEL(name, V1)!PREDICT(...) → Agent invokes UDF</text>
 
