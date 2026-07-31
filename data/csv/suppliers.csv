@@ -1,0 +1,21 @@
+supplier_id,supplier_name,city,state,country,region,supplier_tier,risk_score,on_time_rate,quality_pass_rate
+SUP-001,AGC Inc. - Flat Glass Division,Tokyo,,Japan,Asia,Tier1,2.1,0.96,0.994
+SUP-002,NSG Group Pilkington,Tokyo,,Japan,Asia,Tier1,2.4,0.94,0.991
+SUP-003,Guardian Glass North America,Auburn Hills,Michigan,USA,Midwest,Tier1,1.8,0.97,0.996
+SUP-004,5N Plus Inc. - Semiconductor Division,Montreal,Quebec,Canada,Canada,Tier1,3.2,0.9,0.989
+SUP-005,Materion Corporation,Mayfield Heights,Ohio,USA,Midwest,Tier1,2.6,0.93,0.993
+SUP-006,Umicore Advanced Materials,Brussels,,Belgium,Europe,Tier1,2.9,0.91,0.99
+SUP-007,Hydro Extrusions North America,Roanoke,Virginia,USA,Southeast,Tier1,1.9,0.95,0.995
+SUP-008,Arconic Aluminum Products,Pittsburgh,Pennsylvania,USA,Northeast,Tier1,2.3,0.93,0.992
+SUP-009,TE Connectivity Solar Solutions,Berwyn,Pennsylvania,USA,Northeast,Tier1,1.7,0.97,0.997
+SUP-010,Stäubli Electrical Connectors,Duncan,South Carolina,USA,Southeast,Tier1,2.0,0.96,0.996
+SUP-011,Henkel Adhesives Technologies,Rocky Hill,Connecticut,USA,Northeast,Tier2,3.5,0.88,0.985
+SUP-012,Dow Chemical Encapsulants,Midland,Michigan,USA,Midwest,Tier1,2.2,0.94,0.993
+SUP-013,Air Products and Chemicals Inc.,Allentown,Pennsylvania,USA,Northeast,Tier1,1.5,0.98,0.999
+SUP-014,Linde Gases North America,Danbury,Connecticut,USA,Northeast,Tier1,1.6,0.97,0.998
+SUP-015,Borealis Polyolefin Solutions,Vienna,,Austria,Europe,Tier2,4.1,0.85,0.982
+SUP-016,Eastman Chemical Solar Films,Kingsport,Tennessee,USA,Southeast,Tier1,2.7,0.92,0.991
+SUP-017,II-VI Incorporated Optics,Saxonburg,Pennsylvania,USA,Northeast,Tier1,3.8,0.87,0.98
+SUP-018,Sumitomo Electric Wiring,Columbus,Ohio,USA,Midwest,Tier2,3.0,0.91,0.988
+SUP-019,Brady Corporation Identification,Milwaukee,Wisconsin,USA,Midwest,Tier2,2.5,0.93,0.994
+SUP-020,Nitto Denko Corporation Tapes,Osaka,,Japan,Asia,Tier2,3.6,0.86,0.983

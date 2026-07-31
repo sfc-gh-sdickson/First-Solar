@@ -1,0 +1,51 @@
+material_id,material_name,material_category,unit_of_measure,unit_cost_std,is_critical
+MAT-001,Low-Iron Tempered Glass Panel 2m x 1.2m,Glass,EACH,28.5,True
+MAT-002,Back Glass Panel 2m x 1.2m,Glass,EACH,22.0,True
+MAT-003,Glass Spacer Frame,Glass,EACH,4.2,False
+MAT-004,Anti-Reflective Glass Coating Chemical,Glass,LITER,85.0,False
+MAT-005,Cadmium Telluride (CdTe) Compound,Semiconductor,KG,320.0,True
+MAT-006,Cadmium Sulfide (CdS) Buffer Layer,Semiconductor,KG,210.0,True
+MAT-007,Tin Oxide (SnO2) Target Material,Semiconductor,KG,175.0,True
+MAT-008,Indium Tin Oxide (ITO) Sputtering Target,Semiconductor,KG,420.0,True
+MAT-009,Zinc Stannate Buffer Powder,Semiconductor,KG,95.0,False
+MAT-010,Copper Back Contact Material,Semiconductor,KG,9.5,False
+MAT-011,Aluminum Extrusion Frame 2m Side Rail,Frame,EACH,6.8,False
+MAT-012,Aluminum Extrusion Frame Short Rail,Frame,EACH,4.1,False
+MAT-013,Corner Bracket Assembly,Frame,SET,2.3,False
+MAT-014,Mounting Hole Insert,Frame,BAG,0.85,False
+MAT-015,Stainless Steel Fastener Set,Frame,SET,1.2,False
+MAT-016,Junction Box with Bypass Diodes,Electronics,EACH,7.5,True
+MAT-017,MC4 Connector Pair,Electronics,PAIR,2.1,False
+MAT-018,Lead-Free Solder Wire 500g Reel,Electronics,REEL,18.0,False
+MAT-019,Bypass Diode Schottky 15A,Electronics,EACH,0.65,False
+MAT-020,Bussing Ribbon Copper 6mm,Electronics,METER,0.42,False
+MAT-021,Cross Ribbon Copper 3mm,Electronics,METER,0.28,False
+MAT-022,Encapsulant EVA Film Roll,Electronics,ROLL,95.0,True
+MAT-023,CdCl2 Activation Solution 20L,Chemicals,BOTTLE,145.0,True
+MAT-024,Phosphoric Acid Etchant 25L,Chemicals,DRUM,62.0,False
+MAT-025,Isopropyl Alcohol Technical Grade 200L,Chemicals,DRUM,180.0,False
+MAT-026,De-ionized Water System Resin,Chemicals,BAG,38.0,False
+MAT-027,Flux No-Clean Pen,Chemicals,EACH,4.5,False
+MAT-028,Module Shipping Pallet Rack,Packaging,EACH,45.0,False
+MAT-029,Protective Foam Corner Piece,Packaging,SET,2.8,False
+MAT-030,Stretch Wrap Film 500m Roll,Packaging,ROLL,22.0,False
+MAT-031,Module Interleaf Paper Roll,Packaging,ROLL,15.0,False
+MAT-032,Carton Box Module Single,Packaging,EACH,5.5,False
+MAT-033,Magnetron Sputtering Target Holder,Equipment Consumable,EACH,1200.0,True
+MAT-034,Furnace Quartz Tube Liner,Equipment Consumable,EACH,380.0,False
+MAT-035,Vacuum O-Ring Kit,Equipment Consumable,KIT,95.0,False
+MAT-036,High Purity Nitrogen Gas Cylinder,Equipment Consumable,CYLINDER,72.0,False
+MAT-037,Argon Gas High Purity 50L,Equipment Consumable,CYLINDER,55.0,False
+MAT-038,Thermoplastic Polyolefin Backsheet Roll,Backsheet,ROLL,185.0,True
+MAT-039,Polyvinyl Butyral Interlayer Film,Backsheet,ROLL,210.0,True
+MAT-040,Edge Seal Tape 50mm,Backsheet,ROLL,28.0,False
+MAT-041,Thermal Interface Paste 1kg,Thermal,TUB,42.0,False
+MAT-042,Heat Sink Compound Syringe 50g,Thermal,EACH,12.0,False
+MAT-043,Laser Scribing Machine Lens,Equipment Consumable,EACH,2800.0,True
+MAT-044,Laser Head Cooling Pump Filter,Equipment Consumable,EACH,145.0,False
+MAT-045,EL Imaging Camera Reference Target,QA Consumable,EACH,620.0,False
+MAT-046,IV Curve Tracer Calibration Cell,QA Consumable,EACH,340.0,False
+MAT-047,Grounding Lug Assembly,Hardware,BAG,3.2,False
+MAT-048,Anti-PID Film Sheet,Hardware,EACH,1.8,False
+MAT-049,Silicone Sealant Cartridge,Hardware,EACH,8.5,False
+MAT-050,Label Self-Adhesive Weatherproof,Hardware,ROLL,22.0,False

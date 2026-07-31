@@ -1,0 +1,16 @@
+customer_id,customer_name,city,state,country,region,segment
+CUST-001,NextEra Energy Resources,Juno Beach,Florida,USA,Southeast,Utility
+CUST-002,Invenergy LLC,Chicago,Illinois,USA,Midwest,Utility
+CUST-003,AES Clean Energy,Arlington,Virginia,USA,Southeast,Utility
+CUST-004,EDP Renewables North America,Houston,Texas,USA,South,Utility
+CUST-005,Lightsource BP,San Francisco,California,USA,West,Utility
+CUST-006,Recurrent Energy,San Francisco,California,USA,West,Utility
+CUST-007,SunPower Corporation,San Jose,California,USA,West,Commercial
+CUST-008,Greenbacker Renewable Energy,New York,New York,USA,Northeast,Utility
+CUST-009,Apex Clean Energy,Charlottesville,Virginia,USA,Southeast,Utility
+CUST-010,X-Elio,Phoenix,Arizona,USA,Southwest,Utility
+CUST-011,OCI Solar Power,San Antonio,Texas,USA,South,Commercial
+CUST-012,Terra-Gen Power,New York,New York,USA,Northeast,Utility
+CUST-013,Capital Power Corporation,Calgary,Alberta,Canada,Canada,Utility
+CUST-014,Pattern Energy Group,San Francisco,California,USA,West,Utility
+CUST-015,Hecate Energy,Chicago,Illinois,USA,Midwest,Commercial
