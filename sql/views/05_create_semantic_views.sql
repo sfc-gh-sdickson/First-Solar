@@ -27,7 +27,8 @@ CALL SYSTEM$CREATE_SEMANTIC_VIEW_FROM_YAML(
     (quantity on hand, safety stock, days forward coverage), purchase orders
     (open/in-transit/received, rush orders, expediting costs), supplier
     performance (OTD, quality, risk scores), inter-plant transfers, and
-    AI-generated supply recommendations across 3 US manufacturing plants.
+    AI-generated supply recommendations across 3 US manufacturing plants
+    (Alabama 3500MW, Ohio 3300MW, Louisiana 3500MW).
 
   tables:
     - name: INVENTORY_SNAPSHOT
@@ -913,9 +914,11 @@ CALL SYSTEM$CREATE_SEMANTIC_VIEW_FROM_YAML(
     First Solar risk intelligence semantic view. Covers material sourcing risk
     (single/dual/multi-source, substitutability, geographic concentration),
     trade lane logistics (transit times, customs, geopolitical risk), industry
-    benchmarks (lead times, OTD, inventory turns), and anomaly detection
-    (demand spikes, supplier delays, price anomalies, inventory drops).
-    Enables risk assessment, benchmark comparison, and anomaly investigation.
+    benchmarks (lead times, OTD, inventory turns), anomaly detection
+    (demand spikes, supplier delays, price anomalies), and EXTERNAL SHIPPING
+    SIGNALS (simulated Marketplace trade/shipping data showing export volumes,
+    port dwell times, and shipment delays by supplier lane). Enables risk
+    assessment that combines internal and external data sources.
 
   tables:
     - name: MATERIAL_RISK_PROFILE
@@ -1180,6 +1183,81 @@ CALL SYSTEM$CREATE_SEMANTIC_VIEW_FROM_YAML(
           expr: COUNTRY
           data_type: VARCHAR
 
+    - name: EXTERNAL_SHIPPING_SIGNALS
+      description: External Marketplace shipping/trade signals showing supply lane health. Simulated dataset representing live Snowflake Marketplace trade data. Shows export volume trends, port dwell times, shipment delays for supplier lanes.
+      base_table:
+        database: FS_INTELLIGENCE
+        schema: RAW
+        table: EXTERNAL_SHIPPING_SIGNALS
+      primary_key:
+        columns: [SIGNAL_ID]
+      dimensions:
+        - name: SIGNAL_DATE
+          synonyms: [date, shipping date, signal date]
+          description: Date of the shipping/trade signal observation
+          expr: SIGNAL_DATE
+          data_type: DATE
+        - name: SUPPLIER_LANE
+          synonyms: [lane, route, shipping lane, supply lane]
+          description: "Supplier name and destination (e.g. ABC Glass Industries → Alabama)"
+          expr: SUPPLIER_LANE
+          data_type: VARCHAR
+        - name: ORIGIN_PORT
+          synonyms: [origin, source port, departure]
+          description: Origin port or industrial area
+          expr: ORIGIN_PORT
+          data_type: VARCHAR
+        - name: ORIGIN_COUNTRY
+          synonyms: [source country]
+          description: Country of origin
+          expr: ORIGIN_COUNTRY
+          data_type: VARCHAR
+        - name: DESTINATION_PORT
+          synonyms: [destination, arrival port]
+          description: Destination port
+          expr: DESTINATION_PORT
+          data_type: VARCHAR
+        - name: COMMODITY_CATEGORY
+          synonyms: [commodity, product type, goods]
+          description: Category of goods being shipped
+          expr: COMMODITY_CATEGORY
+          data_type: VARCHAR
+        - name: DATA_SOURCE
+          description: Source of the external data
+          expr: DATA_SOURCE
+          data_type: VARCHAR
+        - name: NOTES
+          synonyms: [shipping notes, signal notes]
+          description: Additional context about shipping conditions
+          expr: NOTES
+          data_type: VARCHAR
+      metrics:
+        - name: AVG_EXPORT_VOLUME_INDEX
+          synonyms: [export volume, volume index, trade volume]
+          description: Average export volume index (baseline ~100, lower = declining activity)
+          expr: AVG(EXPORT_VOLUME_INDEX)
+          data_type: NUMBER
+        - name: AVG_PORT_DWELL_TIME
+          synonyms: [dwell time, port wait, dwell hours]
+          description: Average port dwell time in hours (baseline ~24, higher = congestion)
+          expr: AVG(PORT_DWELL_TIME_HOURS)
+          data_type: NUMBER
+        - name: DELAY_RATE
+          synonyms: [delay percentage, delay fraction, pct delayed]
+          description: Fraction of shipments flagged as delayed
+          expr: AVG(SHIPMENT_DELAY_FLAG)
+          data_type: NUMBER
+        - name: AVG_TRANSIT_DAYS
+          synonyms: [transit time, shipping days]
+          description: Average transit time in days
+          expr: AVG(AVG_TRANSIT_DAYS)
+          data_type: NUMBER
+        - name: TOTAL_VESSEL_TRUCK_COUNT
+          synonyms: [shipment count, vessel count, truck count]
+          description: Total vessel/truck movements observed
+          expr: SUM(VESSEL_TRUCK_COUNT)
+          data_type: NUMBER
+
     - name: PLANTS
       description: Plant master for joins.
       base_table:
@@ -1243,6 +1321,11 @@ CALL SYSTEM$CREATE_SEMANTIC_VIEW_FROM_YAML(
       When comparing to benchmarks, join on METRIC_NAME and optionally MATERIAL_CATEGORY.
       For recent anomalies, filter ALERT_DATE >= DATEADD('day', -30, CURRENT_DATE()).
       Unresolved alerts have IS_RESOLVED = FALSE.
+      For external shipping signals:
+      - Baseline period is the first 60 days; recent period is the last 30 days.
+      - Compare AVG(EXPORT_VOLUME_INDEX) recent vs baseline to detect declining lanes.
+      - Compare AVG(PORT_DWELL_TIME_HOURS) recent vs baseline to detect congestion.
+      - Filter SUPPLIER_LANE LIKE '%ABC Glass%' for the Alabama glass supply lane.
     question_categorization: |
       If the user asks about inventory levels or purchase orders, direct them
       to the Supply Chain Operations semantic view.
@@ -1306,5 +1389,37 @@ CALL SYSTEM$CREATE_SEMANTIC_VIEW_FROM_YAML(
         WHERE a.IS_RESOLVED = FALSE AND a.SEVERITY = 'HIGH'
         GROUP BY p.PLANT_NAME, a.ALERT_TYPE
         ORDER BY ALERT_COUNT DESC
+
+    - name: abc_glass_lane_health
+      question: What do external shipping signals show for the ABC Glass supply lane to Alabama?
+      verified_at: 1719792000
+      use_as_onboarding_question: true
+      sql: |
+        WITH baseline AS (
+          SELECT AVG(EXPORT_VOLUME_INDEX) AS baseline_vol,
+                 AVG(PORT_DWELL_TIME_HOURS) AS baseline_dwell,
+                 AVG(SHIPMENT_DELAY_FLAG) AS baseline_delay_rate
+          FROM FS_INTELLIGENCE.RAW.EXTERNAL_SHIPPING_SIGNALS
+          WHERE SUPPLIER_LANE LIKE '%ABC Glass%Alabama%'
+            AND SIGNAL_DATE < DATEADD('day', -30, CURRENT_DATE())
+        ),
+        recent AS (
+          SELECT AVG(EXPORT_VOLUME_INDEX) AS recent_vol,
+                 AVG(PORT_DWELL_TIME_HOURS) AS recent_dwell,
+                 AVG(SHIPMENT_DELAY_FLAG) AS recent_delay_rate,
+                 COUNT(*) AS observation_count
+          FROM FS_INTELLIGENCE.RAW.EXTERNAL_SHIPPING_SIGNALS
+          WHERE SUPPLIER_LANE LIKE '%ABC Glass%Alabama%'
+            AND SIGNAL_DATE >= DATEADD('day', -30, CURRENT_DATE())
+        )
+        SELECT ROUND(b.baseline_vol, 1) AS BASELINE_EXPORT_VOLUME,
+               ROUND(r.recent_vol, 1) AS RECENT_EXPORT_VOLUME,
+               ROUND((r.recent_vol - b.baseline_vol) / b.baseline_vol * 100, 1) AS VOLUME_CHANGE_PCT,
+               ROUND(b.baseline_dwell, 1) AS BASELINE_DWELL_HOURS,
+               ROUND(r.recent_dwell, 1) AS RECENT_DWELL_HOURS,
+               ROUND(b.baseline_delay_rate * 100, 1) AS BASELINE_DELAY_PCT,
+               ROUND(r.recent_delay_rate * 100, 1) AS RECENT_DELAY_PCT,
+               r.observation_count AS RECENT_OBSERVATIONS
+        FROM baseline b, recent r
   $$
 );

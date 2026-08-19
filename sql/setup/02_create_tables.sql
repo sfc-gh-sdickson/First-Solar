@@ -252,6 +252,28 @@ CREATE OR REPLACE TABLE FORECAST_MODEL_META (
 );
 
 -- ============================================================
+-- EXTERNAL MARKETPLACE DATA (simulated Snowflake Marketplace feed)
+-- ============================================================
+
+CREATE OR REPLACE TABLE EXTERNAL_SHIPPING_SIGNALS (
+    signal_id               NUMBER AUTOINCREMENT PRIMARY KEY,
+    signal_date             DATE            NOT NULL,
+    origin_port             VARCHAR(100),
+    origin_country          VARCHAR(50),
+    destination_port        VARCHAR(100),
+    destination_country     VARCHAR(50),
+    supplier_lane           VARCHAR(200),
+    commodity_category      VARCHAR(100),
+    export_volume_index     NUMBER(8,1),
+    port_dwell_time_hours   NUMBER(8,1),
+    vessel_truck_count      NUMBER(5),
+    shipment_delay_flag     NUMBER(1),
+    avg_transit_days        NUMBER(6,1),
+    data_source             VARCHAR(200),
+    notes                   VARCHAR(500)
+);
+
+-- ============================================================
 -- REFERENCE SCHEMA: Supply Chain Intelligence Tables
 -- ============================================================
 

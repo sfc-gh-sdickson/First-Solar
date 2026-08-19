@@ -1,116 +1,116 @@
 alert_id,alert_date,alert_type,severity,plant_id,material_id,supplier_id,description,metric_value,expected_value,deviation_pct,is_resolved
-1,2025-02-24,SUPPLIER_DELAY,HIGH,PLT-OH2,MAT-042,SUP-002,Supplier NSG Group Pilkington delivery for Heat Sink Compound Syringe 50g is 9d overdue to PLT-OH2,13.8606,11.4377,21.18,True
-2,2025-02-14,INVENTORY_DROP,HIGH,PLT-OH1,MAT-032,SUP-015,Inventory for Carton Box Module Single at PLT-OH1 dropped 34.7% in 7 days,7.8944,5.4723,44.26,True
-3,2025-03-18,PRICE_ANOMALY,MEDIUM,PLT-AZ1,MAT-045,SUP-006,Purchase price for EL Imaging Camera Reference Target from Umicore Advanced Materials is 15.2% above market avg,883.0,619.1874,42.61,True
-4,2025-01-27,DEMAND_SPIKE,HIGH,PLT-OH1,MAT-016,SUP-017,Demand for Junction Box with Bypass Diodes at PLT-OH1 spiked 33.1% above 30-day average,10.9019,7.4384,46.56,True
-5,2025-03-06,PRICE_ANOMALY,MEDIUM,PLT-AZ1,MAT-024,SUP-011,Purchase price for Phosphoric Acid Etchant 25L from Henkel Adhesives Technologies is 15.1% above market avg,89.6706,60.1506,49.08,False
-6,2025-04-01,PRICE_ANOMALY,MEDIUM,PLT-AZ1,MAT-026,SUP-017,Purchase price for De-ionized Water System Resin from II-VI Incorporated Optics is 44.8% above market avg,52.617,39.0249,34.83,True
-7,2025-01-08,INVENTORY_DROP,HIGH,PLT-AZ1,MAT-038,SUP-018,Inventory for Thermoplastic Polyolefin Backsheet Roll at PLT-AZ1 dropped 23.7% in 7 days,211.6178,183.2857,15.46,True
-8,2025-01-13,INVENTORY_DROP,HIGH,PLT-OH2,MAT-030,SUP-020,Inventory for Stretch Wrap Film 500m Roll at PLT-OH2 dropped 32.2% in 7 days,29.956,21.4823,39.45,True
-9,2025-01-07,SUPPLIER_DELAY,HIGH,PLT-AZ1,MAT-038,SUP-009,Supplier TE Connectivity Solar Solution delivery for Thermoplastic Polyolefin Backsheet Roll is 3d overdue to PLT-AZ1,231.0779,193.3622,19.51,True
-10,2025-03-12,DEMAND_SPIKE,HIGH,PLT-OH2,MAT-004,SUP-003,Demand for Anti-Reflective Glass Coating Chemical at PLT-OH2 spiked 39.1% above 30-day average,115.8494,88.7393,30.55,False
-11,2025-02-25,DEMAND_SPIKE,HIGH,PLT-OH2,MAT-038,SUP-007,Demand for Thermoplastic Polyolefin Backsheet Roll at PLT-OH2 spiked 31.0% above 30-day average,219.924,180.0944,22.12,True
-12,2025-02-28,SUPPLIER_DELAY,HIGH,PLT-AZ1,MAT-042,SUP-007,Supplier Hydro Extrusions North America delivery for Heat Sink Compound Syringe 50g is 9d overdue to PLT-AZ1,14.2937,12.5359,14.02,False
-13,2025-01-23,PRICE_ANOMALY,MEDIUM,PLT-OH1,MAT-043,SUP-010,Purchase price for Laser Scribing Machine Lens from Stäubli Electrical Connectors is 35.2% above market avg,3331.2803,2864.1653,16.31,False
-14,2025-02-20,PRICE_ANOMALY,MEDIUM,PLT-AZ1,MAT-045,SUP-018,Purchase price for EL Imaging Camera Reference Target from Sumitomo Electric Wiring is 34.2% above market avg,929.2366,641.8879,44.77,False
-15,2025-02-12,DEMAND_SPIKE,HIGH,PLT-OH2,MAT-012,SUP-004,Demand for Aluminum Extrusion Frame Short Rail at PLT-OH2 spiked 37.9% above 30-day average,4.9938,4.2146,18.49,True
-16,2025-01-22,INVENTORY_DROP,HIGH,PLT-AZ1,MAT-040,SUP-009,Inventory for Edge Seal Tape 50mm at PLT-AZ1 dropped 38.6% in 7 days,38.2578,27.6861,38.18,False
-17,2025-02-14,DEMAND_SPIKE,HIGH,PLT-AZ1,MAT-050,SUP-003,Demand for Label Self-Adhesive Weatherproof at PLT-AZ1 spiked 44.8% above 30-day average,25.3703,22.6935,11.8,True
-18,2025-03-27,PRICE_ANOMALY,MEDIUM,PLT-OH1,MAT-022,SUP-013,Purchase price for Encapsulant EVA Film Roll from Air Products and Chemicals Inc is 38.8% above market avg,112.3411,97.9622,14.68,False
-19,2025-02-04,INVENTORY_DROP,HIGH,PLT-AZ1,MAT-048,SUP-003,Inventory for Anti-PID Film Sheet at PLT-AZ1 dropped 44.3% in 7 days,2.2269,1.8743,18.81,True
-20,2025-03-24,INVENTORY_DROP,HIGH,PLT-OH2,MAT-042,SUP-012,Inventory for Heat Sink Compound Syringe 50g at PLT-OH2 dropped 21.0% in 7 days,13.4964,12.0851,11.68,False
-21,2025-03-07,PRICE_ANOMALY,MEDIUM,PLT-OH2,MAT-048,SUP-001,Purchase price for Anti-PID Film Sheet from AGC Inc. - Flat Glass Division is 44.1% above market avg,2.1886,1.817,20.45,True
-22,2025-01-21,SUPPLIER_DELAY,HIGH,PLT-OH2,MAT-032,SUP-018,Supplier Sumitomo Electric Wiring delivery for Carton Box Module Single is 14d overdue to PLT-OH2,7.2933,5.671,28.61,True
-23,2025-02-26,SUPPLIER_DELAY,HIGH,PLT-OH2,MAT-035,SUP-014,Supplier Linde Gases North America delivery for Vacuum O-Ring Kit is 4d overdue to PLT-OH2,108.601,99.4087,9.25,False
-24,2025-02-17,INVENTORY_DROP,HIGH,PLT-OH1,MAT-018,SUP-011,Inventory for Lead-Free Solder Wire 500g Reel at PLT-OH1 dropped 40.5% in 7 days,25.612,17.9969,42.31,True
-25,2025-03-14,DEMAND_SPIKE,HIGH,PLT-OH1,MAT-019,SUP-011,Demand for Bypass Diode Schottky 15A at PLT-OH1 spiked 20.5% above 30-day average,0.9566,0.6567,45.67,True
-26,2025-03-06,DEMAND_SPIKE,HIGH,PLT-OH1,MAT-017,SUP-011,Demand for MC4 Connector Pair at PLT-OH1 spiked 24.5% above 30-day average,2.4573,2.1631,13.6,False
-27,2025-02-19,PRICE_ANOMALY,MEDIUM,PLT-AZ1,MAT-049,SUP-018,Purchase price for Silicone Sealant Cartridge from Sumitomo Electric Wiring is 42.4% above market avg,11.9025,8.5658,38.95,True
-28,2025-02-24,PRICE_ANOMALY,MEDIUM,PLT-OH1,MAT-026,SUP-002,Purchase price for De-ionized Water System Resin from NSG Group Pilkington is 24.4% above market avg,44.0135,38.9162,13.1,False
-29,2025-01-17,DEMAND_SPIKE,HIGH,PLT-OH1,MAT-031,SUP-002,Demand for Module Interleaf Paper Roll at PLT-OH1 spiked 29.1% above 30-day average,18.327,14.4882,26.5,True
-30,2025-02-13,DEMAND_SPIKE,HIGH,PLT-OH2,MAT-011,SUP-006,Demand for Aluminum Extrusion Frame 2m Side Rail at PLT-OH2 spiked 34.5% above 30-day average,8.883,7.0123,26.68,True
-31,2025-01-23,SUPPLIER_DELAY,HIGH,PLT-AZ1,MAT-044,SUP-017,Supplier II-VI Incorporated Optics delivery for Laser Head Cooling Pump Filter is 9d overdue to PLT-AZ1,167.3636,141.7131,18.1,True
-32,2025-02-04,INVENTORY_DROP,HIGH,PLT-AZ1,MAT-016,SUP-002,Inventory for Junction Box with Bypass Diodes at PLT-AZ1 dropped 27.9% in 7 days,9.8141,7.5208,30.49,False
-33,2025-03-13,INVENTORY_DROP,HIGH,PLT-AZ1,MAT-019,SUP-009,Inventory for Bypass Diode Schottky 15A at PLT-AZ1 dropped 22.5% in 7 days,0.8637,0.6568,31.5,False
-34,2025-01-21,INVENTORY_DROP,HIGH,PLT-AZ1,MAT-013,SUP-009,Inventory for Corner Bracket Assembly at PLT-AZ1 dropped 35.7% in 7 days,2.8112,2.2126,27.05,True
-35,2025-01-23,DEMAND_SPIKE,HIGH,PLT-OH1,MAT-016,SUP-002,Demand for Junction Box with Bypass Diodes at PLT-OH1 spiked 36.9% above 30-day average,9.9557,7.3324,35.78,False
-36,2025-01-01,SUPPLIER_DELAY,HIGH,PLT-AZ1,MAT-008,SUP-001,Supplier AGC Inc. - Flat Glass Division delivery for Indium Tin Oxide (ITO) Sputtering Target is 8d overdue to PLT-AZ1,490.8972,429.4212,14.32,True
-37,2025-03-07,PRICE_ANOMALY,MEDIUM,PLT-OH2,MAT-025,SUP-017,Purchase price for Isopropyl Alcohol Technical Grade 200L from II-VI Incorporated Optics is 35.4% above market avg,251.4951,173.6265,44.85,False
-38,2025-02-04,SUPPLIER_DELAY,HIGH,PLT-OH2,MAT-032,SUP-009,Supplier TE Connectivity Solar Solution delivery for Carton Box Module Single is 7d overdue to PLT-OH2,6.307,5.2588,19.93,True
-39,2025-01-10,INVENTORY_DROP,HIGH,PLT-AZ1,MAT-019,SUP-007,Inventory for Bypass Diode Schottky 15A at PLT-AZ1 dropped 27.4% in 7 days,0.7578,0.6452,17.45,False
-40,2025-01-13,INVENTORY_DROP,HIGH,PLT-OH2,MAT-020,SUP-008,Inventory for Bussing Ribbon Copper 6mm at PLT-OH2 dropped 28.5% in 7 days,0.6119,0.4395,39.23,False
-41,2025-03-27,SUPPLIER_DELAY,HIGH,PLT-OH2,MAT-009,SUP-001,Supplier AGC Inc. - Flat Glass Division delivery for Zinc Stannate Buffer Powder is 13d overdue to PLT-OH2,119.6376,99.2609,20.53,True
-42,2025-01-27,DEMAND_SPIKE,HIGH,PLT-OH2,MAT-047,SUP-012,Demand for Grounding Lug Assembly at PLT-OH2 spiked 30.7% above 30-day average,3.9115,3.2053,22.03,False
-43,2025-03-13,DEMAND_SPIKE,HIGH,PLT-OH1,MAT-037,SUP-004,Demand for Argon Gas High Purity 50L at PLT-OH1 spiked 22.2% above 30-day average,65.6859,57.5172,14.2,True
-44,2025-02-03,INVENTORY_DROP,HIGH,PLT-AZ1,MAT-001,SUP-005,Inventory for Low-Iron Tempered Glass Panel 2m x 1.2m at PLT-AZ1 dropped 43.8% in 7 days,40.4067,28.2712,42.93,False
-45,2025-03-27,SUPPLIER_DELAY,HIGH,PLT-OH1,MAT-007,SUP-010,Supplier Stäubli Electrical Connectors delivery for Tin Oxide (SnO2) Target Material is 9d overdue to PLT-OH1,220.9679,176.5084,25.19,True
-46,2025-03-05,DEMAND_SPIKE,HIGH,PLT-OH2,MAT-031,SUP-020,Demand for Module Interleaf Paper Roll at PLT-OH2 spiked 20.9% above 30-day average,19.3807,14.7853,31.08,True
-47,2025-02-28,INVENTORY_DROP,HIGH,PLT-OH1,MAT-028,SUP-018,Inventory for Module Shipping Pallet Rack at PLT-OH1 dropped 15.5% in 7 days,55.2472,43.7909,26.16,True
-48,2025-02-06,INVENTORY_DROP,HIGH,PLT-OH2,MAT-035,SUP-003,Inventory for Vacuum O-Ring Kit at PLT-OH2 dropped 18.1% in 7 days,117.3886,97.2612,20.69,False
-49,2025-01-17,DEMAND_SPIKE,HIGH,PLT-OH2,MAT-001,SUP-019,Demand for Low-Iron Tempered Glass Panel 2m x 1.2m at PLT-OH2 spiked 27.3% above 30-day average,39.7647,29.6203,34.25,False
-50,2025-02-12,DEMAND_SPIKE,HIGH,PLT-OH1,MAT-017,SUP-020,Demand for MC4 Connector Pair at PLT-OH1 spiked 31.1% above 30-day average,2.9283,2.095,39.78,False
-51,2025-01-30,DEMAND_SPIKE,HIGH,PLT-OH2,MAT-014,SUP-014,Demand for Mounting Hole Insert at PLT-OH2 spiked 41.6% above 30-day average,1.0084,0.8861,13.8,False
-52,2025-03-18,PRICE_ANOMALY,MEDIUM,PLT-OH2,MAT-049,SUP-015,Purchase price for Silicone Sealant Cartridge from Borealis Polyolefin Solutions is 31.7% above market avg,9.4474,8.6081,9.75,False
-53,2025-02-19,SUPPLIER_DELAY,HIGH,PLT-OH1,MAT-011,SUP-008,Supplier Arconic Aluminum Products delivery for Aluminum Extrusion Frame 2m Side Rail is 14d overdue to PLT-OH1,8.4539,6.5944,28.2,False
-54,2025-01-10,INVENTORY_DROP,HIGH,PLT-OH1,MAT-040,SUP-005,Inventory for Edge Seal Tape 50mm at PLT-OH1 dropped 15.9% in 7 days,38.6835,28.356,36.42,True
-55,2025-02-24,INVENTORY_DROP,HIGH,PLT-OH1,MAT-045,SUP-003,Inventory for EL Imaging Camera Reference Target at PLT-OH1 dropped 40.0% in 7 days,761.6688,612.2212,24.41,True
-56,2025-03-17,DEMAND_SPIKE,HIGH,PLT-OH1,MAT-049,SUP-006,Demand for Silicone Sealant Cartridge at PLT-OH1 spiked 21.4% above 30-day average,10.7626,8.6697,24.14,False
-57,2025-02-28,INVENTORY_DROP,HIGH,PLT-OH1,MAT-039,SUP-018,Inventory for Polyvinyl Butyral Interlayer Film at PLT-OH1 dropped 34.8% in 7 days,299.3127,212.3299,40.97,True
-58,2025-02-19,PRICE_ANOMALY,MEDIUM,PLT-OH2,MAT-039,SUP-007,Purchase price for Polyvinyl Butyral Interlayer Film from Hydro Extrusions North America is 42.8% above market avg,248.6743,215.7237,15.27,True
-59,2025-01-16,DEMAND_SPIKE,HIGH,PLT-AZ1,MAT-009,SUP-002,Demand for Zinc Stannate Buffer Powder at PLT-AZ1 spiked 21.9% above 30-day average,128.9012,95.5706,34.88,False
-60,2025-01-24,DEMAND_SPIKE,HIGH,PLT-AZ1,MAT-012,SUP-018,Demand for Aluminum Extrusion Frame Short Rail at PLT-AZ1 spiked 41.3% above 30-day average,4.7857,4.2469,12.69,True
-61,2025-01-14,SUPPLIER_DELAY,HIGH,PLT-AZ1,MAT-036,SUP-003,Supplier Guardian Glass North America delivery for High Purity Nitrogen Gas Cylinder is 11d overdue to PLT-AZ1,82.7944,72.3521,14.43,True
-62,2025-01-08,INVENTORY_DROP,HIGH,PLT-OH2,MAT-014,SUP-005,Inventory for Mounting Hole Insert at PLT-OH2 dropped 39.1% in 7 days,1.1082,0.8201,35.13,True
-63,2025-03-18,DEMAND_SPIKE,HIGH,PLT-AZ1,MAT-049,SUP-011,Demand for Silicone Sealant Cartridge at PLT-AZ1 spiked 28.8% above 30-day average,10.8435,8.1005,33.86,True
-64,2025-01-06,DEMAND_SPIKE,HIGH,PLT-AZ1,MAT-002,SUP-003,Demand for Back Glass Panel 2m x 1.2m at PLT-AZ1 spiked 24.7% above 30-day average,30.8956,21.0818,46.55,False
-65,2025-01-17,INVENTORY_DROP,HIGH,PLT-AZ1,MAT-042,SUP-012,Inventory for Heat Sink Compound Syringe 50g at PLT-AZ1 dropped 16.7% in 7 days,16.6675,12.2631,35.92,True
-66,2025-02-26,INVENTORY_DROP,HIGH,PLT-AZ1,MAT-008,SUP-017,Inventory for Indium Tin Oxide (ITO) Sputtering Target at PLT-AZ1 dropped 34.4% in 7 days,494.4552,433.1362,14.16,True
-67,2025-03-27,PRICE_ANOMALY,MEDIUM,PLT-OH2,MAT-034,SUP-003,Purchase price for Furnace Quartz Tube Liner from Guardian Glass North America is 19.5% above market avg,508.4085,372.9363,36.33,True
-68,2025-04-01,INVENTORY_DROP,HIGH,PLT-OH2,MAT-002,SUP-002,Inventory for Back Glass Panel 2m x 1.2m at PLT-OH2 dropped 33.0% in 7 days,30.8141,21.7314,41.8,True
-69,2025-01-16,PRICE_ANOMALY,MEDIUM,PLT-AZ1,MAT-034,SUP-009,Purchase price for Furnace Quartz Tube Liner from TE Connectivity Solar Solution is 30.9% above market avg,461.9592,376.693,22.64,True
-70,2025-02-11,PRICE_ANOMALY,MEDIUM,PLT-OH2,MAT-043,SUP-002,Purchase price for Laser Scribing Machine Lens from NSG Group Pilkington is 26.0% above market avg,3831.1498,2671.7245,43.4,True
-71,2025-03-26,DEMAND_SPIKE,HIGH,PLT-OH2,MAT-014,SUP-008,Demand for Mounting Hole Insert at PLT-OH2 spiked 27.3% above 30-day average,1.1331,0.8744,29.59,False
-72,2025-02-03,SUPPLIER_DELAY,HIGH,PLT-OH1,MAT-004,SUP-009,Supplier TE Connectivity Solar Solution delivery for Anti-Reflective Glass Coating Chemical is 4d overdue to PLT-OH1,116.8523,85.2429,37.08,True
-73,2025-01-01,PRICE_ANOMALY,MEDIUM,PLT-AZ1,MAT-047,SUP-009,Purchase price for Grounding Lug Assembly from TE Connectivity Solar Solution is 43.9% above market avg,4.023,3.1995,25.74,True
-74,2025-02-04,INVENTORY_DROP,HIGH,PLT-AZ1,MAT-049,SUP-007,Inventory for Silicone Sealant Cartridge at PLT-AZ1 dropped 30.8% in 7 days,10.516,8.647,21.61,False
-75,2025-03-13,PRICE_ANOMALY,MEDIUM,PLT-AZ1,MAT-011,SUP-017,Purchase price for Aluminum Extrusion Frame 2m Side Rail from II-VI Incorporated Optics is 32.1% above market avg,9.0039,6.6624,35.14,False
-76,2025-03-17,SUPPLIER_DELAY,HIGH,PLT-OH2,MAT-047,SUP-017,Supplier II-VI Incorporated Optics delivery for Grounding Lug Assembly is 4d overdue to PLT-OH2,4.0879,3.0663,33.32,True
-77,2025-03-11,PRICE_ANOMALY,MEDIUM,PLT-AZ1,MAT-025,SUP-006,Purchase price for Isopropyl Alcohol Technical Grade 200L from Umicore Advanced Materials is 25.6% above market avg,256.9939,171.7617,49.62,True
-78,2025-02-11,PRICE_ANOMALY,MEDIUM,PLT-OH2,MAT-035,SUP-006,Purchase price for Vacuum O-Ring Kit from Umicore Advanced Materials is 23.8% above market avg,105.3473,93.8341,12.27,True
-79,2025-02-19,PRICE_ANOMALY,MEDIUM,PLT-AZ1,MAT-037,SUP-017,Purchase price for Argon Gas High Purity 50L from II-VI Incorporated Optics is 30.2% above market avg,77.7423,54.276,43.24,True
-80,2025-04-01,SUPPLIER_DELAY,HIGH,PLT-OH2,MAT-022,SUP-005,Supplier Materion Corporation delivery for Encapsulant EVA Film Roll is 14d overdue to PLT-OH2,113.0933,90.6066,24.82,True
-81,2025-01-10,PRICE_ANOMALY,MEDIUM,PLT-OH1,MAT-014,SUP-007,Purchase price for Mounting Hole Insert from Hydro Extrusions North America is 21.3% above market avg,1.0297,0.8574,20.1,True
-82,2025-01-22,INVENTORY_DROP,HIGH,PLT-AZ1,MAT-015,SUP-005,Inventory for Stainless Steel Fastener Set at PLT-AZ1 dropped 39.2% in 7 days,1.4282,1.2031,18.71,True
-83,2025-01-22,DEMAND_SPIKE,HIGH,PLT-AZ1,MAT-013,SUP-008,Demand for Corner Bracket Assembly at PLT-AZ1 spiked 32.8% above 30-day average,3.1111,2.216,40.39,True
-84,2025-02-10,DEMAND_SPIKE,HIGH,PLT-OH2,MAT-003,SUP-003,Demand for Glass Spacer Frame at PLT-OH2 spiked 43.7% above 30-day average,5.7874,4.3939,31.71,True
-85,2025-01-17,INVENTORY_DROP,HIGH,PLT-AZ1,MAT-027,SUP-018,Inventory for Flux No-Clean Pen at PLT-AZ1 dropped 36.6% in 7 days,6.0668,4.3582,39.2,True
-86,2025-01-06,DEMAND_SPIKE,HIGH,PLT-OH2,MAT-050,SUP-014,Demand for Label Self-Adhesive Weatherproof at PLT-OH2 spiked 18.4% above 30-day average,30.9017,20.9289,47.65,True
-87,2025-02-28,INVENTORY_DROP,HIGH,PLT-AZ1,MAT-045,SUP-016,Inventory for EL Imaging Camera Reference Target at PLT-AZ1 dropped 22.9% in 7 days,874.4063,648.5429,34.83,True
-88,2025-01-01,SUPPLIER_DELAY,HIGH,PLT-OH2,MAT-024,SUP-020,Supplier Nitto Denko Corporation Tapes delivery for Phosphoric Acid Etchant 25L is 5d overdue to PLT-OH2,84.0579,62.6429,34.19,True
-89,2025-02-20,DEMAND_SPIKE,HIGH,PLT-AZ1,MAT-019,SUP-008,Demand for Bypass Diode Schottky 15A at PLT-AZ1 spiked 21.9% above 30-day average,0.869,0.6556,32.55,True
-90,2025-03-14,SUPPLIER_DELAY,HIGH,PLT-OH1,MAT-047,SUP-006,Supplier Umicore Advanced Materials delivery for Grounding Lug Assembly is 12d overdue to PLT-OH1,4.108,3.1168,31.8,False
-91,2025-03-03,INVENTORY_DROP,HIGH,PLT-OH1,MAT-006,SUP-009,Inventory for Cadmium Sulfide (CdS) Buffer Layer at PLT-OH1 dropped 43.0% in 7 days,295.1554,202.2311,45.95,True
-92,2025-01-08,PRICE_ANOMALY,MEDIUM,PLT-AZ1,MAT-002,SUP-011,Purchase price for Back Glass Panel 2m x 1.2m from Henkel Adhesives Technologies is 22.1% above market avg,29.4409,22.5363,30.64,True
-93,2025-01-17,DEMAND_SPIKE,HIGH,PLT-AZ1,MAT-009,SUP-014,Demand for Zinc Stannate Buffer Powder at PLT-AZ1 spiked 38.4% above 30-day average,142.0437,98.5609,44.12,False
-94,2025-02-06,PRICE_ANOMALY,MEDIUM,PLT-OH2,MAT-026,SUP-020,Purchase price for De-ionized Water System Resin from Nitto Denko Corporation Tapes is 17.7% above market avg,48.9931,36.3762,34.68,True
-95,2025-02-07,DEMAND_SPIKE,HIGH,PLT-OH1,MAT-050,SUP-007,Demand for Label Self-Adhesive Weatherproof at PLT-OH1 spiked 22.6% above 30-day average,28.5258,22.02,29.54,False
-96,2025-01-20,INVENTORY_DROP,HIGH,PLT-AZ1,MAT-032,SUP-014,Inventory for Carton Box Module Single at PLT-AZ1 dropped 37.9% in 7 days,7.9087,5.7662,37.16,True
-97,2025-02-21,DEMAND_SPIKE,HIGH,PLT-OH1,MAT-016,SUP-010,Demand for Junction Box with Bypass Diodes at PLT-OH1 spiked 41.9% above 30-day average,10.9162,7.7102,41.58,False
-98,2025-02-12,INVENTORY_DROP,HIGH,PLT-AZ1,MAT-036,SUP-017,Inventory for High Purity Nitrogen Gas Cylinder at PLT-AZ1 dropped 19.1% in 7 days,88.6465,72.8245,21.73,False
-99,2025-01-20,PRICE_ANOMALY,MEDIUM,PLT-OH2,MAT-045,SUP-001,Purchase price for EL Imaging Camera Reference Target from AGC Inc. - Flat Glass Division is 33.2% above market avg,847.1953,625.0123,35.55,False
-100,2025-02-21,PRICE_ANOMALY,MEDIUM,PLT-AZ1,MAT-012,SUP-001,Purchase price for Aluminum Extrusion Frame Short Rail from AGC Inc. - Flat Glass Division is 36.4% above market avg,5.9842,3.9629,51.01,True
-101,2025-03-27,PRICE_ANOMALY,MEDIUM,PLT-AZ1,MAT-041,SUP-020,Purchase price for Thermal Interface Paste 1kg from Nitto Denko Corporation Tapes is 29.5% above market avg,53.2445,42.0,26.77,False
-102,2025-03-14,PRICE_ANOMALY,MEDIUM,PLT-OH2,MAT-021,SUP-018,Purchase price for Cross Ribbon Copper 3mm from Sumitomo Electric Wiring is 32.9% above market avg,0.3768,0.28,34.57,False
-103,2025-03-05,SUPPLIER_DELAY,HIGH,PLT-AZ1,MAT-034,SUP-017,Supplier II-VI Incorporated Optics delivery for Furnace Quartz Tube Liner is 8d overdue to PLT-AZ1,482.549,380.0,26.99,False
-104,2025-03-12,SUPPLIER_DELAY,HIGH,PLT-AZ1,MAT-010,SUP-005,Supplier Materion Corporation delivery for Copper Back Contact Material is 3d overdue to PLT-AZ1,13.3067,9.5,40.07,False
-105,2025-03-28,SUPPLIER_DELAY,HIGH,PLT-OH2,MAT-011,SUP-007,Supplier Hydro Extrusions North America delivery for Aluminum Extrusion Frame 2m Side Ra is 6d overdue to PLT-OH2,9.336,6.8,37.29,False
-106,2025-03-19,SUPPLIER_DELAY,HIGH,PLT-OH2,MAT-047,SUP-019,Supplier Brady Corporation Identification delivery for Grounding Lug Assembly is 3d overdue to PLT-AZ1,4.1375,3.2,29.3,False
-107,2025-03-31,PRICE_ANOMALY,MEDIUM,PLT-AZ1,MAT-006,SUP-004,Purchase price for Cadmium Sulfide (CdS) Buffer Layer from 5N Plus Inc. - Semiconductor Divisi is 18.6% above market avg,269.8326,210.0,28.49,False
-108,2025-03-11,SUPPLIER_DELAY,HIGH,PLT-AZ1,MAT-021,SUP-010,Supplier Stäubli Electrical Connectors delivery for Cross Ribbon Copper 3mm is 12d overdue to PLT-OH1,0.3513,0.28,25.46,False
-109,2025-03-28,PRICE_ANOMALY,MEDIUM,PLT-AZ1,MAT-038,SUP-012,Purchase price for Thermoplastic Polyolefin Backsheet  from Dow Chemical Encapsulants is 28.4% above market avg,248.0642,185.0,34.09,False
-110,2025-03-03,PRICE_ANOMALY,MEDIUM,PLT-OH1,MAT-017,SUP-010,Purchase price for MC4 Connector Pair from Stäubli Electrical Connectors is 35.7% above market avg,2.5213,2.1,20.06,False
-111,2025-03-27,SUPPLIER_DELAY,HIGH,PLT-OH2,MAT-041,SUP-020,Supplier Nitto Denko Corporation Tapes delivery for Thermal Interface Paste 1kg is 5d overdue to PLT-OH2,55.5884,42.0,32.35,False
-112,2025-03-26,SUPPLIER_DELAY,HIGH,PLT-OH2,MAT-010,SUP-005,Supplier Materion Corporation delivery for Copper Back Contact Material is 11d overdue to PLT-OH2,12.5301,9.5,31.9,False
-113,2025-03-20,SUPPLIER_DELAY,HIGH,PLT-AZ1,MAT-001,SUP-003,Supplier Guardian Glass North America delivery for Low-Iron Tempered Glass Panel 2m x  is 9d overdue to PLT-OH1,38.3246,28.5,34.47,False
-114,2025-03-07,SUPPLIER_DELAY,HIGH,PLT-OH2,MAT-012,SUP-007,Supplier Hydro Extrusions North America delivery for Aluminum Extrusion Frame Short Rail is 4d overdue to PLT-OH2,5.696,4.1,38.93,False
-115,2025-03-19,SUPPLIER_DELAY,HIGH,PLT-OH1,MAT-018,SUP-018,Supplier Sumitomo Electric Wiring delivery for Lead-Free Solder Wire 500g Reel is 7d overdue to PLT-AZ1,22.3325,18.0,24.07,False
+1,2025-02-17,DEMAND_SPIKE,HIGH,PLT-OH1,MAT-034,SUP-018,Demand for Furnace Quartz Tube Liner at PLT-OH1 spiked 22.9% above 30-day average,457.5017,364.3891,25.55,False
+2,2025-02-26,PRICE_ANOMALY,MEDIUM,PLT-LA1,MAT-011,SUP-007,Purchase price for Aluminum Extrusion Frame 2m Side Rail from Hydro Extrusions North America is 25.3% above market avg,8.0777,6.5138,24.01,False
+3,2025-01-30,DEMAND_SPIKE,HIGH,PLT-AL1,MAT-039,SUP-006,Demand for Polyvinyl Butyral Interlayer Film at PLT-AL1 spiked 15.0% above 30-day average,253.2951,216.8285,16.82,True
+4,2025-02-26,SUPPLIER_DELAY,HIGH,PLT-OH1,MAT-032,SUP-018,Supplier Sumitomo Electric Wiring delivery for Carton Box Module Single is 8d overdue to PLT-OH1,6.7303,5.4711,23.02,True
+5,2025-02-21,PRICE_ANOMALY,MEDIUM,PLT-OH1,MAT-038,SUP-002,Purchase price for Thermoplastic Polyolefin Backsheet Roll from NSG Group Pilkington is 36.8% above market avg,256.1186,178.3557,43.6,False
+6,2025-01-08,DEMAND_SPIKE,HIGH,PLT-OH1,MAT-018,SUP-010,Demand for Lead-Free Solder Wire 500g Reel at PLT-OH1 spiked 44.8% above 30-day average,23.5606,18.5976,26.69,False
+7,2025-01-20,SUPPLIER_DELAY,HIGH,PLT-OH1,MAT-048,SUP-016,Supplier Eastman Chemical Solar Films delivery for Anti-PID Film Sheet is 5d overdue to PLT-OH1,2.4553,1.8601,32.0,True
+8,2025-03-28,SUPPLIER_DELAY,HIGH,PLT-AL1,MAT-041,SUP-007,Supplier Hydro Extrusions North America delivery for Thermal Interface Paste 1kg is 9d overdue to PLT-AL1,50.6952,42.9851,17.94,True
+9,2025-03-20,SUPPLIER_DELAY,HIGH,PLT-OH1,MAT-015,SUP-018,Supplier Sumitomo Electric Wiring delivery for Stainless Steel Fastener Set is 4d overdue to PLT-OH1,1.6309,1.2218,33.48,False
+10,2025-01-06,PRICE_ANOMALY,MEDIUM,PLT-AL1,MAT-037,SUP-015,Purchase price for Argon Gas High Purity 50L from Borealis Polyolefin Solutions is 43.8% above market avg,72.8294,55.2453,31.83,True
+11,2025-03-13,DEMAND_SPIKE,HIGH,PLT-OH1,MAT-031,SUP-002,Demand for Module Interleaf Paper Roll at PLT-OH1 spiked 27.1% above 30-day average,18.138,15.4198,17.63,False
+12,2025-01-02,PRICE_ANOMALY,MEDIUM,PLT-AL1,MAT-025,SUP-018,Purchase price for Isopropyl Alcohol Technical Grade 200L from Sumitomo Electric Wiring is 19.3% above market avg,244.3314,182.3251,34.01,False
+13,2025-01-29,DEMAND_SPIKE,HIGH,PLT-OH1,MAT-044,SUP-012,Demand for Laser Head Cooling Pump Filter at PLT-OH1 spiked 15.4% above 30-day average,189.1971,139.2711,35.85,False
+14,2025-01-28,DEMAND_SPIKE,HIGH,PLT-LA1,MAT-042,SUP-006,Demand for Heat Sink Compound Syringe 50g at PLT-LA1 spiked 17.2% above 30-day average,14.3965,12.5627,14.6,True
+15,2025-01-08,PRICE_ANOMALY,MEDIUM,PLT-AL1,MAT-028,SUP-020,Purchase price for Module Shipping Pallet Rack from Nitto Denko Corporation Tapes is 33.3% above market avg,64.6193,47.0389,37.37,False
+16,2025-01-07,PRICE_ANOMALY,MEDIUM,PLT-AL1,MAT-039,SUP-008,Purchase price for Polyvinyl Butyral Interlayer Film from Arconic Aluminum Products is 34.9% above market avg,274.6801,214.5518,28.03,False
+17,2025-02-21,SUPPLIER_DELAY,HIGH,PLT-OH1,MAT-039,SUP-011,Supplier Henkel Adhesives Technologies delivery for Polyvinyl Butyral Interlayer Film is 12d overdue to PLT-OH1,277.3147,213.0927,30.14,False
+18,2025-03-21,INVENTORY_DROP,HIGH,PLT-AL1,MAT-045,SUP-015,Inventory for EL Imaging Camera Reference Target at PLT-AL1 dropped 17.7% in 7 days,760.0897,616.7499,23.24,True
+19,2025-02-03,DEMAND_SPIKE,HIGH,PLT-LA1,MAT-029,SUP-009,Demand for Protective Foam Corner Piece at PLT-LA1 spiked 26.4% above 30-day average,3.8535,2.8358,35.89,True
+20,2025-03-31,INVENTORY_DROP,HIGH,PLT-OH1,MAT-035,SUP-005,Inventory for Vacuum O-Ring Kit at PLT-OH1 dropped 40.7% in 7 days,135.4151,97.0761,39.49,False
+21,2025-01-23,PRICE_ANOMALY,MEDIUM,PLT-LA1,MAT-037,SUP-007,Purchase price for Argon Gas High Purity 50L from Hydro Extrusions North America is 29.8% above market avg,64.7954,54.0004,19.99,True
+22,2025-03-13,SUPPLIER_DELAY,HIGH,PLT-LA1,MAT-041,SUP-008,Supplier Arconic Aluminum Products delivery for Thermal Interface Paste 1kg is 14d overdue to PLT-LA1,49.2634,43.6578,12.84,False
+23,2025-03-11,INVENTORY_DROP,HIGH,PLT-LA1,MAT-040,SUP-011,Inventory for Edge Seal Tape 50mm at PLT-LA1 dropped 35.6% in 7 days,33.0845,27.0702,22.22,True
+24,2025-01-31,PRICE_ANOMALY,MEDIUM,PLT-OH1,MAT-018,SUP-009,Purchase price for Lead-Free Solder Wire 500g Reel from TE Connectivity Solar Solution is 20.5% above market avg,23.0367,17.453,31.99,False
+25,2025-02-21,SUPPLIER_DELAY,HIGH,PLT-LA1,MAT-016,SUP-005,Supplier Materion Corporation delivery for Junction Box with Bypass Diodes is 14d overdue to PLT-LA1,9.6922,7.4185,30.65,True
+26,2025-02-04,DEMAND_SPIKE,HIGH,PLT-OH1,MAT-026,SUP-006,Demand for De-ionized Water System Resin at PLT-OH1 spiked 22.8% above 30-day average,50.5723,38.1256,32.65,False
+27,2025-03-27,SUPPLIER_DELAY,HIGH,PLT-OH1,MAT-025,SUP-006,Supplier Umicore Advanced Materials delivery for Isopropyl Alcohol Technical Grade 200L is 5d overdue to PLT-OH1,230.8363,186.63,23.69,False
+28,2025-03-07,DEMAND_SPIKE,HIGH,PLT-AL1,MAT-033,SUP-004,Demand for Magnetron Sputtering Target Holder at PLT-AL1 spiked 31.8% above 30-day average,1441.1592,1217.4985,18.37,True
+29,2025-03-11,PRICE_ANOMALY,MEDIUM,PLT-AL1,MAT-040,SUP-011,Purchase price for Edge Seal Tape 50mm from Henkel Adhesives Technologies is 37.7% above market avg,33.7885,26.6213,26.92,False
+30,2025-01-22,DEMAND_SPIKE,HIGH,PLT-AL1,MAT-031,SUP-020,Demand for Module Interleaf Paper Roll at PLT-AL1 spiked 29.5% above 30-day average,18.7505,14.7504,27.12,False
+31,2025-01-07,DEMAND_SPIKE,HIGH,PLT-OH1,MAT-014,SUP-013,Demand for Mounting Hole Insert at PLT-OH1 spiked 24.2% above 30-day average,1.0111,0.8778,15.19,False
+32,2025-02-07,SUPPLIER_DELAY,HIGH,PLT-OH1,MAT-040,SUP-007,Supplier Hydro Extrusions North America delivery for Edge Seal Tape 50mm is 10d overdue to PLT-OH1,40.0404,26.8727,49.0,True
+33,2025-03-21,PRICE_ANOMALY,MEDIUM,PLT-AL1,MAT-002,SUP-020,Purchase price for Back Glass Panel 2m x 1.2m from Nitto Denko Corporation Tapes is 23.0% above market avg,30.3295,21.14,43.47,True
+34,2025-01-16,DEMAND_SPIKE,HIGH,PLT-OH1,MAT-012,SUP-015,Demand for Aluminum Extrusion Frame Short Rail at PLT-OH1 spiked 26.5% above 30-day average,5.6587,4.1376,36.76,True
+35,2025-01-10,SUPPLIER_DELAY,HIGH,PLT-OH1,MAT-001,SUP-009,Supplier TE Connectivity Solar Solution delivery for Low-Iron Tempered Substrate Glass 2.0mm is 6d overdue to PLT-OH1,40.1043,29.5159,35.87,False
+36,2025-01-29,SUPPLIER_DELAY,HIGH,PLT-OH1,MAT-036,SUP-014,Supplier Linde Gases North America delivery for High Purity Nitrogen Gas Cylinder is 8d overdue to PLT-OH1,102.311,71.3917,43.31,True
+37,2025-03-20,PRICE_ANOMALY,MEDIUM,PLT-OH1,MAT-011,SUP-005,Purchase price for Aluminum Extrusion Frame 2m Side Rail from Materion Corporation is 29.8% above market avg,9.2889,7.0674,31.43,False
+38,2025-03-03,INVENTORY_DROP,HIGH,PLT-OH1,MAT-021,SUP-020,Inventory for Cross Ribbon Copper 3mm at PLT-OH1 dropped 23.6% in 7 days,0.3481,0.2915,19.42,True
+39,2025-03-18,PRICE_ANOMALY,MEDIUM,PLT-AL1,MAT-009,SUP-001,Purchase price for Zinc Stannate Buffer Powder from ABC Glass Industries is 41.5% above market avg,111.4983,96.3221,15.76,True
+40,2025-02-11,DEMAND_SPIKE,HIGH,PLT-AL1,MAT-009,SUP-004,Demand for Zinc Stannate Buffer Powder at PLT-AL1 spiked 39.0% above 30-day average,105.7242,93.4793,13.1,False
+41,2025-02-06,INVENTORY_DROP,HIGH,PLT-LA1,MAT-048,SUP-006,Inventory for Anti-PID Film Sheet at PLT-LA1 dropped 35.5% in 7 days,2.3122,1.8045,28.14,False
+42,2025-03-28,SUPPLIER_DELAY,HIGH,PLT-OH1,MAT-045,SUP-008,Supplier Arconic Aluminum Products delivery for EL Imaging Camera Reference Target is 13d overdue to PLT-OH1,878.5809,607.1454,44.71,True
+43,2025-01-01,SUPPLIER_DELAY,HIGH,PLT-OH1,MAT-033,SUP-006,Supplier Umicore Advanced Materials delivery for Magnetron Sputtering Target Holder is 7d overdue to PLT-OH1,1522.0474,1203.0993,26.51,True
+44,2025-01-31,DEMAND_SPIKE,HIGH,PLT-LA1,MAT-009,SUP-007,Demand for Zinc Stannate Buffer Powder at PLT-LA1 spiked 40.1% above 30-day average,110.8537,98.2411,12.84,False
+45,2025-02-25,DEMAND_SPIKE,HIGH,PLT-AL1,MAT-025,SUP-001,Demand for Isopropyl Alcohol Technical Grade 200L at PLT-AL1 spiked 41.6% above 30-day average,214.9839,173.8827,23.64,True
+46,2025-03-25,PRICE_ANOMALY,MEDIUM,PLT-AL1,MAT-035,SUP-006,Purchase price for Vacuum O-Ring Kit from Umicore Advanced Materials is 38.0% above market avg,118.911,94.5823,25.72,True
+47,2025-03-04,INVENTORY_DROP,HIGH,PLT-OH1,MAT-021,SUP-009,Inventory for Cross Ribbon Copper 3mm at PLT-OH1 dropped 37.4% in 7 days,0.3606,0.2698,33.65,False
+48,2025-01-07,PRICE_ANOMALY,MEDIUM,PLT-AL1,MAT-040,SUP-003,Purchase price for Edge Seal Tape 50mm from Guardian Glass North America is 30.3% above market avg,37.9801,28.4415,33.54,False
+49,2025-01-20,INVENTORY_DROP,HIGH,PLT-AL1,MAT-036,SUP-006,Inventory for High Purity Nitrogen Gas Cylinder at PLT-AL1 dropped 36.5% in 7 days,93.6023,71.6916,30.56,False
+50,2025-03-20,SUPPLIER_DELAY,HIGH,PLT-LA1,MAT-042,SUP-019,Supplier Brady Corporation Identificati delivery for Heat Sink Compound Syringe 50g is 3d overdue to PLT-LA1,14.4827,12.092,19.77,True
+51,2025-02-07,INVENTORY_DROP,HIGH,PLT-AL1,MAT-007,SUP-014,Inventory for Tin Oxide (SnO2) Target Material at PLT-AL1 dropped 39.0% in 7 days,235.6287,171.556,37.35,True
+52,2025-01-27,SUPPLIER_DELAY,HIGH,PLT-AL1,MAT-021,SUP-012,Supplier Dow Chemical Encapsulants delivery for Cross Ribbon Copper 3mm is 6d overdue to PLT-AL1,0.4021,0.2811,43.05,False
+53,2025-02-25,PRICE_ANOMALY,MEDIUM,PLT-OH1,MAT-008,SUP-016,Purchase price for Indium Tin Oxide (ITO) Sputtering Target from Eastman Chemical Solar Films is 36.7% above market avg,597.9041,408.1924,46.48,True
+54,2025-02-21,SUPPLIER_DELAY,HIGH,PLT-AL1,MAT-037,SUP-011,Supplier Henkel Adhesives Technologies delivery for Argon Gas High Purity 50L is 7d overdue to PLT-AL1,76.0781,54.9896,38.35,True
+55,2025-01-21,SUPPLIER_DELAY,HIGH,PLT-OH1,MAT-039,SUP-019,Supplier Brady Corporation Identificati delivery for Polyvinyl Butyral Interlayer Film is 5d overdue to PLT-OH1,275.8148,202.9039,35.93,False
+56,2025-03-25,INVENTORY_DROP,HIGH,PLT-LA1,MAT-008,SUP-007,Inventory for Indium Tin Oxide (ITO) Sputtering Target at PLT-LA1 dropped 29.7% in 7 days,523.0036,438.7238,19.21,True
+57,2025-01-23,SUPPLIER_DELAY,HIGH,PLT-AL1,MAT-044,SUP-004,Supplier 5N Plus Inc. - Semiconductor D delivery for Laser Head Cooling Pump Filter is 8d overdue to PLT-AL1,189.3727,150.2632,26.03,True
+58,2025-01-31,DEMAND_SPIKE,HIGH,PLT-AL1,MAT-017,SUP-018,Demand for MC4 Connector Pair at PLT-AL1 spiked 29.7% above 30-day average,2.978,2.1012,41.73,True
+59,2025-03-04,SUPPLIER_DELAY,HIGH,PLT-LA1,MAT-048,SUP-012,Supplier Dow Chemical Encapsulants delivery for Anti-PID Film Sheet is 8d overdue to PLT-LA1,2.1995,1.781,23.5,False
+60,2025-01-08,SUPPLIER_DELAY,HIGH,PLT-AL1,MAT-018,SUP-010,Supplier Staubli Electrical Connectors delivery for Lead-Free Solder Wire 500g Reel is 9d overdue to PLT-AL1,24.9462,18.6393,33.84,True
+61,2025-01-21,INVENTORY_DROP,HIGH,PLT-AL1,MAT-023,SUP-006,Inventory for CdCl2 Activation Solution 20L at PLT-AL1 dropped 43.6% in 7 days,199.7768,139.1068,43.61,True
+62,2025-01-30,PRICE_ANOMALY,MEDIUM,PLT-LA1,MAT-002,SUP-003,Purchase price for Back Glass Panel 2m x 1.2m from Guardian Glass North America is 24.1% above market avg,28.1274,22.025,27.71,False
+63,2025-02-05,DEMAND_SPIKE,HIGH,PLT-LA1,MAT-027,SUP-016,Demand for Flux No-Clean Pen at PLT-LA1 spiked 17.5% above 30-day average,5.7329,4.7103,21.71,False
+64,2025-01-09,SUPPLIER_DELAY,HIGH,PLT-LA1,MAT-010,SUP-004,Supplier 5N Plus Inc. - Semiconductor D delivery for Copper Back Contact Material is 4d overdue to PLT-LA1,13.9631,9.9371,40.51,True
+65,2025-01-24,DEMAND_SPIKE,HIGH,PLT-AL1,MAT-039,SUP-003,Demand for Polyvinyl Butyral Interlayer Film at PLT-AL1 spiked 18.5% above 30-day average,256.9824,203.2948,26.41,False
+66,2025-01-07,INVENTORY_DROP,HIGH,PLT-AL1,MAT-047,SUP-011,Inventory for Grounding Lug Assembly at PLT-AL1 dropped 34.9% in 7 days,4.6002,3.1033,48.24,True
+67,2025-02-07,DEMAND_SPIKE,HIGH,PLT-OH1,MAT-037,SUP-007,Demand for Argon Gas High Purity 50L at PLT-OH1 spiked 27.9% above 30-day average,63.4436,53.2336,19.18,True
+68,2025-02-24,DEMAND_SPIKE,HIGH,PLT-AL1,MAT-049,SUP-010,Demand for Silicone Sealant Cartridge at PLT-AL1 spiked 20.3% above 30-day average,10.8047,8.6556,24.83,True
+69,2025-01-24,PRICE_ANOMALY,MEDIUM,PLT-AL1,MAT-037,SUP-011,Purchase price for Argon Gas High Purity 50L from Henkel Adhesives Technologies is 44.5% above market avg,72.1799,52.3441,37.9,True
+70,2025-02-04,PRICE_ANOMALY,MEDIUM,PLT-OH1,MAT-047,SUP-013,Purchase price for Grounding Lug Assembly from Air Products and Chemicals Inc is 40.2% above market avg,4.5632,3.0404,50.09,True
+71,2025-03-04,SUPPLIER_DELAY,HIGH,PLT-LA1,MAT-038,SUP-016,Supplier Eastman Chemical Solar Films delivery for Thermoplastic Polyolefin Backsheet Roll is 4d overdue to PLT-LA1,224.4088,178.3748,25.81,False
+72,2025-03-05,PRICE_ANOMALY,MEDIUM,PLT-LA1,MAT-024,SUP-013,Purchase price for Phosphoric Acid Etchant 25L from Air Products and Chemicals Inc is 24.2% above market avg,71.6847,64.7374,10.73,True
+73,2025-01-28,DEMAND_SPIKE,HIGH,PLT-AL1,MAT-031,SUP-002,Demand for Module Interleaf Paper Roll at PLT-AL1 spiked 27.7% above 30-day average,19.9727,15.0863,32.39,False
+74,2025-01-30,DEMAND_SPIKE,HIGH,PLT-OH1,MAT-047,SUP-003,Demand for Grounding Lug Assembly at PLT-OH1 spiked 27.9% above 30-day average,3.6009,3.0805,16.89,False
+75,2025-01-20,PRICE_ANOMALY,MEDIUM,PLT-OH1,MAT-017,SUP-006,Purchase price for MC4 Connector Pair from Umicore Advanced Materials is 39.8% above market avg,2.6745,2.1423,24.84,True
+76,2025-01-07,SUPPLIER_DELAY,HIGH,PLT-AL1,MAT-008,SUP-001,Supplier ABC Glass Industries delivery for Indium Tin Oxide (ITO) Sputtering Target is 9d overdue to PLT-AL1,607.4187,431.2733,40.84,True
+77,2025-03-18,PRICE_ANOMALY,MEDIUM,PLT-LA1,MAT-005,SUP-012,Purchase price for Cadmium Telluride (CdTe) Compound from Dow Chemical Encapsulants is 28.3% above market avg,435.9965,313.1214,39.24,True
+78,2025-02-13,PRICE_ANOMALY,MEDIUM,PLT-OH1,MAT-007,SUP-005,Purchase price for Tin Oxide (SnO2) Target Material from Materion Corporation is 40.1% above market avg,214.2787,167.0222,28.29,False
+79,2025-01-22,DEMAND_SPIKE,HIGH,PLT-AL1,MAT-014,SUP-001,Demand for Mounting Hole Insert at PLT-AL1 spiked 39.2% above 30-day average,1.1859,0.816,45.33,False
+80,2025-01-16,INVENTORY_DROP,HIGH,PLT-AL1,MAT-028,SUP-017,Inventory for Module Shipping Pallet Rack at PLT-AL1 dropped 16.3% in 7 days,60.5618,45.7659,32.33,True
+81,2025-01-27,DEMAND_SPIKE,HIGH,PLT-LA1,MAT-007,SUP-011,Demand for Tin Oxide (SnO2) Target Material at PLT-LA1 spiked 36.1% above 30-day average,205.8549,173.4003,18.72,False
+82,2025-01-09,INVENTORY_DROP,HIGH,PLT-LA1,MAT-015,SUP-011,Inventory for Stainless Steel Fastener Set at PLT-LA1 dropped 17.4% in 7 days,1.6372,1.2564,30.31,True
+83,2025-03-28,PRICE_ANOMALY,MEDIUM,PLT-AL1,MAT-026,SUP-006,Purchase price for De-ionized Water System Resin from Umicore Advanced Materials is 18.4% above market avg,44.2691,36.7906,20.33,True
+84,2025-03-05,INVENTORY_DROP,HIGH,PLT-OH1,MAT-046,SUP-014,Inventory for IV Curve Tracer Calibration Cell at PLT-OH1 dropped 32.9% in 7 days,379.0743,323.1859,17.29,False
+85,2025-02-05,INVENTORY_DROP,HIGH,PLT-AL1,MAT-029,SUP-009,Inventory for Protective Foam Corner Piece at PLT-AL1 dropped 40.1% in 7 days,3.461,2.7589,25.45,False
+86,2025-02-12,SUPPLIER_DELAY,HIGH,PLT-LA1,MAT-031,SUP-001,Supplier ABC Glass Industries delivery for Module Interleaf Paper Roll is 7d overdue to PLT-LA1,18.9215,14.7159,28.58,False
+87,2025-01-06,DEMAND_SPIKE,HIGH,PLT-AL1,MAT-004,SUP-015,Demand for Anti-Reflective Glass Coating Chemical at PLT-AL1 spiked 32.7% above 30-day average,114.2071,81.0675,40.88,True
+88,2025-02-17,SUPPLIER_DELAY,HIGH,PLT-LA1,MAT-050,SUP-018,Supplier Sumitomo Electric Wiring delivery for Label Self-Adhesive Weatherproof is 14d overdue to PLT-LA1,29.5954,22.4565,31.79,True
+89,2025-01-01,PRICE_ANOMALY,MEDIUM,PLT-AL1,MAT-043,SUP-003,Purchase price for Laser Scribing Machine Lens from Guardian Glass North America is 24.5% above market avg,3291.522,2800.5141,17.53,True
+90,2025-02-24,INVENTORY_DROP,HIGH,PLT-OH1,MAT-039,SUP-017,Inventory for Polyvinyl Butyral Interlayer Film at PLT-OH1 dropped 44.7% in 7 days,244.4767,209.2282,16.85,True
+91,2025-01-22,INVENTORY_DROP,HIGH,PLT-OH1,MAT-039,SUP-018,Inventory for Polyvinyl Butyral Interlayer Film at PLT-OH1 dropped 37.5% in 7 days,264.2308,201.5911,31.07,False
+92,2025-02-20,DEMAND_SPIKE,HIGH,PLT-OH1,MAT-031,SUP-019,Demand for Module Interleaf Paper Roll at PLT-OH1 spiked 23.0% above 30-day average,21.5394,14.9053,44.51,False
+93,2025-02-21,DEMAND_SPIKE,HIGH,PLT-LA1,MAT-029,SUP-001,Demand for Protective Foam Corner Piece at PLT-LA1 spiked 17.0% above 30-day average,3.3355,2.9367,13.58,True
+94,2025-01-06,SUPPLIER_DELAY,HIGH,PLT-OH1,MAT-004,SUP-017,Supplier II-VI Incorporated Optics delivery for Anti-Reflective Glass Coating Chemical is 11d overdue to PLT-OH1,114.5751,84.2413,36.01,True
+95,2025-01-06,PRICE_ANOMALY,MEDIUM,PLT-AL1,MAT-035,SUP-003,Purchase price for Vacuum O-Ring Kit from Guardian Glass North America is 22.1% above market avg,130.7409,95.1231,37.44,True
+96,2025-03-21,SUPPLIER_DELAY,HIGH,PLT-AL1,MAT-006,SUP-015,Supplier Borealis Polyolefin Solutions delivery for Cadmium Sulfide (CdS) Buffer Layer is 14d overdue to PLT-AL1,294.293,211.8406,38.92,False
+97,2025-01-06,DEMAND_SPIKE,HIGH,PLT-LA1,MAT-026,SUP-009,Demand for De-ionized Water System Resin at PLT-LA1 spiked 24.1% above 30-day average,43.803,39.6979,10.34,True
+98,2025-02-11,INVENTORY_DROP,HIGH,PLT-LA1,MAT-024,SUP-015,Inventory for Phosphoric Acid Etchant 25L at PLT-LA1 dropped 43.0% in 7 days,76.8336,60.5089,26.98,False
+99,2025-03-26,PRICE_ANOMALY,MEDIUM,PLT-OH1,MAT-043,SUP-003,Purchase price for Laser Scribing Machine Lens from Guardian Glass North America is 39.9% above market avg,3880.3494,2683.8358,44.58,True
+100,2025-01-16,DEMAND_SPIKE,HIGH,PLT-AL1,MAT-033,SUP-016,Demand for Magnetron Sputtering Target Holder at PLT-AL1 spiked 35.2% above 30-day average,1427.9102,1220.4495,17.0,True
+101,2025-03-25,PRICE_ANOMALY,MEDIUM,PLT-OH1,MAT-010,SUP-005,Purchase price for Copper Back Contact Material from Materion Corporation is 29.6% above market avg,13.5826,9.5,42.97,False
+102,2025-04-01,SUPPLIER_DELAY,HIGH,PLT-AL1,MAT-001,SUP-002,Supplier NSG Group Pilkington delivery for Low-Iron Tempered Substrate Glass 2 is 6d overdue to PLT-LA1,34.2187,28.5,20.07,False
+103,2025-03-27,SUPPLIER_DELAY,HIGH,PLT-AL1,MAT-037,SUP-014,Supplier Linde Gases North America delivery for Argon Gas High Purity 50L is 10d overdue to PLT-LA1,73.5353,55.0,33.7,False
+104,2025-03-24,SUPPLIER_DELAY,HIGH,PLT-OH1,MAT-021,SUP-010,Supplier Staubli Electrical Connectors delivery for Cross Ribbon Copper 3mm is 6d overdue to PLT-OH1,0.3802,0.28,35.79,False
+105,2025-03-06,SUPPLIER_DELAY,HIGH,PLT-LA1,MAT-039,SUP-015,Supplier Borealis Polyolefin Solutions delivery for Polyvinyl Butyral Interlayer Film is 3d overdue to PLT-LA1,296.272,210.0,41.08,False
+106,2025-03-31,SUPPLIER_DELAY,HIGH,PLT-LA1,MAT-017,SUP-010,Supplier Staubli Electrical Connectors delivery for MC4 Connector Pair is 6d overdue to PLT-LA1,2.6016,2.1,23.89,False
+107,2025-03-20,SUPPLIER_DELAY,HIGH,PLT-AL1,MAT-002,SUP-001,Supplier ABC Glass Industries delivery for Back Glass Panel 2m x 1.2m is 5d overdue to PLT-AL1,28.2794,22.0,28.54,False
+108,2025-03-26,SUPPLIER_DELAY,HIGH,PLT-LA1,MAT-049,SUP-011,Supplier Henkel Adhesives Technologies delivery for Silicone Sealant Cartridge is 8d overdue to PLT-LA1,11.6247,8.5,36.76,False
+109,2025-03-20,SUPPLIER_DELAY,HIGH,PLT-OH1,MAT-017,SUP-009,Supplier TE Connectivity Solar Solutions delivery for MC4 Connector Pair is 12d overdue to PLT-AL1,2.6022,2.1,23.91,False
+110,2025-03-26,PRICE_ANOMALY,MEDIUM,PLT-OH1,MAT-033,SUP-017,Purchase price for Magnetron Sputtering Target Holder from II-VI Incorporated Optics is 20.7% above market avg,1484.6619,1200.0,23.72,False
+111,2025-03-07,SUPPLIER_DELAY,HIGH,PLT-AL1,MAT-033,SUP-017,Supplier II-VI Incorporated Optics delivery for Magnetron Sputtering Target Holder is 12d overdue to PLT-AL1,1431.8247,1200.0,19.32,False
+112,2025-03-11,SUPPLIER_DELAY,HIGH,PLT-AL1,MAT-005,SUP-004,Supplier 5N Plus Inc. - Semiconductor Divisi delivery for Cadmium Telluride (CdTe) Compound is 12d overdue to PLT-LA1,442.1966,320.0,38.19,False
+113,2025-03-20,SUPPLIER_DELAY,HIGH,PLT-AL1,MAT-005,SUP-004,Supplier 5N Plus Inc. - Semiconductor Divisi delivery for Cadmium Telluride (CdTe) Compound is 9d overdue to PLT-AL1,402.8319,320.0,25.88,False
+114,2025-03-04,SUPPLIER_DELAY,HIGH,PLT-OH1,MAT-016,SUP-009,Supplier TE Connectivity Solar Solutions delivery for Junction Box with Bypass Diodes is 3d overdue to PLT-AL1,9.4776,7.5,26.37,False
+115,2025-03-14,SUPPLIER_DELAY,HIGH,PLT-AL1,MAT-038,SUP-016,Supplier Eastman Chemical Solar Films delivery for Thermoplastic Polyolefin Backsheet  is 4d overdue to PLT-OH1,231.7402,185.0,25.26,False

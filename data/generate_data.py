@@ -1,15 +1,15 @@
 """
-First Solar Supply Chain Intelligence Agent — Enhanced Data Generator
-=====================================================================
-Generates comprehensive synthetic data for all operational + reference tables.
-Fixes data gaps from the original generator:
-  - Inventory transfers: 7 → 55+ rows
-  - Supply recommendations: 27 → 70+ rows (10+ TRANSFER type)
-  - Quality rejections: 2 → 20+ across suppliers
-  - Overdue POs: explicitly generated
-  - Reference data: CSV output for all 5 reference tables
-  - Anomaly alerts: 80 → 100+ with recent supplier-specific entries
+First Solar Supply Chain Intelligence Agent — Demo Data Generator
+=================================================================
+Scenario: Substrate-glass shortage risk at Alabama plant.
+4-act demo narrative:
+  Act 1: Oracle/ERP data alone — no risk visible (ABC Glass 97% OTD, POs on schedule)
+  Act 2: Add manufacturing context — tight but manageable
+  Act 3: Add external Marketplace shipping signals — risk surfaced
+  Act 4: Cross-site action plan (transfer from Ohio, expedite, qualify alt supplier)
 
+Plants: Alabama (3500 MW), Ohio (3300 MW), Louisiana (3500 MW)
+Key supplier: ABC Glass (substrate glass for Alabama) — limited source
 seed=42 for reproducibility
 """
 
@@ -28,7 +28,7 @@ np.random.seed(42)
 # ── Date range ───────────────────────────────────────────────────────────────
 TODAY = date(2025, 4, 1)
 HIST_START = date(2025, 1, 1)
-FUTURE_END = date(2025, 6, 1)
+FUTURE_END = date(2025, 6, 30)
 ALL_DATES = [HIST_START + timedelta(days=i)
              for i in range((FUTURE_END - HIST_START).days + 1)]
 
@@ -39,15 +39,15 @@ def w(name): return open(os.path.join(OUT_DIR, name), "w", newline="", encoding=
 def jitter(base, pct=0.05): return round(base * (1 + random.uniform(-pct, pct)), 4)
 
 # ══════════════════════════════════════════════════════════════════════════════
-# PLANTS
+# PLANTS — Alabama (primary focus), Ohio (transfer source), Louisiana
 # ══════════════════════════════════════════════════════════════════════════════
 PLANTS = [
-    {"plant_id": "PLT-OH1", "plant_name": "First Solar Manufacturing - Perrysburg Ohio 1",
-     "city": "Perrysburg", "state": "Ohio", "country": "USA", "region": "Midwest", "capacity_mw": 1300},
-    {"plant_id": "PLT-OH2", "plant_name": "First Solar Manufacturing - Perrysburg Ohio 2",
-     "city": "Perrysburg", "state": "Ohio", "country": "USA", "region": "Midwest", "capacity_mw": 1000},
-    {"plant_id": "PLT-AZ1", "plant_name": "First Solar Manufacturing - Mesa Arizona",
-     "city": "Mesa", "state": "Arizona", "country": "USA", "region": "Southwest", "capacity_mw": 1000},
+    {"plant_id": "PLT-AL1", "plant_name": "First Solar Manufacturing - Lawrence County Alabama",
+     "city": "Town Creek", "state": "Alabama", "country": "USA", "region": "Southeast", "capacity_mw": 3500},
+    {"plant_id": "PLT-OH1", "plant_name": "First Solar Manufacturing - Perrysburg Ohio",
+     "city": "Perrysburg", "state": "Ohio", "country": "USA", "region": "Midwest", "capacity_mw": 3300},
+    {"plant_id": "PLT-LA1", "plant_name": "First Solar Manufacturing - Iberia Parish Louisiana",
+     "city": "New Iberia", "state": "Louisiana", "country": "USA", "region": "Gulf Coast", "capacity_mw": 3500},
 ]
 PLANT_IDS = [p["plant_id"] for p in PLANTS]
 
@@ -84,7 +84,7 @@ with w("customers.csv") as f:
 # MATERIALS (50 parts)
 # ══════════════════════════════════════════════════════════════════════════════
 MATERIALS = [
-    {"material_id":"MAT-001","material_name":"Low-Iron Tempered Glass Panel 2m x 1.2m","material_category":"Glass","unit_of_measure":"EACH","unit_cost_std":28.50,"is_critical":True},
+    {"material_id":"MAT-001","material_name":"Low-Iron Tempered Substrate Glass 2.0mm","material_category":"Glass","unit_of_measure":"EACH","unit_cost_std":28.50,"is_critical":True},
     {"material_id":"MAT-002","material_name":"Back Glass Panel 2m x 1.2m","material_category":"Glass","unit_of_measure":"EACH","unit_cost_std":22.00,"is_critical":True},
     {"material_id":"MAT-003","material_name":"Glass Spacer Frame","material_category":"Glass","unit_of_measure":"EACH","unit_cost_std":4.20,"is_critical":False},
     {"material_id":"MAT-004","material_name":"Anti-Reflective Glass Coating Chemical","material_category":"Glass","unit_of_measure":"LITER","unit_cost_std":85.00,"is_critical":False},
@@ -145,19 +145,19 @@ with w("materials.csv") as f:
     writer.writeheader(); writer.writerows(MATERIALS)
 
 # ══════════════════════════════════════════════════════════════════════════════
-# SUPPLIERS (20)
+# SUPPLIERS (20) — ABC Glass is SUP-001, the demo focus
 # ══════════════════════════════════════════════════════════════════════════════
 SUPPLIERS = [
-    {"supplier_id":"SUP-001","supplier_name":"AGC Inc. - Flat Glass Division","city":"Tokyo","state":"","country":"Japan","region":"Asia","supplier_tier":"Tier1","risk_score":2.1,"on_time_rate":0.96,"quality_pass_rate":0.994},
+    {"supplier_id":"SUP-001","supplier_name":"ABC Glass Industries","city":"Monterrey","state":"Nuevo Leon","country":"Mexico","region":"North America","supplier_tier":"Tier1","risk_score":2.0,"on_time_rate":0.97,"quality_pass_rate":0.995},
     {"supplier_id":"SUP-002","supplier_name":"NSG Group Pilkington","city":"Tokyo","state":"","country":"Japan","region":"Asia","supplier_tier":"Tier1","risk_score":2.4,"on_time_rate":0.94,"quality_pass_rate":0.991},
-    {"supplier_id":"SUP-003","supplier_name":"Guardian Glass North America","city":"Auburn Hills","state":"Michigan","country":"USA","region":"Midwest","supplier_tier":"Tier1","risk_score":1.8,"on_time_rate":0.97,"quality_pass_rate":0.996},
+    {"supplier_id":"SUP-003","supplier_name":"Guardian Glass North America","city":"Auburn Hills","state":"Michigan","country":"USA","region":"Midwest","supplier_tier":"Tier1","risk_score":1.8,"on_time_rate":0.96,"quality_pass_rate":0.996},
     {"supplier_id":"SUP-004","supplier_name":"5N Plus Inc. - Semiconductor Division","city":"Montreal","state":"Quebec","country":"Canada","region":"Canada","supplier_tier":"Tier1","risk_score":3.2,"on_time_rate":0.90,"quality_pass_rate":0.989},
     {"supplier_id":"SUP-005","supplier_name":"Materion Corporation","city":"Mayfield Heights","state":"Ohio","country":"USA","region":"Midwest","supplier_tier":"Tier1","risk_score":2.6,"on_time_rate":0.93,"quality_pass_rate":0.993},
     {"supplier_id":"SUP-006","supplier_name":"Umicore Advanced Materials","city":"Brussels","state":"","country":"Belgium","region":"Europe","supplier_tier":"Tier1","risk_score":2.9,"on_time_rate":0.91,"quality_pass_rate":0.990},
     {"supplier_id":"SUP-007","supplier_name":"Hydro Extrusions North America","city":"Roanoke","state":"Virginia","country":"USA","region":"Southeast","supplier_tier":"Tier1","risk_score":1.9,"on_time_rate":0.95,"quality_pass_rate":0.995},
     {"supplier_id":"SUP-008","supplier_name":"Arconic Aluminum Products","city":"Pittsburgh","state":"Pennsylvania","country":"USA","region":"Northeast","supplier_tier":"Tier1","risk_score":2.3,"on_time_rate":0.93,"quality_pass_rate":0.992},
     {"supplier_id":"SUP-009","supplier_name":"TE Connectivity Solar Solutions","city":"Berwyn","state":"Pennsylvania","country":"USA","region":"Northeast","supplier_tier":"Tier1","risk_score":1.7,"on_time_rate":0.97,"quality_pass_rate":0.997},
-    {"supplier_id":"SUP-010","supplier_name":"Stäubli Electrical Connectors","city":"Duncan","state":"South Carolina","country":"USA","region":"Southeast","supplier_tier":"Tier1","risk_score":2.0,"on_time_rate":0.96,"quality_pass_rate":0.996},
+    {"supplier_id":"SUP-010","supplier_name":"Staubli Electrical Connectors","city":"Duncan","state":"South Carolina","country":"USA","region":"Southeast","supplier_tier":"Tier1","risk_score":2.0,"on_time_rate":0.96,"quality_pass_rate":0.996},
     {"supplier_id":"SUP-011","supplier_name":"Henkel Adhesives Technologies","city":"Rocky Hill","state":"Connecticut","country":"USA","region":"Northeast","supplier_tier":"Tier2","risk_score":3.5,"on_time_rate":0.88,"quality_pass_rate":0.985},
     {"supplier_id":"SUP-012","supplier_name":"Dow Chemical Encapsulants","city":"Midland","state":"Michigan","country":"USA","region":"Midwest","supplier_tier":"Tier1","risk_score":2.2,"on_time_rate":0.94,"quality_pass_rate":0.993},
     {"supplier_id":"SUP-013","supplier_name":"Air Products and Chemicals Inc.","city":"Allentown","state":"Pennsylvania","country":"USA","region":"Northeast","supplier_tier":"Tier1","risk_score":1.5,"on_time_rate":0.98,"quality_pass_rate":0.999},
@@ -176,28 +176,30 @@ with w("suppliers.csv") as f:
 
 # ══════════════════════════════════════════════════════════════════════════════
 # SUPPLIER–MATERIAL mappings
+# ABC Glass (SUP-001) is PRIMARY substrate glass supplier for Alabama
+# Guardian (SUP-003) is qualified alternative (supplies Ohio, Louisiana)
 # ══════════════════════════════════════════════════════════════════════════════
 SUP_MAT_MAP = {
-    "SUP-001": ["MAT-001","MAT-002","MAT-003"],
-    "SUP-002": ["MAT-001","MAT-002"],
-    "SUP-003": ["MAT-001","MAT-003","MAT-004"],
-    "SUP-004": ["MAT-005","MAT-006"],
-    "SUP-005": ["MAT-007","MAT-008","MAT-010"],
-    "SUP-006": ["MAT-005","MAT-007","MAT-009"],
-    "SUP-007": ["MAT-011","MAT-012","MAT-013"],
-    "SUP-008": ["MAT-011","MAT-012","MAT-014","MAT-015"],
-    "SUP-009": ["MAT-016","MAT-017","MAT-019","MAT-020"],
-    "SUP-010": ["MAT-016","MAT-017","MAT-021"],
-    "SUP-011": ["MAT-023","MAT-024","MAT-027","MAT-049"],
-    "SUP-012": ["MAT-022","MAT-038","MAT-039","MAT-040"],
-    "SUP-013": ["MAT-036","MAT-037"],
-    "SUP-014": ["MAT-036","MAT-037"],
-    "SUP-015": ["MAT-038","MAT-039"],
-    "SUP-016": ["MAT-022","MAT-038","MAT-040"],
-    "SUP-017": ["MAT-033","MAT-034","MAT-043","MAT-044"],
-    "SUP-018": ["MAT-018","MAT-020","MAT-021"],
-    "SUP-019": ["MAT-047","MAT-048","MAT-050"],
-    "SUP-020": ["MAT-040","MAT-041","MAT-042"],
+    "SUP-001": ["MAT-001","MAT-002"],           # ABC Glass — substrate + back glass
+    "SUP-002": ["MAT-001","MAT-002"],           # NSG Pilkington — glass
+    "SUP-003": ["MAT-001","MAT-002","MAT-004"], # Guardian — glass + coating (alt for Alabama)
+    "SUP-004": ["MAT-005","MAT-006"],           # 5N Plus — CdTe, CdS
+    "SUP-005": ["MAT-007","MAT-008","MAT-010"], # Materion — sputtering targets
+    "SUP-006": ["MAT-005","MAT-007","MAT-009"], # Umicore — CdTe, SnO2, ZnSn
+    "SUP-007": ["MAT-011","MAT-012","MAT-013"], # Hydro — aluminum frames
+    "SUP-008": ["MAT-011","MAT-012","MAT-014","MAT-015"], # Arconic — aluminum
+    "SUP-009": ["MAT-016","MAT-017","MAT-019","MAT-020"], # TE — junction boxes
+    "SUP-010": ["MAT-016","MAT-017","MAT-021"], # Staubli — connectors
+    "SUP-011": ["MAT-023","MAT-024","MAT-027","MAT-049"], # Henkel — chemicals
+    "SUP-012": ["MAT-022","MAT-038","MAT-039","MAT-040"], # Dow — encapsulants
+    "SUP-013": ["MAT-036","MAT-037"],           # Air Products — gases
+    "SUP-014": ["MAT-036","MAT-037"],           # Linde — gases
+    "SUP-015": ["MAT-038","MAT-039"],           # Borealis — backsheet
+    "SUP-016": ["MAT-022","MAT-038","MAT-040"], # Eastman — films
+    "SUP-017": ["MAT-033","MAT-034","MAT-043","MAT-044"], # II-VI — optics
+    "SUP-018": ["MAT-018","MAT-020","MAT-021"], # Sumitomo — wiring
+    "SUP-019": ["MAT-047","MAT-048","MAT-050"], # Brady — labels
+    "SUP-020": ["MAT-040","MAT-041","MAT-042"], # Nitto — tapes
 }
 
 CAT_LEAD = {
@@ -206,18 +208,36 @@ CAT_LEAD = {
     "Backsheet": 35, "Thermal": 18, "QA Consumable": 50, "Hardware": 14,
 }
 
+# ── Explicit supplier-plant assignments for scenario control ──
+# ABC Glass (SUP-001): PRIMARY glass supplier for Alabama, secondary for Louisiana
+# Guardian (SUP-003): PRIMARY for Ohio, qualified alt for Alabama (not currently active there)
+# NSG (SUP-002): supplies Louisiana
+SUPPLIER_PLANT_OVERRIDE = {
+    ("SUP-001", "MAT-001"): ["PLT-AL1", "PLT-LA1"],  # ABC Glass → Alabama + Louisiana
+    ("SUP-001", "MAT-002"): ["PLT-AL1", "PLT-LA1"],
+    ("SUP-003", "MAT-001"): ["PLT-OH1", "PLT-LA1"],  # Guardian → Ohio + Louisiana (alt)
+    ("SUP-003", "MAT-002"): ["PLT-OH1"],
+    ("SUP-002", "MAT-001"): ["PLT-LA1"],              # NSG → Louisiana only
+    ("SUP-002", "MAT-002"): ["PLT-LA1"],
+}
+
 SUPPLIER_MATERIALS = []
 SM_KEY_SET = set()
 
 for sup in SUPPLIERS:
     sid = sup["supplier_id"]
     mats = SUP_MAT_MAP.get(sid, [])
-    n_plants = random.randint(1, 3)
-    assigned_plants = random.sample(PLANT_IDS, n_plants)
     sup_factor = random.uniform(0.95, 1.08)
     base_lt_factor = random.uniform(0.9, 1.2)
 
     for mid in mats:
+        override_key = (sid, mid)
+        if override_key in SUPPLIER_PLANT_OVERRIDE:
+            assigned_plants = SUPPLIER_PLANT_OVERRIDE[override_key]
+        else:
+            n_plants = random.randint(1, 3)
+            assigned_plants = random.sample(PLANT_IDS, n_plants)
+
         base_lt = CAT_LEAD.get(MAT_CAT.get(mid, "Hardware"), 30)
         lt_days = max(7, int(base_lt * base_lt_factor))
         lt_var = max(2, int(lt_days * random.uniform(0.10, 0.25)))
@@ -280,14 +300,20 @@ with w("bill_of_materials.csv") as f:
 # ══════════════════════════════════════════════════════════════════════════════
 CUST_ORDERS = []
 cust_list = [c["customer_id"] for c in CUSTOMERS]
-MW_TO_MODULES = 2222
+MW_TO_MODULES = 2000  # modules per MW (Series 7 ~500W each)
+
+# Alabama gets heavier allocation (biggest customer commitments)
+PLANT_WEIGHTS = {"PLT-AL1": 0.40, "PLT-OH1": 0.35, "PLT-LA1": 0.25}
 
 for cid in cust_list:
     n_orders = random.randint(1, 3)
     for _ in range(n_orders):
-        pid = random.choice(PLANT_IDS)
+        r = random.random()
+        if r < 0.40: pid = "PLT-AL1"
+        elif r < 0.75: pid = "PLT-OH1"
+        else: pid = "PLT-LA1"
         prod = random.choice([p[0] for p in PRODUCTS])
-        monthly_mw = random.uniform(1, 5)
+        monthly_mw = random.uniform(1.5, 6)
         CUST_ORDERS.append((cid, pid, prod, monthly_mw))
 
 WORKDAYS = [d for d in ALL_DATES if d.weekday() < 5]
@@ -316,6 +342,8 @@ with w("mrp_demand.csv") as f:
 
 # ══════════════════════════════════════════════════════════════════════════════
 # INVENTORY SNAPSHOT
+# Alabama substrate glass (MAT-001) specifically set to ~18 days coverage
+# Ohio has SURPLUS glass (~45 days) to enable transfer recommendation
 # ══════════════════════════════════════════════════════════════════════════════
 BOM_MAP = defaultdict(float)
 for co in CUST_ORDERS:
@@ -333,19 +361,33 @@ for sm in SUPPLIER_MATERIALS:
 
 snapshot_dates = [d for d in ALL_DATES if d.day in (1, 8, 15, 22)]
 all_keys = list(BOM_MAP.keys())
+
+# ── Scenario-specific inventory settings ──
+# Alabama glass: exactly ~18 days (tight but not yet below safety stock)
+# Ohio glass: ~45 days (surplus — transfer source)
+# Louisiana glass: ~25 days (moderate)
+SCENARIO_DFC = {
+    ("PLT-AL1", "MAT-001"): 18,  # THE DEMO FOCUS — tight coverage
+    ("PLT-AL1", "MAT-002"): 20,
+    ("PLT-OH1", "MAT-001"): 45,  # Ohio has surplus — transfer candidate
+    ("PLT-OH1", "MAT-002"): 42,
+    ("PLT-LA1", "MAT-001"): 25,
+    ("PLT-LA1", "MAT-002"): 24,
+}
+
+# Other materials that should be low (for non-glass stockout risk queries)
 random.shuffle(all_keys)
-# Increase LOW_INV to ~35% of materials for more recommendations
-# Also force semiconductor materials (MAT-005 to MAT-008) into low inventory at all plants
-LOW_INV_KEYS = set(tuple(k) for k in all_keys[:max(1, len(all_keys)//3)])
-# Force critical semiconductors into LOW_INV
+LOW_INV_KEYS = set(tuple(k) for k in all_keys[:max(1, len(all_keys)//4)])
 for plt2 in PLANT_IDS:
     for forced_mid in ['MAT-005', 'MAT-006', 'MAT-007', 'MAT-008', 'MAT-023', 'MAT-033', 'MAT-043']:
         if (plt2, forced_mid) in BOM_MAP:
             LOW_INV_KEYS.add((plt2, forced_mid))
-EXCESS_INV_KEYS = set(tuple(k) for k in all_keys[len(all_keys)//3 : len(all_keys)//3 + max(1, len(all_keys)//6)])
-EXCESS_INV_KEYS = {k for k in EXCESS_INV_KEYS if k[1] not in {"MAT-001", "MAT-002"}}
-# Remove overlap
+# Remove glass from random low-inv — we control glass explicitly
+LOW_INV_KEYS = {k for k in LOW_INV_KEYS if k[1] not in ("MAT-001", "MAT-002")}
+
+EXCESS_INV_KEYS = set(tuple(k) for k in all_keys[len(all_keys)//4 : len(all_keys)//4 + max(1, len(all_keys)//8)])
 EXCESS_INV_KEYS -= LOW_INV_KEYS
+EXCESS_INV_KEYS = {k for k in EXCESS_INV_KEYS if k[1] not in ("MAT-001", "MAT-002")}
 
 INV_ROWS = []
 snap_id = 1
@@ -362,7 +404,11 @@ for sd in snapshot_dates:
         reorder_pt = daily * (lt + lt_var * 1.5)
         key = (plt, mid)
 
-        if is_latest and key in LOW_INV_KEYS:
+        if is_latest and key in SCENARIO_DFC:
+            # Scenario-controlled: set exact DFC
+            target_dfc = SCENARIO_DFC[key]
+            new_inv = daily * target_dfc
+        elif is_latest and key in LOW_INV_KEYS:
             new_inv = safety_stock * random.uniform(0.55, 0.80)
         elif is_latest and key in EXCESS_INV_KEYS:
             new_inv = safety_stock * random.uniform(3.05, 3.3)
@@ -394,7 +440,8 @@ with w("inventory_snapshot.csv") as f:
     writer.writeheader(); writer.writerows(INV_ROWS)
 
 # ══════════════════════════════════════════════════════════════════════════════
-# PURCHASE ORDERS — with guaranteed overdue POs
+# PURCHASE ORDERS
+# ABC Glass POs for Alabama: all show ON SCHEDULE (Act 1 — looks healthy)
 # ══════════════════════════════════════════════════════════════════════════════
 PREF_SUP = {}
 for sm in SUPPLIER_MATERIALS:
@@ -423,29 +470,38 @@ for (plt, mid), daily in BOM_MAP.items():
     supplier_info = next((s for s in SUPPLIERS if s["supplier_id"] == sm["supplier_id"]), None)
     on_time_rate = float(supplier_info["on_time_rate"]) if supplier_info else 0.93
 
+    # ABC Glass POs to Alabama: force excellent delivery history
+    is_abc_alabama_glass = (sm["supplier_id"] == "SUP-001" and plt == "PLT-AL1" and mid in ("MAT-001", "MAT-002"))
+
     for pod in PO_SCHEDULE:
         order_qty = round(daily * 21 * random.uniform(0.85, 1.15))
         unit_price = float(sm["unit_price"])
-        is_rush = random.random() < 0.075
+        is_rush = random.random() < 0.075 if not is_abc_alabama_glass else False
         exp_cost = round(unit_price * order_qty * random.uniform(0.05, 0.12), 4) if is_rush else 0.0
 
         req_del = pod + timedelta(days=lt)
 
         if pod + timedelta(days=lt) <= TODAY:
-            # Received — with some late deliveries
-            delay = 0 if random.random() < on_time_rate else random.randint(1, lt_var * 2)
+            if is_abc_alabama_glass:
+                # ABC Glass historical: 97% on-time, small delays when late
+                delay = 0 if random.random() < 0.97 else random.randint(1, 3)
+            else:
+                delay = 0 if random.random() < on_time_rate else random.randint(1, lt_var * 2)
             actual_del = req_del + timedelta(days=delay)
             status = "Received"
         elif pod <= TODAY:
-            # Some should be overdue (expected in past but still in transit)
-            exp_del = req_del + timedelta(days=random.randint(0, lt_var))
-            if exp_del < TODAY and random.random() < 0.15:
-                # OVERDUE: expected delivery passed, still in transit
+            if is_abc_alabama_glass:
+                # Current ABC Glass POs: all show "In Transit" with ON-TIME expected delivery
                 status = "In Transit"
                 actual_del = None
             else:
-                status = "In Transit"
-                actual_del = None
+                exp_del = req_del + timedelta(days=random.randint(0, lt_var))
+                if exp_del < TODAY and random.random() < 0.15:
+                    status = "In Transit"
+                    actual_del = None
+                else:
+                    status = "In Transit"
+                    actual_del = None
         else:
             status = "Open"
             actual_del = None
@@ -454,6 +510,9 @@ for (plt, mid), daily in BOM_MAP.items():
             exp_del_final = pod + timedelta(days=max(3, lt // 3))
         elif status == "Received":
             exp_del_final = req_del + timedelta(days=random.randint(0, lt_var))
+        elif is_abc_alabama_glass:
+            # ABC Glass: expected delivery exactly on time (looks healthy)
+            exp_del_final = req_del
         else:
             exp_del_final = req_del + timedelta(days=random.randint(0, lt_var))
 
@@ -479,9 +538,8 @@ with w("purchase_orders.csv") as f:
     writer.writeheader(); writer.writerows(PO_ROWS)
 
 # ══════════════════════════════════════════════════════════════════════════════
-# PO RECEIPTS — with increased quality rejections (target: 20+)
+# PO RECEIPTS
 # ══════════════════════════════════════════════════════════════════════════════
-# Suppliers with lower quality rates: SUP-015 (0.982), SUP-017 (0.980), SUP-020 (0.983), SUP-011 (0.985)
 LOW_QUALITY_SUPPLIERS = {"SUP-015", "SUP-017", "SUP-020", "SUP-011", "SUP-004"}
 
 RECEIPT_ROWS = []
@@ -492,11 +550,10 @@ for po in PO_ROWS:
         sup_info = next((s for s in SUPPLIERS if s["supplier_id"] == sup_id), None)
         base_qr = float(sup_info["quality_pass_rate"]) if sup_info else 0.99
 
-        # Lower quality rate for problematic suppliers to generate more rejections
         if sup_id in LOW_QUALITY_SUPPLIERS:
-            qr = base_qr * 0.80  # aggressive lower to generate 15+ rejections
+            qr = base_qr * 0.80
         else:
-            qr = base_qr * 0.97  # slight reduction for others too
+            qr = base_qr * 0.97
 
         if random.random() < qr:
             q_status = "Accepted"
@@ -523,15 +580,19 @@ with w("po_receipts.csv") as f:
     writer.writeheader(); writer.writerows(RECEIPT_ROWS)
 
 # ══════════════════════════════════════════════════════════════════════════════
-# INVENTORY TRANSFERS — expanded (target: 55+ rows)
+# INVENTORY TRANSFERS
 # ══════════════════════════════════════════════════════════════════════════════
 PLANT_PAIRS = [(PLANT_IDS[i], PLANT_IDS[j]) for i in range(3) for j in range(3) if i != j]
-TRANSIT_DAYS_MAP = {"PLT-OH1-PLT-OH2": 1, "PLT-OH2-PLT-OH1": 1,
-                    "PLT-OH1-PLT-AZ1": 4, "PLT-AZ1-PLT-OH1": 4,
-                    "PLT-OH2-PLT-AZ1": 4, "PLT-AZ1-PLT-OH2": 4}
-PLANT_DISTANCES = {"PLT-OH1-PLT-OH2": 5, "PLT-OH2-PLT-OH1": 5,
-                   "PLT-OH1-PLT-AZ1": 1800, "PLT-AZ1-PLT-OH1": 1800,
-                   "PLT-OH2-PLT-AZ1": 1800, "PLT-AZ1-PLT-OH2": 1800}
+TRANSIT_DAYS_MAP = {
+    "PLT-AL1-PLT-OH1": 2, "PLT-OH1-PLT-AL1": 2,
+    "PLT-AL1-PLT-LA1": 1, "PLT-LA1-PLT-AL1": 1,
+    "PLT-OH1-PLT-LA1": 2, "PLT-LA1-PLT-OH1": 2,
+}
+PLANT_DISTANCES = {
+    "PLT-AL1-PLT-OH1": 680, "PLT-OH1-PLT-AL1": 680,
+    "PLT-AL1-PLT-LA1": 420, "PLT-LA1-PLT-AL1": 420,
+    "PLT-OH1-PLT-LA1": 850, "PLT-LA1-PLT-OH1": 850,
+}
 FREIGHT_RATE = 3.00
 TRUCK_CAP = 40000
 MATERIAL_WEIGHT = {"MAT-001":50,"MAT-002":45,"MAT-003":2,"MAT-005":2.2,"MAT-006":2.2,
@@ -539,7 +600,7 @@ MATERIAL_WEIGHT = {"MAT-001":50,"MAT-002":45,"MAT-003":2,"MAT-005":2.2,"MAT-006"
     "MAT-033":50,"MAT-038":30,"MAT-039":25,"MAT-043":5}
 
 def freight_cost(fp, tp, mid, qty):
-    dist = PLANT_DISTANCES.get(f"{fp}-{tp}", 1000)
+    dist = PLANT_DISTANCES.get(f"{fp}-{tp}", 700)
     wt = MATERIAL_WEIGHT.get(mid, 5.0)
     trucks = math.ceil(qty * wt / TRUCK_CAP)
     return dist * FREIGHT_RATE * trucks
@@ -548,10 +609,8 @@ critical_mats = [m["material_id"] for m in MATERIALS if m["is_critical"]]
 XFER_ROWS = []
 xfer_counter = 1
 
-# Generate transfers every Monday for critical materials
 XFER_MONDAYS = [d for d in ALL_DATES if d.weekday() == 0 and d <= TODAY + timedelta(days=45)]
 
-# Build valid transfer candidates (plant pairs where source has the material in BOM)
 valid_xfer_options = []
 for fp, tp in PLANT_PAIRS:
     for mid in critical_mats:
@@ -559,7 +618,6 @@ for fp, tp in PLANT_PAIRS:
             valid_xfer_options.append((fp, tp, mid))
 
 for xd in XFER_MONDAYS:
-    # 3-4 transfers per week
     n_transfers = random.choices([2, 3, 4], weights=[0.2, 0.5, 0.3])[0]
     for _ in range(n_transfers):
         if not valid_xfer_options:
@@ -570,7 +628,7 @@ for xd in XFER_MONDAYS:
             continue
         qty = round(daily * random.randint(7, 21))
         pair_key = f"{fp}-{tp}"
-        transit = TRANSIT_DAYS_MAP.get(pair_key, 3)
+        transit = TRANSIT_DAYS_MAP.get(pair_key, 2)
         xfer_cost = freight_cost(fp, tp, mid, qty)
         uc = MAT_COST.get(mid, 10.0)
         arr_date = xd + timedelta(days=transit)
@@ -601,7 +659,7 @@ with w("inventory_transfers.csv") as f:
     writer.writeheader(); writer.writerows(XFER_ROWS)
 
 # ══════════════════════════════════════════════════════════════════════════════
-# SUPPLY RECOMMENDATIONS — expanded with TRANSFER type (target: 70+ rows)
+# SUPPLY RECOMMENDATIONS
 # ══════════════════════════════════════════════════════════════════════════════
 latest_snap = max(snapshot_dates)
 latest_inv = {}
@@ -628,7 +686,6 @@ for (plt, mid), row in latest_inv.items():
     low_inv = qoh < ss and dfc <= (lt + lt_var)
     excess_inv = qoh > 3 * ss and dfc > 2 * lt
 
-    # Check transfer candidates more aggressively
     transfer_candidate = None
     transfer_freight = None
     for other_plt in PLANT_IDS:
@@ -638,12 +695,11 @@ for (plt, mid), row in latest_inv.items():
         if ok:
             other_qoh = float(ok["quantity_on_hand"])
             other_ss = float(ok["safety_stock_level"])
-            # Lower threshold to generate more TRANSFER recs
             if other_qoh > 1.5 * other_ss:
                 needed_qty = max(round((ss * 2 - qoh) / max(daily, 0.001) * daily), int(sm["min_order_qty"]))
                 fc = freight_cost(other_plt, plt, mid, needed_qty)
                 po_cost = needed_qty * float(sm["unit_price"])
-                if fc < po_cost * 1.2:  # Transfer if freight < 120% of PO cost (more generous)
+                if fc < po_cost * 1.2:
                     transfer_candidate = other_plt
                     transfer_freight = fc
                     break
@@ -658,7 +714,7 @@ for (plt, mid), row in latest_inv.items():
             est_cost = round(transfer_freight, 2)
             src_plant = transfer_candidate
             src_sup = None
-            distance = PLANT_DISTANCES.get(f"{transfer_candidate}-{plt}", 1000)
+            distance = PLANT_DISTANCES.get(f"{transfer_candidate}-{plt}", 700)
             wt = MATERIAL_WEIGHT.get(mid, 5.0)
             trucks = math.ceil(needed_qty * wt / TRUCK_CAP)
             po_cost_comp = round(needed_qty * float(sm["unit_price"]), 2)
@@ -688,7 +744,7 @@ for (plt, mid), row in latest_inv.items():
             "days_forward_coverage": round(dfc, 2),
             "material_lead_time": lt,
             "lead_time_variability": lt_var,
-            "action_taken": random.random() < 0.3,  # 30% actioned
+            "action_taken": random.random() < 0.3,
         })
         rec_id += 1
 
@@ -723,7 +779,7 @@ with w("supply_recommendations.csv") as f:
     writer.writeheader(); writer.writerows(REC_ROWS)
 
 # ══════════════════════════════════════════════════════════════════════════════
-# ANOMALY ALERTS — expanded (target: 100+, with recent supplier-specific)
+# ANOMALY ALERTS
 # ══════════════════════════════════════════════════════════════════════════════
 ALERT_TEMPLATES = [
     ("DEMAND_SPIKE", "HIGH", "Demand for {mat} at {plt} spiked {pct:.1f}% above 30-day average"),
@@ -760,7 +816,7 @@ for _ in range(100):
     })
     alert_id += 1
 
-# Add 15 recent (last 30 days) supplier-specific alerts to ensure time-filtered queries work
+# Recent alerts (last 30 days)
 RECENT_DATES = [d for d in alert_dates if (TODAY - d).days <= 30]
 for _ in range(15):
     ad = random.choice(RECENT_DATES)
@@ -790,7 +846,7 @@ for _ in range(15):
         "description": desc, "metric_value": round(mv, 4),
         "expected_value": round(ev, 4),
         "deviation_pct": round((mv - ev) / ev * 100, 2),
-        "is_resolved": False,  # Recent = unresolved
+        "is_resolved": False,
     })
     alert_id += 1
 
@@ -801,7 +857,7 @@ with w("anomaly_alerts.csv") as f:
     writer.writeheader(); writer.writerows(ALERT_ROWS)
 
 # ══════════════════════════════════════════════════════════════════════════════
-# MANUFACTURING SCHEDULE (same logic as original — works well)
+# MANUFACTURING SCHEDULE
 # ══════════════════════════════════════════════════════════════════════════════
 SCHED_ROWS = []
 sched_id = 1
@@ -907,7 +963,105 @@ with w("manufacturing_schedule.csv") as f:
     writer.writeheader(); writer.writerows(SCHED_ROWS)
 
 # ══════════════════════════════════════════════════════════════════════════════
-# DEMAND FORECAST (ML — same as original)
+# EXTERNAL SHIPPING SIGNALS — Simulated Marketplace trade/shipping dataset
+# This is the ACT 3 DATA — shows deteriorating shipping on ABC Glass lane
+# ══════════════════════════════════════════════════════════════════════════════
+SHIPPING_ROWS = []
+ship_id = 1
+
+# ABC Glass ships from Monterrey, Mexico → Alabama (and Louisiana)
+# Generate 90 days of daily shipping lane metrics
+SIGNAL_START = TODAY - timedelta(days=90)
+signal_dates = [SIGNAL_START + timedelta(days=i) for i in range(91)]
+
+# Baseline period (days 1-60): healthy
+# Deterioration period (days 61-90): export volume drops, dwell times rise
+for i, sd in enumerate(signal_dates):
+    day_in_range = i
+    is_weekday = sd.weekday() < 5
+
+    if not is_weekday:
+        continue
+
+    # Export volume index (baseline ~100, deteriorating to ~65)
+    if day_in_range < 60:
+        export_vol = round(random.gauss(100, 5), 1)
+        dwell_hours = round(random.gauss(24, 4), 1)
+        delay_flag = 1 if random.random() < 0.03 else 0  # 3% baseline delay rate
+    else:
+        # Deterioration ramp
+        decay = (day_in_range - 60) / 30.0  # 0 to 1 over last 30 days
+        export_vol = round(random.gauss(100 - 35 * decay, 6), 1)
+        dwell_hours = round(random.gauss(24 + 36 * decay, 5), 1)  # up to 60hr dwell
+        delay_flag = 1 if random.random() < (0.03 + 0.25 * decay) else 0  # up to 28% delay
+
+    # Vessel/truck count
+    vessel_count = max(1, round(export_vol / 20))
+
+    SHIPPING_ROWS.append({
+        "signal_id": ship_id,
+        "signal_date": sd.isoformat(),
+        "origin_port": "Monterrey Industrial",
+        "origin_country": "Mexico",
+        "destination_port": "Mobile AL",
+        "destination_country": "USA",
+        "supplier_lane": "ABC Glass Industries → Alabama",
+        "commodity_category": "Flat Glass / Construction Materials",
+        "export_volume_index": export_vol,
+        "port_dwell_time_hours": max(8, dwell_hours),
+        "vessel_truck_count": vessel_count,
+        "shipment_delay_flag": delay_flag,
+        "avg_transit_days": round(random.gauss(3 + (1.5 * (max(0, day_in_range-60)/30)), 0.5), 1) if day_in_range >= 60 else round(random.gauss(3, 0.3), 1),
+        "data_source": "Simulated Marketplace Trade Dataset",
+        "notes": "" if day_in_range < 70 else random.choice([
+            "Customs clearance delays at Laredo crossing",
+            "Reduced truck availability on cross-border lane",
+            "Export volume declining — possible production slowdown at origin",
+            "Port congestion at Mobile increasing dwell times",
+            "Multiple shipments showing extended transit",
+            "",
+        ]),
+    })
+    ship_id += 1
+
+# Also add a few signals for other lanes (to show it's a broader dataset)
+OTHER_LANES = [
+    ("Tokyo", "Japan", "Long Beach CA", "USA", "NSG Group → Ohio", "Flat Glass"),
+    ("Brussels", "Belgium", "Savannah GA", "USA", "Umicore → Alabama", "Specialty Chemicals"),
+    ("Montreal", "Canada", "Toledo OH", "USA", "5N Plus → Ohio", "Semiconductor Materials"),
+]
+for origin, o_country, dest, d_country, lane, commodity in OTHER_LANES:
+    for i, sd in enumerate(signal_dates):
+        if sd.weekday() >= 5 or random.random() > 0.4:  # sparse — not every day
+            continue
+        SHIPPING_ROWS.append({
+            "signal_id": ship_id,
+            "signal_date": sd.isoformat(),
+            "origin_port": origin,
+            "origin_country": o_country,
+            "destination_port": dest,
+            "destination_country": d_country,
+            "supplier_lane": lane,
+            "commodity_category": commodity,
+            "export_volume_index": round(random.gauss(100, 8), 1),
+            "port_dwell_time_hours": round(random.gauss(28, 6), 1),
+            "vessel_truck_count": random.randint(2, 8),
+            "shipment_delay_flag": 1 if random.random() < 0.05 else 0,
+            "avg_transit_days": round(random.gauss(14 if "Japan" in origin else 8, 2), 1),
+            "data_source": "Simulated Marketplace Trade Dataset",
+            "notes": "",
+        })
+        ship_id += 1
+
+with w("external_shipping_signals.csv") as f:
+    writer = csv.DictWriter(f, fieldnames=["signal_id","signal_date","origin_port","origin_country",
+        "destination_port","destination_country","supplier_lane","commodity_category",
+        "export_volume_index","port_dwell_time_hours","vessel_truck_count","shipment_delay_flag",
+        "avg_transit_days","data_source","notes"])
+    writer.writeheader(); writer.writerows(SHIPPING_ROWS)
+
+# ══════════════════════════════════════════════════════════════════════════════
+# DEMAND FORECAST (ML)
 # ══════════════════════════════════════════════════════════════════════════════
 try:
     from sklearn.ensemble import GradientBoostingRegressor
@@ -1035,15 +1189,6 @@ try:
             "forecast_demand","lower_bound","upper_bound","actual_demand","is_future"])
         writer.writeheader(); writer.writerows(MAT_FC)
 
-    # Model metadata
-    val_mape = 4.2  # approximate
-    meta_rows = [{"key":"val_mape","value":round(val_mape,3)},
-                 {"key":"train_weeks","value":TRAIN_WK},
-                 {"key":"resid_std","value":round(resid_std,5)}]
-    with w("forecast_model_meta.csv") as f:
-        writer = csv.DictWriter(f, fieldnames=["key","value"])
-        writer.writeheader(); writer.writerows(meta_rows)
-
     print(f"  Product forecast rows:   {len(PROD_FC)}")
     print(f"  Material forecast rows:  {len(MAT_FC)}")
 except ImportError as e:
@@ -1057,12 +1202,20 @@ transfer_recs = sum(1 for r in REC_ROWS if r["recommendation_type"] == "TRANSFER
 critical_recs = sum(1 for r in REC_ROWS if r["priority"] == "CRITICAL")
 overdue_pos = sum(1 for po in PO_ROWS if po["po_status"] == "In Transit" and po["expected_delivery_date"] < TODAY.isoformat())
 recent_alerts = sum(1 for a in ALERT_ROWS if not a["is_resolved"] and (TODAY - date.fromisoformat(a["alert_date"])).days <= 30)
-unactioned_recs = sum(1 for r in REC_ROWS if not r["action_taken"])
+
+# Scenario validation
+al_glass_inv = next((r for r in INV_ROWS if r["snapshot_date"] == snapshot_dates[-1].isoformat()
+                     and r["plant_id"] == "PLT-AL1" and r["material_id"] == "MAT-001"), None)
+oh_glass_inv = next((r for r in INV_ROWS if r["snapshot_date"] == snapshot_dates[-1].isoformat()
+                     and r["plant_id"] == "PLT-OH1" and r["material_id"] == "MAT-001"), None)
+abc_glass_pos = [po for po in PO_ROWS if po["supplier_id"] == "SUP-001" and po["plant_id"] == "PLT-AL1"]
+abc_received = [po for po in abc_glass_pos if po["po_status"] == "Received"]
+abc_on_time = sum(1 for po in abc_received if po["actual_delivery_date"] <= po["expected_delivery_date"]) if abc_received else 0
 
 print("\n" + "="*70)
 print("DATA GENERATION COMPLETE — VALIDATION")
 print("="*70)
-print(f"  Plants:                  {len(PLANTS)}")
+print(f"  Plants:                  {len(PLANTS)} (Alabama, Ohio, Louisiana)")
 print(f"  Customers:               {len(CUSTOMERS)}")
 print(f"  Materials:               {len(MATERIALS)}")
 print(f"  Suppliers:               {len(SUPPLIERS)}")
@@ -1072,15 +1225,23 @@ print(f"  MRP Demand rows:         {len(MRP_DEMAND_ROWS)}")
 print(f"  Inventory snapshots:     {len(INV_ROWS)}")
 print(f"  Purchase orders:         {len(PO_ROWS)}")
 print(f"  PO receipts:             {len(RECEIPT_ROWS)}")
-print(f"  Inventory transfers:     {len(XFER_ROWS)}  (target: 50+)")
-print(f"  Recommendations:         {len(REC_ROWS)}  (target: 60+)")
-print(f"  Anomaly alerts:          {len(ALERT_ROWS)}  (target: 100+)")
+print(f"  Inventory transfers:     {len(XFER_ROWS)}")
+print(f"  Recommendations:         {len(REC_ROWS)}")
+print(f"  Anomaly alerts:          {len(ALERT_ROWS)}")
 print(f"  Schedule weeks:          {len(SCHED_ROWS)}")
+print(f"  External shipping:       {len(SHIPPING_ROWS)}")
+print(f"\n  --- SCENARIO VALIDATION ---")
+if al_glass_inv:
+    print(f"  Alabama glass DFC:       {al_glass_inv['days_forward_coverage']} days (target: ~18)")
+if oh_glass_inv:
+    print(f"  Ohio glass DFC:          {oh_glass_inv['days_forward_coverage']} days (target: ~45)")
+print(f"  ABC Glass POs to AL:     {len(abc_glass_pos)}")
+if abc_received:
+    print(f"  ABC Glass OTD (hist):    {abc_on_time}/{len(abc_received)} = {abc_on_time/len(abc_received)*100:.0f}%")
 print(f"\n  --- KEY METRICS ---")
-print(f"  Quality rejections:      {rejected_count}  (target: 15+)")
-print(f"  TRANSFER recommendations:{transfer_recs}  (target: 10+)")
-print(f"  CRITICAL recommendations:{critical_recs}  (target: 5+)")
-print(f"  Overdue POs:             {overdue_pos}  (target: 5+)")
-print(f"  Recent unresolved alerts:{recent_alerts}  (target: 10+)")
-print(f"  Unactioned recs:         {unactioned_recs}")
-print(f"\nCSV files written to: {OUT_DIR}")
+print(f"  Quality rejections:      {rejected_count}")
+print(f"  TRANSFER recs:           {transfer_recs}")
+print(f"  CRITICAL recs:           {critical_recs}")
+print(f"  Overdue POs:             {overdue_pos}")
+print(f"  Unresolved recent alerts:{recent_alerts}")
+print("="*70)

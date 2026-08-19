@@ -1,4 +1,4 @@
 plant_id,plant_name,city,state,country,region,capacity_mw
-PLT-OH1,First Solar Manufacturing - Perrysburg Ohio 1,Perrysburg,Ohio,USA,Midwest,1300
-PLT-OH2,First Solar Manufacturing - Perrysburg Ohio 2,Perrysburg,Ohio,USA,Midwest,1000
-PLT-AZ1,First Solar Manufacturing - Mesa Arizona,Mesa,Arizona,USA,Southwest,1000
+PLT-AL1,First Solar Manufacturing - Lawrence County Alabama,Town Creek,Alabama,USA,Southeast,3500
+PLT-OH1,First Solar Manufacturing - Perrysburg Ohio,Perrysburg,Ohio,USA,Midwest,3300
+PLT-LA1,First Solar Manufacturing - Iberia Parish Louisiana,New Iberia,Louisiana,USA,Gulf Coast,3500

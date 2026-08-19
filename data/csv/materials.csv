@@ -1,5 +1,5 @@
 material_id,material_name,material_category,unit_of_measure,unit_cost_std,is_critical
-MAT-001,Low-Iron Tempered Glass Panel 2m x 1.2m,Glass,EACH,28.5,True
+MAT-001,Low-Iron Tempered Substrate Glass 2.0mm,Glass,EACH,28.5,True
 MAT-002,Back Glass Panel 2m x 1.2m,Glass,EACH,22.0,True
 MAT-003,Glass Spacer Frame,Glass,EACH,4.2,False
 MAT-004,Anti-Reflective Glass Coating Chemical,Glass,LITER,85.0,False

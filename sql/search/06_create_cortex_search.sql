@@ -1,14 +1,16 @@
 -- ============================================================================
 -- First Solar Supply Chain Intelligence Agent
--- 06: Create Cortex Search Services (3)
+-- 06: Create Cortex Search Services (4)
 -- ============================================================================
--- Creates 3 search services:
+-- Creates 4 search services:
 --   1. OPERATIONAL_NOTES_SEARCH — Recommendation reasons, alert descriptions,
 --      schedule change explanations
 --   2. SUPPLIER_EVENTS_SEARCH — Supplier disruption history (force majeure,
 --      delays, quality holds, capacity changes, price increases)
 --   3. RISK_INTELLIGENCE_SEARCH — Trade lane notes + material risk profile
 --      notes for sourcing risk and logistics intelligence
+--   4. EXTERNAL_SIGNALS_SEARCH — Simulated Marketplace trade/shipping data
+--      notes for emerging lane disruption detection (Act 3 data)
 -- ============================================================================
 
 USE DATABASE FS_INTELLIGENCE;
@@ -113,3 +115,27 @@ AS
     t.ORIGIN_COUNTRY AS importance
   FROM FS_INTELLIGENCE.REFERENCE.TRADE_LANE_DIM t
   WHERE t.NOTES IS NOT NULL AND t.NOTES != '';
+
+-- ── Search Service 4: External Shipping Signals ──────────────────────────────
+CREATE OR REPLACE CORTEX SEARCH SERVICE FS_INTELLIGENCE.ANALYTICS.EXTERNAL_SIGNALS_SEARCH
+  ON search_text
+  ATTRIBUTES supplier_lane, origin_country, destination_port, commodity_category
+  WAREHOUSE = FIRST_SOLAR_WH
+  TARGET_LAG = '1 hour'
+  COMMENT = 'Search over external Marketplace shipping/trade signals: export volume trends, port dwell times, delay incidents. Simulated dataset representing live Marketplace trade data. Use for emerging supply lane disruption detection.'
+AS
+  SELECT
+    COALESCE(s.NOTES, '') || ' | Lane: ' || s.SUPPLIER_LANE ||
+    ' | Export Vol: ' || s.EXPORT_VOLUME_INDEX::VARCHAR ||
+    ' | Dwell: ' || s.PORT_DWELL_TIME_HOURS::VARCHAR || 'hr' ||
+    ' | Delay: ' || IFF(s.SHIPMENT_DELAY_FLAG = 1, 'YES', 'NO') ||
+    ' | Transit: ' || s.AVG_TRANSIT_DAYS::VARCHAR || 'd' ||
+    ' | Date: ' || s.SIGNAL_DATE::VARCHAR AS search_text,
+    s.SUPPLIER_LANE,
+    s.ORIGIN_COUNTRY,
+    s.DESTINATION_PORT,
+    s.COMMODITY_CATEGORY,
+    s.SIGNAL_ID::VARCHAR AS record_id,
+    s.SIGNAL_DATE::VARCHAR AS signal_date
+  FROM FS_INTELLIGENCE.RAW.EXTERNAL_SHIPPING_SIGNALS s
+  WHERE s.SUPPLIER_LANE IS NOT NULL;
