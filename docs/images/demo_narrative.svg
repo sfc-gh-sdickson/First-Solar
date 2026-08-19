@@ -1,0 +1,173 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750">
+  <defs>
+    <style>
+      text { font-family: Arial, sans-serif; }
+      .title { font-size: 20px; font-weight: bold; fill: #1a1a1a; }
+      .subtitle { font-size: 11px; fill: #666; }
+      .act-label { font-size: 14px; font-weight: bold; fill: #fff; }
+      .act-detail { font-size: 10px; fill: #fff; opacity: 0.92; }
+      .section-label { font-size: 11px; font-weight: bold; fill: #333; text-transform: uppercase; letter-spacing: 1px; }
+      .data-label { font-size: 9.5px; fill: #333; }
+      .connector { fill: none; stroke: #888; stroke-width: 1.5; }
+      .arrow-thick { fill: none; stroke: #29B5E8; stroke-width: 2.5; }
+    </style>
+    <filter id="shadow" x="-4%" y="-4%" width="108%" height="112%">
+      <feDropShadow dx="2" dy="3" stdDeviation="2.5" flood-opacity="0.2"/>
+    </filter>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#888"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#29B5E8"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="750" fill="#f8f9fa" rx="8"/>
+
+  <!-- Title -->
+  <text x="600" y="32" text-anchor="middle" class="title">First Solar Demo — 4-Act Progressive Reveal Narrative</text>
+  <text x="600" y="50" text-anchor="middle" class="subtitle">Same question asked 3 times. Broader context = better decision.</text>
+
+  <!-- ═══ PRIMARY QUESTION BAR ═══ -->
+  <rect x="200" y="62" width="800" height="36" rx="18" fill="#1B3A5C" filter="url(#shadow)"/>
+  <text x="600" y="85" text-anchor="middle" style="font-size:12px; font-weight:bold; fill:#fff;">"Are there any emerging supply-chain risks that could cause us to miss our production plan over the next 90 days?"</text>
+
+  <!-- ═══ ACT 1 ═══ -->
+  <rect x="30" y="120" width="270" height="240" rx="8" fill="#E8F5E9" stroke="#2E7D32" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="30" y="120" width="270" height="36" rx="8" fill="#2E7D32"/>
+  <text x="165" y="143" text-anchor="middle" class="act-label">ACT 1 — Oracle / ERP View</text>
+
+  <text x="45" y="175" class="data-label" font-weight="bold">Data visible:</text>
+  <text x="45" y="192" class="data-label">• ABC Glass: 97% OTD, on schedule</text>
+  <text x="45" y="207" class="data-label">• Open POs: delivery dates confirmed</text>
+  <text x="45" y="222" class="data-label">• Inventory: 18 days coverage</text>
+  <text x="45" y="237" class="data-label">• WMS/TMS: shipments in transit</text>
+
+  <rect x="45" y="255" width="240" height="40" rx="5" fill="#2E7D32" filter="url(#shadow)"/>
+  <text x="165" y="272" text-anchor="middle" style="font-size:9px; font-weight:bold; fill:#fff;">Agent Response:</text>
+  <text x="165" y="286" text-anchor="middle" style="font-size:9px; fill:#fff;">"No material supply risk identified."</text>
+
+  <text x="165" y="320" text-anchor="middle" style="font-size:8px; fill:#E65100; font-style:italic;">Oracle is RIGHT here. Data boundary, not failure.</text>
+
+  <!-- Arrow 1→2 -->
+  <line x1="300" y1="240" x2="330" y2="240" class="arrow-thick" marker-end="url(#arrow-blue)"/>
+
+  <!-- ═══ ACT 2 ═══ -->
+  <rect x="335" y="120" width="270" height="240" rx="8" fill="#E3F2FD" stroke="#1565C0" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="335" y="120" width="270" height="36" rx="8" fill="#1565C0"/>
+  <text x="470" y="143" text-anchor="middle" class="act-label">ACT 2 — + Manufacturing</text>
+
+  <text x="350" y="175" class="data-label" font-weight="bold">Added context:</text>
+  <text x="350" y="192" class="data-label">• Daily consumption: 530 panels/day</text>
+  <text x="350" y="207" class="data-label">• Series 7 ramping for Q2 customers</text>
+  <text x="350" y="222" class="data-label">• BOM: 1 glass/module, no substitute</text>
+  <text x="350" y="237" class="data-label">• 18d coverage = zero buffer at burn rate</text>
+
+  <rect x="350" y="255" width="240" height="40" rx="5" fill="#1565C0" filter="url(#shadow)"/>
+  <text x="470" y="272" text-anchor="middle" style="font-size:9px; font-weight:bold; fill:#fff;">Agent Response:</text>
+  <text x="470" y="286" text-anchor="middle" style="font-size:9px; fill:#fff;">"Tight but manageable if deliveries arrive."</text>
+
+  <text x="470" y="320" text-anchor="middle" style="font-size:8px; fill:#E65100; font-style:italic;">Sets up WHY external layer is the unlock.</text>
+
+  <!-- Arrow 2→3 -->
+  <line x1="605" y1="240" x2="635" y2="240" class="arrow-thick" marker-end="url(#arrow-blue)"/>
+
+  <!-- ═══ ACT 3 — THE REVEAL ═══ -->
+  <rect x="640" y="120" width="270" height="240" rx="8" fill="#FFF3E0" stroke="#E65100" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="640" y="120" width="270" height="36" rx="8" fill="#E65100"/>
+  <text x="775" y="143" text-anchor="middle" class="act-label">ACT 3 — + External Signal</text>
+
+  <text x="655" y="175" class="data-label" font-weight="bold">Marketplace shipping data:</text>
+  <text x="655" y="192" class="data-label">• Export volume: DOWN 19%</text>
+  <text x="655" y="207" class="data-label">• Port dwell time: UP 71% (25→43hr)</text>
+  <text x="655" y="222" class="data-label">• Delay rate: 0% → 4.5%</text>
+  <text x="655" y="237" class="data-label">• Transit time: 3.0d → 4.5d</text>
+
+  <rect x="655" y="255" width="240" height="40" rx="5" fill="#C62828" filter="url(#shadow)"/>
+  <text x="775" y="272" text-anchor="middle" style="font-size:9px; font-weight:bold; fill:#fff;">Agent Response:</text>
+  <text x="775" y="286" text-anchor="middle" style="font-size:9px; fill:#fff;">"ELEVATED RISK — ~134 MW at risk"</text>
+
+  <text x="775" y="320" text-anchor="middle" style="font-size:8px; fill:#E65100; font-style:italic;">Simulated Marketplace data. Label clearly.</text>
+
+  <!-- Arrow 3→4 -->
+  <line x1="910" y1="240" x2="940" y2="240" class="arrow-thick" marker-end="url(#arrow-blue)"/>
+
+  <!-- ═══ ACT 4 ═══ -->
+  <rect x="945" y="120" width="230" height="240" rx="8" fill="#F3E5F5" stroke="#6A1B9A" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="945" y="120" width="230" height="36" rx="8" fill="#6A1B9A"/>
+  <text x="1060" y="143" text-anchor="middle" class="act-label">ACT 4 — Action Plan</text>
+
+  <text x="960" y="175" class="data-label" font-weight="bold">Recommendations:</text>
+  <text x="960" y="194" class="data-label">1. Expedite ABC Glass shipments</text>
+  <text x="960" y="211" class="data-label">2. Transfer glass from Ohio</text>
+  <text x="960" y="228" class="data-label">   (45d surplus, 2-day transit)</text>
+  <text x="960" y="245" class="data-label">3. Qualify Guardian Glass (alt)</text>
+  <text x="960" y="262" class="data-label">4. Prioritize: NextEra Q2,</text>
+  <text x="960" y="279" class="data-label">   Invenergy Magnolia</text>
+
+  <rect x="955" y="295" width="210" height="30" rx="5" fill="#6A1B9A" filter="url(#shadow)"/>
+  <text x="1060" y="314" text-anchor="middle" style="font-size:9px; font-weight:bold; fill:#fff;">Operate the Business</text>
+
+  <!-- ═══ DATA LAYERS SECTION ═══ -->
+  <text x="40" y="395" class="section-label">Data Layers (Progressive)</text>
+
+  <!-- Layer 1: ERP/Oracle (green) -->
+  <rect x="30" y="410" width="370" height="55" rx="6" fill="#2E7D32" filter="url(#shadow)"/>
+  <text x="215" y="432" text-anchor="middle" style="font-size:11px; font-weight:bold; fill:#fff;">Layer 1: ERP / Transactional Data</text>
+  <text x="215" y="450" text-anchor="middle" style="font-size:9px; fill:#fff;">Inventory | POs | Supplier Performance | WMS/TMS</text>
+
+  <!-- Layer 2: Manufacturing (blue) -->
+  <rect x="30" y="475" width="570" height="55" rx="6" fill="#1565C0" filter="url(#shadow)"/>
+  <text x="315" y="497" text-anchor="middle" style="font-size:11px; font-weight:bold; fill:#fff;">Layer 2: ERP + Manufacturing Context</text>
+  <text x="315" y="515" text-anchor="middle" style="font-size:9px; fill:#fff;">+ Production Schedule | BOM | Daily Consumption | Customer Commitments</text>
+
+  <!-- Layer 3: External (orange) -->
+  <rect x="30" y="540" width="770" height="55" rx="6" fill="#E65100" filter="url(#shadow)"/>
+  <text x="415" y="562" text-anchor="middle" style="font-size:11px; font-weight:bold; fill:#fff;">Layer 3: ERP + Manufacturing + External Marketplace Signals</text>
+  <text x="415" y="580" text-anchor="middle" style="font-size:9px; fill:#fff;">+ Shipping Lane Metrics | Export Volumes | Port Dwell Times | Delay Rates (Snowflake Marketplace)</text>
+
+  <!-- Agent (full context) -->
+  <rect x="30" y="610" width="1140" height="50" rx="6" fill="#29B5E8" filter="url(#shadow)"/>
+  <text x="600" y="632" text-anchor="middle" style="font-size:12px; font-weight:bold; fill:#fff;">FIRST_SOLAR_AGENT — 11 Tools | 3 Semantic Views | 4 Cortex Search | 4 UDFs</text>
+  <text x="600" y="650" text-anchor="middle" style="font-size:9.5px; fill:#fff;">Combines ALL layers → Surfaces risks invisible to any single system → Quantifies in MW → Recommends cross-site action</text>
+
+  <!-- ═══ PLANT BOXES ═══ -->
+  <text x="850" y="395" class="section-label">Plants</text>
+
+  <rect x="830" y="410" width="110" height="55" rx="6" fill="#C62828" filter="url(#shadow)"/>
+  <text x="885" y="432" text-anchor="middle" style="font-size:10px; font-weight:bold; fill:#fff;">Alabama</text>
+  <text x="885" y="447" text-anchor="middle" style="font-size:9px; fill:#fff;">3,500 MW</text>
+  <text x="885" y="460" text-anchor="middle" style="font-size:8px; fill:#fff;">18d glass | FOCUS</text>
+
+  <rect x="950" y="410" width="110" height="55" rx="6" fill="#2E7D32" filter="url(#shadow)"/>
+  <text x="1005" y="432" text-anchor="middle" style="font-size:10px; font-weight:bold; fill:#fff;">Ohio</text>
+  <text x="1005" y="447" text-anchor="middle" style="font-size:9px; fill:#fff;">3,300 MW</text>
+  <text x="1005" y="460" text-anchor="middle" style="font-size:8px; fill:#fff;">45d glass | SURPLUS</text>
+
+  <rect x="1070" y="410" width="110" height="55" rx="6" fill="#1565C0" filter="url(#shadow)"/>
+  <text x="1125" y="432" text-anchor="middle" style="font-size:10px; font-weight:bold; fill:#fff;">Louisiana</text>
+  <text x="1125" y="447" text-anchor="middle" style="font-size:9px; fill:#fff;">3,500 MW</text>
+  <text x="1125" y="460" text-anchor="middle" style="font-size:8px; fill:#fff;">25d glass</text>
+
+  <!-- Transfer arrow Ohio → Alabama -->
+  <polyline points="950,437 940,437 940,490 880,490 880,465" class="connector" marker-end="url(#arrow)"/>
+  <text x="910" y="500" text-anchor="middle" style="font-size:8px; fill:#888;">Transfer (2d)</text>
+
+  <!-- ═══ FOOTER ═══ -->
+  <text x="600" y="690" text-anchor="middle" style="font-size:10px; fill:#1565C0; font-weight:bold;">Core Message: Same question + broader context = better decision</text>
+  <text x="600" y="710" text-anchor="middle" style="font-size:9px; fill:#aaa;">Account: AWS161 | Database: FS_INTELLIGENCE | Agent: FIRST_SOLAR_AGENT | GitHub: sfc-gh-sdickson/First-Solar</text>
+
+  <!-- ═══ LEGEND ═══ -->
+  <rect x="30" y="725" width="12" height="12" rx="2" fill="#2E7D32"/>
+  <text x="48" y="735" style="font-size:9px; fill:#333;">ERP/Oracle</text>
+  <rect x="130" y="725" width="12" height="12" rx="2" fill="#1565C0"/>
+  <text x="148" y="735" style="font-size:9px; fill:#333;">Manufacturing</text>
+  <rect x="250" y="725" width="12" height="12" rx="2" fill="#E65100"/>
+  <text x="268" y="735" style="font-size:9px; fill:#333;">External Signal</text>
+  <rect x="380" y="725" width="12" height="12" rx="2" fill="#6A1B9A"/>
+  <text x="398" y="735" style="font-size:9px; fill:#333;">Action Plan</text>
+  <rect x="490" y="725" width="12" height="12" rx="2" fill="#29B5E8"/>
+  <text x="508" y="735" style="font-size:9px; fill:#333;">Agent</text>
+  <rect x="570" y="725" width="12" height="12" rx="2" fill="#C62828"/>
+  <text x="588" y="735" style="font-size:9px; fill:#333;">Risk Target</text>
+</svg>
